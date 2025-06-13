@@ -21,6 +21,7 @@ function getMimeType($file) {
         'png' => 'image/png',
         'gif' => 'image/gif',
         'html' => 'text/html',
+        'webp' => 'image/webp',
         'css' => 'text/css',
         'js' => 'application/javascript'
     ];
