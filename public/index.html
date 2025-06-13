@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>France Design Week</title>
+    <link id="favicon" rel="icon" href="/images/logo-france-design-week.png" type="image/png">
+    <script>
+        let icons = [
+            "/images/logo-france-design-week.png",
+            "/images/logo_PYC.png",
+        ];
+        let index = 0;
+
+        setInterval(() => {
+            const favicon = document.getElementById("favicon");
+            index = (index + 1) % icons.length;
+            favicon.href = icons[index];
+        }, 5000); // change every 5 seconds
+    </script>
+</head>
+
+<body>
+    <img src="/images/logo_FDWxPYC.jpg" alt="France Design Week Logo" style="width:25%">
+    <h1>France Design Week X Paris Ynov Campus</h1>
+    <p>Le site est en cours de dévellopement.</p>
+    <p>Ouverture du site prévue le vendredi 11 juillet 2025.</p>
+    <h2>Nos réseaux !</h2>
+    <p><a href="https://www.instagram.com/parisynovcampus?igsh=ZmFobmFteGV2Nnph">Instagram</a></p>
+</body>
+</html>
