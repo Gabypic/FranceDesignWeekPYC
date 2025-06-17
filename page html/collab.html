@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Collab Ynov</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="style/style.css" rel="stylesheet">
+</head>
+
+<body class="collabynov">
+  <div id="hdr"></div>
+
+
+<section class="container position-relative mt-5 mb-5">
+  <img src="images_test/banner.png" class="img-fluid w-100" alt="Bannière">
+  <img src="images_test/logo.png" class="position-absolute top-50 start-50 translate-middle" alt="Logo">
+</section>
+
+  <section class="container mb-5">
+    <h2 class="mb-4 text-center">Section 1</h2>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6">
+        <p>Texte descriptif.</p>
+      </div>
+      <div class="col-12 col-md-6">
+        <video src="images_test/video1.mp4" controls class="w-100"></video>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mb-5">
+    <h2 class="mb-4 text-center">Section 2</h2>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6">
+        <video src="images_test/video2.mp4" controls class="w-100"></video>
+      </div>
+      <div class="col-12 col-md-6">
+        <p>Texte descriptif.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container mb-5">
+    <h2 class="mb-4 text-center">Section 3</h2>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6">
+        <img src="images_test/rand.png" class="img-fluid" alt="Image aléatoire">
+      </div>
+      <div class="col-12 col-md-6">
+        <h3>Sous-titre</h3>
+        <p>Zone de texte.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('header.html').then(r=>r.text()).then(t=>document.getElementById('hdr').innerHTML=t);
+    fetch('footer.html').then(r=>r.text()).then(t=>document.getElementById('footer').innerHTML=t);
+    const bt=document.createElement('button');
+    bt.id='backTop';
+    bt.className='btn btn-primary';
+    bt.textContent='↑ Top';
+    document.body.append(bt);
+    window.addEventListener('scroll',()=>bt.style.display=scrollY>200?'block':'none');
+    bt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+  </script>
+</body>
+</html>
