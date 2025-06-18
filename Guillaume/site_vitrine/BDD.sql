@@ -1,0 +1,11 @@
+CREATE TABLE `article`(
+`id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+`titre` TEXT NOT NULL,
+`article` TEXT NOT NULL,
+`image1` TEXT,
+`image2` TEXT,
+`video` TEXT,
+`auteur` TEXT NOT NULL,
+`modele` INT NOT NULL,
+`date_publication` DATE NOT NULL DEFAULT CURRENT_DATE
+);
