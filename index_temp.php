@@ -39,7 +39,7 @@ while ($conn = stream_socket_accept($server)) {
         
         // Si le chemin est /, servir index.html
         if ($path === '/') {
-            $path = '/index.html';
+            $path = '/index_temp.html';
         }
         
         // Chemin complet du fichier
