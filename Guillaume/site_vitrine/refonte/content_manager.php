@@ -9,6 +9,7 @@ class ContentManager {
     }
 
     public function addContent(int $model, array $data): bool {
+
         try {
             switch ($model) {
                 case 1:
@@ -37,7 +38,7 @@ class ContentManager {
         if ($row) {
             foreach (['image1', 'image2'] as $img) {
                 if (!empty($row[$img])) {
-                    $path = __DIR__ . '../images/' . $row[$img];
+                    $path = __DIR__ . '/../images/' . $row[$img];
                     if (file_exists($path)) {
                         unlink($path);
                     }
@@ -60,7 +61,7 @@ class ContentManager {
             return false;
         }
         $stmt = $this->db->prepare("
-            INSERT INTO article (titre, article, image1, image2, auteur, model)
+            INSERT INTO article (titre, article, image1, image2, auteur, modele)
             VALUES (?, ?, ?, ?, ?, 1)
         ");
         return $stmt->execute([
@@ -78,7 +79,7 @@ class ContentManager {
             return false;
         }
         $stmt = $this->db->prepare("
-            INSERT INTO article (titre, article, image1, video, auteur, model)
+            INSERT INTO article (titre, article, image1, video, auteur, modele)
             VALUES (?, ?, ?, ?, ?, 2)
         ");
         return $stmt->execute([
@@ -92,18 +93,21 @@ class ContentManager {
 
     // Modèle 3: Article seul
     private function addArticleOnly(array $data): bool {
+
         if (!$this->validateData($data, ['titre', 'article', 'auteur'])) {
             return false;
         }
         $stmt = $this->db->prepare("
-            INSERT INTO article (titre, article, auteur, model)
+            INSERT INTO article (titre, article, auteur, modele)
             VALUES (?, ?, ?, 3)
         ");
+
         return $stmt->execute([
             $this->sanitize($data['titre']),
             $this->sanitize($data['article']),
             $this->sanitize($data['auteur'])
         ]);
+
     }
 
     // Modèle 4: Article + vidéo
@@ -112,7 +116,7 @@ class ContentManager {
             return false;
         }
         $stmt = $this->db->prepare("
-            INSERT INTO article (titre, article, video, auteur, model)
+            INSERT INTO article (titre, article, video, auteur, modele)
             VALUES (?, ?, ?, ?, 4)
         ");
         return $stmt->execute([

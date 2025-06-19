@@ -3,10 +3,10 @@ session_start();
 header("X-Content-Type-Options: nosniff");
 header("X-Frame-Options: SAMEORIGIN");
 header("X-XSS-Protection: 1; mode=block");
-if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
-    header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    exit;
-}
+//if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+//    header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+//    exit;
+//}
 
 $_SESSION['tries'] = $_SESSION['tries'] ?? 0;
 $_SESSION['last_try'] = $_SESSION['last_try'] ?? 0;
@@ -21,16 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password'] ?? '');
 
     if ($login && $password) {
-        $stmt = $conn->prepare("SELECT * FROM utilisateurs WHERE login = ?");
-        $stmt->bind_param("s", $login);
-        $stmt->execute();
-        $user = $stmt->get_result()->fetch_assoc();
+        $stmt = $db->prepare("SELECT * FROM utilisateurs WHERE login = ?");
+        $stmt->execute([$login]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && $password === $user['password']) {
             $_SESSION['tries'] = 0;
             $_SESSION['auth'] = $user['id'];
             $_SESSION['last_activity'] = time();
-            header("Location: /content_manager.php");
+            header("location: admin.php");
             exit;
         }
 

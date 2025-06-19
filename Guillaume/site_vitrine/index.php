@@ -14,7 +14,7 @@ $res = $conn->query("SELECT * FROM article ORDER BY date_publication DESC LIMIT 
     <div>
         <h2><?= htmlspecialchars($a['titre']) ?></h2>
         <?php if (!empty($a['image1'])): ?>
-            <img src="<?= htmlspecialchars($a['image1']) ?>" width="200">
+            <img src="images/<?= htmlspecialchars($a['image1']) ?>" width="200">
         <?php endif; ?>
         <p><?= substr(strip_tags($a['article']), 0, 150) ?>...</p>
         <a href="article.php?id=<?= $a['id'] ?>">Lire plus</a>

@@ -32,10 +32,10 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 }
 
 // Traitement ajout / édition
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     $model = intval($_POST['model'] ?? 0);
 
-    $uploadDir = __DIR__ . '/uploads/';
+    $uploadDir = __DIR__ . '/../images/';
     $image1Name = '';
     $image2Name = '';
 
@@ -85,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             if ($contentManager->addContent($model, $data)) {
                 $success = !empty($_POST['id']) ? "L'article a été mis à jour." : "Article publié !";
             } else {
-                $error = "Une erreur est survenue, réessaie.";
+                var_dump($db->errorInfo());
+                exit;
             }
         }
     }
@@ -178,7 +179,7 @@ function e($str) {
                 </select>
             </div>
 
-            <button name="submit" class="btn btn-success" onclick="disableSubmit(this)">
+            <button name="submitbtn" class="btn btn-success">
                 <?= $editData ? 'Enregistrer les modifications' : 'Publier l’article' ?>
             </button>
             <?php if ($editData): ?>
@@ -206,13 +207,13 @@ function e($str) {
                     <td><?= e($a['id']) ?></td>
                     <td><?= e($a['titre']) ?></td>
                     <td><?= e($a['auteur']) ?></td>
-                    <td>Modèle <?= e($a['model']) ?></td>
+                    <td>Modèle <?= e($a['modele']) ?></td>
                     <td>
                         <?php if (!empty($a['image1'])): ?>
-                            <img src="uploads/<?= e($a['image1']) ?>" class="thumb" alt="img1">
+                            <img src="../images/<?= e($a['image1']) ?>" class="thumb" alt="img1">
                         <?php endif; ?>
                         <?php if (!empty($a['image2'])): ?>
-                            <img src="uploads/<?= e($a['image2']) ?>" class="thumb" alt="img2">
+                            <img src="../images/<?= e($a['image2']) ?>" class="thumb" alt="img2">
                         <?php endif; ?>
                     </td>
                     <td>

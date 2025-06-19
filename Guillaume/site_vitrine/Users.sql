@@ -1,0 +1,5 @@
+CREATE TABLE `utilisateurs`(
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `login` TEXT NOT NULL,
+    `password` TEXT NOT NULL
+);
