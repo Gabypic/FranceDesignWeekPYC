@@ -37,7 +37,7 @@ class ContentManager {
         if ($row) {
             foreach (['image1', 'image2'] as $img) {
                 if (!empty($row[$img])) {
-                    $path = __DIR__ . '/uploads/' . $row[$img];
+                    $path = __DIR__ . '../images/' . $row[$img];
                     if (file_exists($path)) {
                         unlink($path);
                     }

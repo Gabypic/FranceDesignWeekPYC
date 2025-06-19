@@ -10,7 +10,7 @@ if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$dbname = 'ma_base';
+$dbname = 'site_vitrine_test';
 
 $conn = @new mysqli($host, $user, $pass, $dbname);
 
