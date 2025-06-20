@@ -3,10 +3,10 @@ session_start();
 header("X-Content-Type-Options: nosniff");
 header("X-Frame-Options: SAMEORIGIN");
 header("X-XSS-Protection: 1; mode=block");
-//if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
-//    header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-//    exit;
-//}
+if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
+    header("Location: https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+    exit;
+}
 
 $_SESSION['tries'] = $_SESSION['tries'] ?? 0;
 $_SESSION['last_try'] = $_SESSION['last_try'] ?? 0;
@@ -24,8 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $db->prepare("SELECT * FROM utilisateurs WHERE login = ?");
         $stmt->execute([$login]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        $hash_entry = hash('sha256', $password);
 
-        if ($user && $password === $user['password']) {
+        if ($user && $hash_entry === $user['password']) {
             $_SESSION['tries'] = 0;
             $_SESSION['auth'] = $user['id'];
             $_SESSION['last_activity'] = time();
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['tries']++;
         $_SESSION['last_try'] = time();
-        $error = "nope";
+        $error = "Identifiant ou mot de passe incorrect";
     } else {
         $error = "Champs requis.";
     }
