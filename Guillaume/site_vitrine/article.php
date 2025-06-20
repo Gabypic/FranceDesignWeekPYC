@@ -19,17 +19,17 @@ if (!$a) die('Article introuvable');
 <p><strong>Date de publication :</strong> <?= htmlspecialchars($a['date_publication']) ?></p>
 
 <?php if (!empty($a['image1'])): ?>
-    <img src="images/<?= htmlspecialchars($a['image1']) ?>" width="300" alt="Image 1">
+    <img src="public/images/<?= htmlspecialchars($a['image1']) ?>" width="300" alt="Image 1">
 <?php endif; ?>
 
 <?php if (!empty($a['image2'])): ?>
-    <img src="images/<?= htmlspecialchars($a['image2']) ?>" width="300" alt="Image 2">
+    <img src="public/images/<?= htmlspecialchars($a['image2']) ?>" width="300" alt="Image 2">
 <?php endif; ?>
 
 <?php if (!empty($a['video'])): ?>
     <div>
         <video width="480" controls>
-            <source src="images/<?= htmlspecialchars($a['video']) ?>" type="video/mp4">
+            <source src="public/videos/<?= htmlspecialchars($a['video']) ?>" type="video/mp4">
             Votre navigateur ne supporte pas la lecture de vidéos.
         </video>
     </div>

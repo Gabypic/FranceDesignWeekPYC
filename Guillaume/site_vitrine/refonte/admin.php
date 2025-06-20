@@ -35,7 +35,8 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     $model = intval($_POST['model'] ?? 0);
 
-    $uploadDir = __DIR__ . '/../images/';
+    $uploadDirImages = __DIR__ . '/../public/images/';
+    $uploadDirVideos = __DIR__ . '/../public/videos';
     $image1Name = '';
     $image2Name = '';
 
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
         if (in_array($mime, ['image/jpeg', 'image/png']) && $size <= 8 * 1024 * 1024) {
             $ext = pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
             $image1Name = uniqid('img1_') . '.' . $ext;
-            move_uploaded_file($_FILES['image1']['tmp_name'], $uploadDir . $image1Name);
+            move_uploaded_file($_FILES['image1']['tmp_name'], $uploadDirImages . $image1Name);
         } else {
             $error = "Image 1 : format non valide ou trop grande.";
         }
@@ -57,9 +58,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
         if (in_array($mime, ['image/jpeg', 'image/png']) && $size <= 8 * 1024 * 1024) {
             $ext = pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
             $image2Name = uniqid('img2_') . '.' . $ext;
-            move_uploaded_file($_FILES['image2']['tmp_name'], $uploadDir . $image2Name);
+            move_uploaded_file($_FILES['image2']['tmp_name'], $uploadDirImages . $image2Name);
         } else {
             $error = "Image 2 : format non valide ou trop grande.";
+        }
+    }
+
+    if (!empty($_FILES['video']['tmp_name'])) {
+        $mime = mime_content_type($_FILES['video']['tmp_name']);
+        $size = $_FILES['video']['size'];
+        if (in_array($mime, ['video/mp4', 'video/webm']) && $size <= 100 * 1024 * 1024) {
+            $ext = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
+            $videoName = uniqid('vid_') . '.' . $ext;
+            move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVideos . '/' . $videoName);
+        } else {
+            $error = "Vidéo : format non valide ou trop grande.";
         }
     }
 
@@ -70,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
             'auteur'  => $_POST['auteur'] ?? '',
             'image1'  => $image1Name,
             'image2'  => $image2Name,
-            'video'   => $_POST['video'] ?? '',
+            'video' => $videoName ?? '',
         ];
 
         // Vérification supplémentaire pour modèles 2 et 4
@@ -164,7 +177,7 @@ function e($str) {
 
             <div class="mb-3">
                 <label>Vidéo</label>
-                <input type="text" name="video" class="form-control" value="<?= e($editData['video'] ?? '') ?>">
+                <input type="file" name="video" class="form-control">
             </div>
 
             <div class="mb-3">
@@ -210,10 +223,16 @@ function e($str) {
                     <td>Modèle <?= e($a['modele']) ?></td>
                     <td>
                         <?php if (!empty($a['image1'])): ?>
-                            <img src="../images/<?= e($a['image1']) ?>" class="thumb" alt="img1">
+                            <img src="../public/images/<?= e($a['image1']) ?>" class="thumb" alt="img1">
                         <?php endif; ?>
                         <?php if (!empty($a['image2'])): ?>
-                            <img src="../images/<?= e($a['image2']) ?>" class="thumb" alt="img2">
+                            <img src="../public/images/<?= e($a['image2']) ?>" class="thumb" alt="img2">
+                        <?php endif; ?>
+                        <?php if (!empty($a['video'])): ?>
+                            <video width="144" controls>
+                                <source src="../public/videos/<?= htmlspecialchars($a['video']) ?>" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
                         <?php endif; ?>
                     </td>
                     <td>
