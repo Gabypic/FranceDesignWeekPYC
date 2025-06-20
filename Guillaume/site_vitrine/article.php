@@ -1,9 +1,10 @@
 <?php
-include 'includes/db.php';
+include 'refonte/db.php';
 
 $id = intval($_GET['id']);
-$res = $conn->query("SELECT * FROM article WHERE id=$id LIMIT 1");
-$a = $res->fetch_assoc();
+$stmt = $db->prepare("SELECT * FROM article WHERE id=$id LIMIT 1");
+$stmt->execute();
+$a = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$a) die('Article introuvable');
 ?>
 <!DOCTYPE html>

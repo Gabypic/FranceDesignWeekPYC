@@ -1,6 +1,7 @@
 <?php
-include 'includes/db.php';
-$res = $conn->query("SELECT * FROM article ORDER BY date_publication DESC LIMIT 5");
+include 'refonte/db.php';
+$stmt = $db->prepare("SELECT * FROM article ORDER BY date_publication DESC LIMIT 5");
+$stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -10,7 +11,7 @@ $res = $conn->query("SELECT * FROM article ORDER BY date_publication DESC LIMIT 
 </head>
 <body>
 <h1>Articles récents</h1>
-<?php while ($a = $res->fetch_assoc()): ?>
+<?php while ($a = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
     <div>
         <h2><?= htmlspecialchars($a['titre']) ?></h2>
         <?php if (!empty($a['image1'])): ?>

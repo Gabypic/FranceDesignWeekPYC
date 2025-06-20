@@ -65,9 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     }
 
     if (!empty($_FILES['video']['tmp_name'])) {
-        $mime = mime_content_type($_FILES['video']['tmp_name']);
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $_FILES['video']['tmp_name']);
+        finfo_close($finfo);
         $size = $_FILES['video']['size'];
-        if (in_array($mime, ['video/mp4', 'video/webm']) && $size <= 100 * 1024 * 1024) {
+        if (in_array($mime, ['video/mp4', 'video/webm', 'video/quicktime']) && $size <= 4 * 1024 * 1024 * 1024) {
             $ext = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
             $videoName = uniqid('vid_') . '.' . $ext;
             move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVideos . '/' . $videoName);
