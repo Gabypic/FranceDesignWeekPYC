@@ -2,10 +2,15 @@
 include 'refonte/db.php';
 
 $id = intval($_GET['id']);
-$stmt = $db->prepare("SELECT * FROM article WHERE id=$id LIMIT 1");
-$stmt->execute();
+$stmt = $db->prepare("SELECT * FROM article WHERE id=? LIMIT 1");
+$stmt->execute([$id]);
 $a = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$a) die('Article introuvable');
+
+function yt_embed($url) {
+    if (preg_match('#(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11})#', $url, $m)) return $m[1];
+    return '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -28,12 +33,12 @@ if (!$a) die('Article introuvable');
 <?php endif; ?>
 
 <?php if (!empty($a['video'])): ?>
-    <div>
-        <video width="480" controls>
-            <source src="public/videos/<?= htmlspecialchars($a['video']) ?>" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture de vidéos.
-        </video>
-    </div>
+    <?php $yt = yt_embed($a['video']); ?>
+    <?php if ($yt): ?>
+        <div>
+            <iframe width="480" height="270" src="https://www.youtube.com/embed/<?= $yt ?>" frameborder="0" allowfullscreen></iframe>
+        </div>
+    <?php endif; ?>
 <?php endif; ?>
 
 <p><?= nl2br(htmlspecialchars($a['article'])) ?></p>

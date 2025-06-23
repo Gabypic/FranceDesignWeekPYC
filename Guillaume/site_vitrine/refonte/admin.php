@@ -3,7 +3,6 @@ session_start();
 require_once 'db.php';
 require_once 'content_manager.php';
 
-// Expiration de session après 30 min d'inactivité
 if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 1800) {
     session_unset();
     session_destroy();
@@ -21,7 +20,6 @@ $contentManager = new ContentManager($db);
 $success = null;
 $error = null;
 
-// Traitement suppression
 if (isset($_POST['delete']) && isset($_POST['id'])) {
     $id = intval($_POST['id']);
     if ($contentManager->deleteContent($id)) {
@@ -31,14 +29,13 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
     }
 }
 
-// Traitement ajout / édition
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     $model = intval($_POST['model'] ?? 0);
 
     $uploadDirImages = __DIR__ . '/../public/images/';
-    $uploadDirVideos = __DIR__ . '/../public/videos';
     $image1Name = '';
     $image2Name = '';
+    $videoLink = trim($_POST['video'] ?? '');
 
     if (!empty($_FILES['image1']['tmp_name'])) {
         $mime = mime_content_type($_FILES['image1']['tmp_name']);
@@ -64,20 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
         }
     }
 
-    if (!empty($_FILES['video']['tmp_name'])) {
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $mime = finfo_file($finfo, $_FILES['video']['tmp_name']);
-        finfo_close($finfo);
-        $size = $_FILES['video']['size'];
-        if (in_array($mime, ['video/mp4', 'video/webm', 'video/quicktime']) && $size <= 4 * 1024 * 1024 * 1024) {
-            $ext = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
-            $videoName = uniqid('vid_') . '.' . $ext;
-            move_uploaded_file($_FILES['video']['tmp_name'], $uploadDirVideos . '/' . $videoName);
-        } else {
-            $error = "Vidéo : format non valide ou trop grande.";
-        }
-    }
-
     if (!$error) {
         $data = [
             'titre'   => $_POST['titre'] ?? '',
@@ -85,10 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
             'auteur'  => $_POST['auteur'] ?? '',
             'image1'  => $image1Name,
             'image2'  => $image2Name,
-            'video' => $videoName ?? '',
+            'video'   => $videoLink,
         ];
 
-        // Vérification supplémentaire pour modèles 2 et 4
         if ($model === 2 && empty($data['image1']) && empty($data['video'])) {
             $error = "Modèle 2 : nécessite au moins une image ou une vidéo.";
         } elseif ($model === 4 && empty($data['video'])) {
@@ -107,12 +89,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     }
 }
 
-// Mode édition
 $editData = isset($_GET['edit']) ? $contentManager->getContent(intval($_GET['edit'])) : null;
 $articles = $contentManager->getAllContents();
 
 function e($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
+
+function yt_embed($url) {
+    if (preg_match('#(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11})#', $url, $m)) return $m[1];
+    return '';
 }
 ?>
 <!DOCTYPE html>
@@ -129,12 +115,6 @@ function e($str) {
         label { font-weight: 500; }
         img.thumb { height: 50px; margin-right: 5px; }
     </style>
-    <script>
-        function disableSubmit(btn) {
-            btn.disabled = true;
-            btn.form.submit();
-        }
-    </script>
 </head>
 <body>
 <div class="container py-5">
@@ -178,8 +158,8 @@ function e($str) {
             </div>
 
             <div class="mb-3">
-                <label>Vidéo</label>
-                <input type="file" name="video" class="form-control">
+                <label>Lien vidéo YouTube</label>
+                <input type="url" name="video" class="form-control" value="<?= e($editData['video'] ?? '') ?>">
             </div>
 
             <div class="mb-3">
@@ -207,14 +187,14 @@ function e($str) {
     <div class="table-responsive bg-white shadow-sm rounded">
         <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
-                <tr>
-                    <th>#</th>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th>Type</th>
-                    <th>Images</th>
-                    <th>Actions</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Type</th>
+                <th>Images</th>
+                <th>Actions</th>
+            </tr>
             </thead>
             <tbody>
             <?php foreach ($articles as $a): ?>
@@ -231,10 +211,10 @@ function e($str) {
                             <img src="../public/images/<?= e($a['image2']) ?>" class="thumb" alt="img2">
                         <?php endif; ?>
                         <?php if (!empty($a['video'])): ?>
-                            <video width="144" controls>
-                                <source src="../public/videos/<?= htmlspecialchars($a['video']) ?>" type="video/mp4">
-                                Votre navigateur ne supporte pas la lecture de vidéos.
-                            </video>
+                            <?php $yt = yt_embed($a['video']); ?>
+                            <?php if ($yt): ?>
+                                <iframe width="144" height="81" src="https://www.youtube.com/embed/<?= $yt ?>" frameborder="0" allowfullscreen></iframe>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </td>
                     <td>
