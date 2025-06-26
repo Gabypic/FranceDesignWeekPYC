@@ -6,129 +6,284 @@
   <title>Page Complète</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <link href="style/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
+
+ <style>
+
+@font-face {
+  font-family: 'Akzidenz-Grotesk Next';
+  src: url('AkzidGrtskNext-Regular.eot');
+  src: local('Akzidenz-Grotesk Next Regular'), local('AkzidGrtskNext-Regular'),
+    url('/font/Akzidenz-Grotesk Next/AkzidGrtskNext-Regular.eot?#iefix') format('embedded-opentype'),
+    url('/font/Akzidenz-Grotesk Next/AkzidGrtskNext-Regular.woff2') format('woff2'),
+    url('/font/Akzidenz-Grotesk Next/AkzidGrtskNext-Regular.woff') format('woff'),
+    url('/font/Akzidenz-Grotesk Next/AkzidGrtskNext-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*----------------Section 1--------------------*/
+.section-sos {
+  position: relative;
+  height: 100vh;
+  background-color: white;
+  overflow: hidden;
+}
+
+.sos-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  font-family: 'Akzidenz-Grotesk Next', sans-serif;
+  font-weight: 700;
+  font-size: clamp(300px, 40vw, 800px);
+  line-height: 1;
+  color: #000;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bento-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%); /* chevauchement */
+  width: clamp(200px, 40vw, 600px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/*----------------Section 2--------------------*/
+.section-2 {
+  background-color: #FF6600;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Élément 1 */
+.img-point {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(200px, 22vw, 421px);
+  height: auto;
+}
+
+/* Élément 2 */
+.img-ligne-droite {
+  position: absolute;
+  top: 0;
+  left: clamp(30%, 33vw, 636px);
+  width: clamp(600px, 60vw, 1184px);
+  height: 100%;
+}
+
+/* Élément 3 */
+.img-ligne-bas {
+  position: absolute;
+  bottom: -100px;
+  left: clamp(-80px, -4vw, -68px);
+  width: clamp(300px, 38vw, 741px);
+  height: auto;
+  z-index: 1;
+}
+
+.section-title {
+  position: absolute;
+  top: clamp(50px, 10vh, 105px);
+  left: clamp(20px, 6vw, 120px);
+  width: clamp(300px, 50vw, 990px);
+  font-family: 'Rubik One', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 64px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 2;
+}
+
+.section-text {
+  position: absolute;
+  top: clamp(180px, 26vh, 1470px);
+  left: clamp(20px, 6vw, 120px);
+  width: clamp(300px, 40vw, 646px);
+  font-family: 'Alata', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(16px, 1.2vw, 20px);
+  line-height: 1.4;
+  color: #fff;
+  z-index: 2;
+}
+
+.bento-inclined {
+  position: absolute;
+  top: clamp(200px, 28vh, 520px);
+  left: clamp(600px, 55vw, 1029px);
+  width: clamp(280px, 36vw, 710px);
+  height: auto;
+  transform: rotate(-9.79deg);
+  z-index: 2;
+}
+
+/*----------------Section 3--------------------*/
+
+.section-3 {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+  padding-top: calc(100vw * 1.69);
+}
+
+
+.ligne-noire {
+  position: absolute;
+  top: 0;
+  left: clamp(30%, 31.4vw, 636px);
+  width: clamp(300px, 62vw, 1183.82px);
+  height: auto;
+  z-index: 1;
+}
+
+  @media (max-width: 768px) {
+  .sos-text {
+    top: 0;
+    transform: translate(-50%, 0%);
+    font-size: clamp(150px, 30vw, 400px);
+  }
+
+  .bento-image {
+    top: 0;
+    transform: translate(-50%, 60%);
+    width: clamp(150px, 60vw, 400px);
+  }
+
+  .section-sos {
+    height: auto;
+    padding-bottom: 5vh;
+  }
+}
+
+  </style>
 </head>
 <body>
   <div id="hdr"></div>
 
-<section class="container text-center my-5 position-relative banner">
-  <img src="images_test/banniere.png" class="img-fluid w-100">
-  <div class="position-absolute top-0 start-50 translate-middle-x w-100 d-flex flex-column align-items-center banner-text">
-    <h1>Bienvenue</h1>
-    <p class="lead">Accroche descriptive</p>
-  </div>
+<section class="section-sos">
+  <div class="sos-text">SOS</div>
+  <img src="images_test/accueil/bento box - accueil (section 3).png" alt="Bento Box" class="bento-image">
 </section>
 
+<section class="section-2 position-relative overflow-hidden">
+  <!-- Élément 1 : suite de points en haut à droite -->
+  <img src="images_test/accueil/suite de points - accueil (section 2).png"
+       alt="suite de points"
+       class="img-point"/>
 
-  <section class="container my-5">
-    <h2>Notre Mission</h2>
-    <div class="row align-items-center">
-      <div class="col-12 col-md-6"><p>Texte explicatif de la mission.</p></div>
-      <div class="col-12 col-md-6"><img src="images_test/teambuild.png" class="img-fluid"></div>
-    </div>
-  </section>
+  <!-- Élément 2 : ligne droite blanche à droite -->
+  <img src="images_test/accueil/ligne 1 - accueil (section 2).png"
+       alt="ligne verticale"
+       class="img-ligne-droite"/>
 
-<section id="gallery" class="container my-5 gallery">
-  <h2>Galerie</h2>
-  <div class="row gx-3 gy-4 row1">
-    <div class="col-12 col-md-3 item12">
-      <div class="card">
-        <img src="images_test/item1.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item1</h5></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-3 item12">
-      <div class="card">
-        <img src="images_test/item2.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item2</h5></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 item37">
-      <div class="card">
-        <img src="images_test/item3.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item3</h5></div>
-      </div>
-    </div>
-  </div>
-  <div class="row gx-3 gy-4 row2 align-items-stretch">
-    <div class="col-12 col-md-6 d-flex flex-column item37">
-      <div class="card mb-4">
-        <img src="images_test/item4.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item4</h5></div>
-      </div>
-      <div class="card">
-        <img src="images_test/item5.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item5</h5></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-3 d-flex item37">
-      <div class="card flex-fill">
-        <img src="images_test/item6.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item6</h5></div>
-      </div>
-    </div>
-    <div class="col-12 col-md-3 d-flex item37">
-      <div class="card flex-fill">
-        <img src="images_test/item7.png" class="card-img-top">
-        <div class="overlay"></div>
-        <div class="card-body"><h5>item7</h5></div>
-      </div>
-    </div>
-  </div>
+  <!-- Élément 3 : ligne horizontale en bas à gauche -->
+  <img src="images_test/accueil/ligne Horizontale - accueil (section 2).png"
+       alt="ligne horizontale"
+       class="img-ligne-bas"/>
+  
+   <h2 class="section-title">Pensé par des étudiants pour des étudiants</h2>
+
+  <!-- Paragraphe -->
+  <p class="section-text">
+    Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier fonctionnalité, style et organisation. 
+    L’ensemble adopte un univers graphique Memphis, aux couleurs franches, aux formes géométriques ludiques, pour insuffler une touche 
+    d’énergie à ton espace de travail. Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets 
+    entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à cette effervescence que nous 
+    avons conçu le kit étudiant utile, pensé comme un bento design : une sélection d’objets essentiels, bien compartimentés, pratiques, 
+    esthétiques — et surtout, prêts à t’accompagner partout.
+  </p>
+
+  <img src="images_test/accueil\bento box - accueil (section 3).png" alt="Bento Box" class="bento-inclined">
 </section>
 
-  <section class="container my-5">
-    <div class="row align-items-center">
-      <div class="col-12 col-md-6"><img src="images_test/random.png" class="img-fluid"></div>
-      <div class="col-12 col-md-6">
-        <h2>Titre aléatoire</h2>
-        <p>Texte descriptif.</p>
-      </div>
-    </div>
-  </section>
+<section class="section-3 position-relative overflow-hidden px-3 px-md-5" style="padding-top: calc(100vw * 1.69);">
+  <img src="images_test/accueil/ligne noir.png" alt="ligne noire" class="ligne-noire">
 
-  <section class="container my-5 collapse-section">
-    <h2>Généralités</h2>
-    <div class="row align-items-stretch">
-      <div class="col-12 col-md-6 accordion">
-        <div class="accordion" id="genAcc">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#g1">Collapse 1</button>
-            </h2>
-            <div id="g1" class="accordion-collapse collapse show">
-              <div class="accordion-body">je suis le 1er</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#g2">Collapse 2</button>
-            </h2>
-            <div id="g2" class="accordion-collapse collapse">
-              <div class="accordion-body">je suis le 2ᵉᵐᵉ</div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#g3">Collapse 3</button>
-            </h2>
-            <div id="g3" class="accordion-collapse collapse">
-              <div class="accordion-body">je suis le 3ᵉᵐᵉ</div>
-            </div>
-          </div>
+    <div class="container-fluid py-5">
+    <h2 class="content-title text-center text-uppercase">Contenu de la boite</h2>
+
+    <div class="d-grid gap-4 mt-5" style="grid-template-columns: repeat(12, 1fr);">
+
+      <!-- Box 1 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #CC3300; grid-column: span 2;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Surligneur</h3>
+        <img src="/page html/images_test/accueil/surligneur.png" alt="surligneur" class="img-fluid mt-3" style="height: 194px;">
+      </div>
+
+      <!-- Box 2 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #FF3333; grid-column: span 2;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Crayon</h3>
+        <img src="/page html/images_test/accueil/crayon.png" alt="crayon" class="img-fluid mt-3" style="height: 162px;">
+        <div class="position-absolute" style="top: 10px; right: 10px; background: #fff; border-radius: 36.5px; padding: 0.3rem 1rem;">
+          <span class="text-uppercase" style="font-family: 'Baloo Thambi'; color: #FF3333; font-size: 1.2rem;">3 EN 1</span>
         </div>
       </div>
-      <div class="col-12 col-md-6 img-col">
-        <img src="images_test/gg.png" alt="Illustration" id="genImg">
+
+      <!-- Box 3 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #CC3300; grid-column: span 2;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Gourde</h3>
+        <img src="/page html/images_test/accueil/gourde.png" alt="gourde" class="img-fluid mt-3" style="height: 300px;">
+        <div class="position-absolute" style="top: 10px; right: 10px; background: #fff; border-radius: 36.5px; padding: 0.3rem 1rem;">
+          <span class="text-uppercase" style="font-family: 'Baloo Thambi'; color: #CC3300; font-size: 1.2rem;">2 EN 1</span>
+        </div>
       </div>
+
+      <!-- Box 4 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #FF3333; grid-column: span 3;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Carnet A5</h3>
+        <img src="/page html/images_test/accueil/carnet.png" alt="carnet" class="img-fluid mt-3" style="height: 300px;">
+      </div>
+
+      <!-- Spacer -->
+      <div style="grid-column: span 3;"></div>
+
+      <!-- Box 5 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #FF3333; grid-column: span 6;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Boite de rangement</h3>
+        <img src="/page html/images_test/accueil/bento box - accueil (section 3).png" alt="bento" class="img-fluid mt-3" style="height: 300px;">
+        <div class="position-absolute" style="top: 10px; right: 10px; background: #fff; border-radius: 36.5px; padding: 0.3rem 1rem;">
+          <span class="text-uppercase" style="font-family: 'Baloo Thambi'; color: #FF3333; font-size: 1.2rem;">2 EN 1</span>
+        </div>
+      </div>
+
+      <!-- Box 6 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #CC3300; grid-column: span 6;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Scotch</h3>
+        <img src="/page html/images_test/accueil/scotch.png" alt="scotch" class="img-fluid mt-3" style="height: 280px;">
+      </div>
+
+      <!-- Box 7 -->
+      <div class="rounded-4 p-3 position-relative" style="background-color: #CC3300; grid-column: span 12;">
+        <h3 class="text-white text-uppercase" style="font-family: 'Baloo Thambi'; font-size: 1.5rem;">Bureau</h3>
+        <img src="/page html/images_test/accueil/bureau.png" alt="bureau" class="img-fluid mt-3" style="height: 350px;">
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <div id="footer"></div>
 
