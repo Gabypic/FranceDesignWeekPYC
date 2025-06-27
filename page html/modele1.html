@@ -1,38 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Modèle 1</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Un seul kit pour tous</title>
 
+  <!-- Bootstrap + Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Alata', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: white;
+    }
+
+    .main-title {
+      font-family: 'Rubik One', sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(16px, 2vw, 28px);
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    .article-text {
+      font-size: clamp(16px, 1.2vw, 20px);
+      line-height: 1.6;
+      color: black;
+      text-align: justify;
+    }
+
+    .signature {
+      text-align: left;
+      margin-top: 2rem;
+      font-size: clamp(14px, 1vw, 16px);
+    }
+
+    .img-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .img-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      background-color: #eee;
+    }
+
+    .decorative-img {
+      position: absolute;
+      z-index: 0;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .img-right {
+      top: 5.3rem;
+      right: -6.2rem;
+      width: clamp(60px, 10vw, 150px);
+    }
+
+    .img-left {
+      top: 11rem;
+      left: -6rem;
+    }
+  </style>
 </head>
 <body>
-  <div id="hdr"></div>
 
-  <section class="container my-5">
-    <h1 class="mb-4 text-center">Titre</h1>
-    <div class="row">
-      <div class="col-12 col-md-8">
-        <div class="border p-4 text-center">Article</div>
-      </div>
-      <div class="col-12 col-md-4">
-        <div class="border p-2 mb-3">
-          <img src="images_test/space.png" class="img-fluid" alt="Photo 1">
-        </div>
-        <div class="border p-2">
-          <img src="images_test/wolf.png" class="img-fluid" alt="Photo 2">
-        </div>
-      </div>
+<div class="container py-5 content-wrapper">
+  <h1 class="main-title">UN SEUL KIT POUR TOUS LES ÉTUDIANTS : MISSION IMPOSSIBLE ?</h1>
+
+  <div class="row">
+    <!-- Texte -->
+    <div class="col-md-6 article-text">
+      <p>
+        Peut-on vraiment créer un kit unique capable de répondre aux besoins de filières aussi différentes que le graphisme, l’architecture, le marketing ou l’informatique ? C’est le défi que relève ce kit étudiant modulable, pensé comme une base commune, mais adaptable à chaque profil.
+      </p>
+      <p>
+        À la rentrée, chaque étudiant fait face aux mêmes petits défis : organiser son espace de travail, ne rien oublier, rester productif sans s’encombrer. C’est là que le kit prend tout son sens. Il propose une base composée d’objets essentiels – un carnet, un crayon/stylo/gomme combiné, une gourde anti-stress, des post-it et une boîte bento – qui sont utiles à toutes les filières. Le design a été étudié pour favoriser l’usage polyvalent, que vous soyez en salle de classe, en bibliothèque ou en déplacement.
+      </p>
+      <p>
+        Mais ce qui fait sa force, c’est sa modularité : les étudiants peuvent ajouter des boîtes complémentaires, empilables, avec des outils spécifiques à leur formation (comme des feutres de couleur, un compas, une clé USB, etc.). C’est donc un système évolutif, où chacun construit son propre kit, adapté à ses besoins, son budget et son mode de travail.
+      </p>
+      <p>
+        Un kit unique ? Non. Un système intelligent et personnalisable ? Oui. C’est cette flexibilité qui en fait un vrai compagnon pour toute la durée des études.
+      </p>
+
+      <p class="signature">Damien Coutard</p>
     </div>
-  </section>
 
-  <div id="footer"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    fetch('header.html').then(r=>r.text()).then(t=>document.getElementById('hdr').innerHTML=t);
-    fetch('footer.html').then(r=>r.text()).then(t=>document.getElementById('footer').innerHTML=t);
-  </script>
+    <!-- Images -->
+    <div class="col-md-6 img-grid">
+      <img src="images_test/article/imageTestArticle1.jpg" alt="Illustration 1">
+      <img src="images_test/article/imageTestArticle2.jpg" alt="Illustration 2">
+    </div>
+  </div>
+
+  <!-- Décorations -->
+  <img src="images_test/article/suite de points avec carré, cercle - article (section 2).png" class="decorative-img img-right" alt="Décoration droite">
+  <img src="images_test/article/suite de points article (section 2).png" class="decorative-img img-left" alt="Décoration gauche">
+</div>
+
 </body>
 </html>
