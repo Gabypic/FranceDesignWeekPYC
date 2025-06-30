@@ -10,11 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 
   <style>
+
+    * {
+      outline: 1px solid rgba(0, 0, 0, 0.8);
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: 'Alata', sans-serif;
       background: white;
+      overflow: auto;
     }
 
     .main-title {
@@ -55,6 +61,7 @@
       height: 0;
       overflow: hidden;
       margin-top: 4rem;
+      clip-path: inset(0, 0, 200px, 0);
     }
 
     .video-container iframe {
@@ -62,8 +69,8 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 60%;
-      height: 60%;
+      width: 70%;
+      height: 70%;
       border: none;
       border-radius: 1rem;
     }
