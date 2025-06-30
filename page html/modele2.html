@@ -10,9 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 
   <style>
-
     * {
-      outline: 1px solid rgba(0, 0, 0, 0.8);
+      outline: 1px solid rgba(0, 0, 0, 0.2); /* Atténué pour la visualisation */
     }
 
     body {
@@ -53,26 +52,20 @@
     }
 
     .video-container {
-      position: relative;
+      aspect-ratio: 16 / 9;
+      max-width: 70%; /* Taille réduite */
       width: 100%;
-      padding-top: 56.25%;
-      margin-bottom: -20%;
-      height: 0;
+      margin: 3rem auto; /* Centre horizontalement */
+      border-radius: 1rem;
       overflow: hidden;
-      margin-top: 4rem;
     }
 
     .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 70%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border: none;
-      border-radius: 1rem;
     }
-
 
     .decorative {
       position: absolute;
@@ -81,7 +74,7 @@
     }
 
     .decorative-left {
-      top: 10rem;
+      top:7.5rem;
       left: -6.3rem;
     }
 
@@ -91,7 +84,7 @@
     }
 
     .decorative-right-down {
-      top: 50rem;
+      top: 48rem;
       right: -6.2rem;
     }
   </style>
@@ -104,7 +97,7 @@
   <h1 class="main-title">UN SEUL KIT POUR TOUS LES ÉTUDIANTS : MISSION IMPOSSIBLE ?</h1>
 
   <!-- Contenu en deux colonnes -->
-  <div class="row">
+  <div class="row align-items-center">
     <!-- Texte à gauche -->
     <div class="col-md-6 text-content">
       <p>
@@ -130,17 +123,16 @@
   <!-- Vidéo YouTube centrée en bas -->
   <div class="video-container">
     <iframe
-            src="https://www.youtube.com/embed/watch?v=zhB82qjtoBs&list=RDzhB82qjtoBs&start_radio=1"
+            src="https://www.youtube.com/embed/zhB82qjtoBs?start=0"
             title="Vidéo YouTube"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
     </iframe>
   </div>
 
   <!-- Décorations -->
-  <img src="images_test/article/suite de points section 3 1.png" class="decorative decorative-right-down" alt="Décoration droite high">
-  <img src="images_test/article/suite de points - article (section 2).png" class="decorative decorative-right-high" alt="Décoration droite down">
+  <img src="images_test/article/suite de points section 3 1.png" class="decorative decorative-right-down" alt="Décoration droite basse">
+  <img src="images_test/article/suite de points - article (section 2).png" class="decorative decorative-right-high" alt="Décoration droite haute">
   <img src="images_test/article/suite de points avec cercle - article (section 2).png" class="decorative decorative-left" alt="Décoration gauche">
 </div>
 
