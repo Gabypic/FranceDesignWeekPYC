@@ -64,6 +64,12 @@
       top: 11rem;
       left: -6rem;
     }
+
+    @media (max-width: 768px) {
+        .modele1-root .decorative-img {
+            display: none;
+        }
+    }
   </style>
 
   <div class="container py-5 content-wrapper">

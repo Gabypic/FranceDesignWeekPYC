@@ -73,6 +73,11 @@
       top: 48rem;
       right: -6.2rem;
     }
+    @media (max-width: 768px) {
+        .modele2-root .decorative {
+            display: none;
+        }
+    }
   </style>
 
   <div class="container py-5 position-relative">

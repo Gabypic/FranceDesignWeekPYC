@@ -7,52 +7,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 
 <div class="modele3-root">
-  <style>
-    .modele3-root body {
-      padding: 0;
-      margin: 0;
-      font-family: 'Alata', sans-serif;
-      background: white;
-      color: black;
-    }
-    .modele3-root .main-title {
-      font-family: 'Rubik One', sans-serif;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: clamp(14px, 1.5vw, 24px);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    .modele3-root .text-content {
-      font-size: clamp(16px, 1vw, 18px);
-      line-height: 1.6;
-      text-align: justify;
-      max-width: 69%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .modele3-root .author {
-      padding-top: 1rem;
-      font-size: clamp(16px, 0.9vw, 15px);
-      margin-top: 1.5rem;
-      text-align: center;
-    }
-    .modele3-root .decorative {
-      position: absolute;
-      z-index: 0;
-      max-width: 100%;
-    }
-    .modele3-root .decorative-left {
-      top: 7.5rem;
-      left: 0;
-    }
-    .modele3-root .decorative-right {
-      top: 7rem;
-      right: 0;
-    }
-  </style>
+    <style>
+        .modele3-root body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Alata', sans-serif;
+            background: white;
+            color: black;
+        }
+        .modele3-root .main-title {
+            font-family: 'Rubik One', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: clamp(14px, 1.5vw, 24px);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .modele3-root .text-content {
+            font-size: clamp(16px, 1vw, 18px);
+            line-height: 1.6;
+            text-align: justify;
+            max-width: 69%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .modele3-root .author {
+            padding-top: 1rem;
+            font-size: clamp(16px, 0.9vw, 15px);
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        .modele3-root .decorative {
+            position: absolute;
+            z-index: 0;
+            max-width: 100%;
+        }
+        .modele3-root .decorative-left {
+            top: 7.5rem;
+            left: -6.5rem;
+        }
+        .modele3-root .decorative-right {
+            width: 20%;
+            top: 7rem;
+            right: -6.3rem;
+        }
 
-  <div class="container section-wrapper" style="position: relative;">
+        @media (max-width: 768px) {
+            .modele3-root .decorative {
+                display: none;
+            }
+        }
+    </style>
+
+
+    <div class="container section-wrapper" style="position: relative;">
 
     <!-- Titre -->
     <h1 class="main-title">PRÉSENTATION</h1>

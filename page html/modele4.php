@@ -4,76 +4,73 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 <div class="modele4-root">
-  <style>
-    .modele4-root body {
-      font-family: 'Alata', sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .modele4-root .section-title {
-      font-family: 'Rubik One', sans-serif;
-      text-transform: uppercase;
-      text-align: center;
-      font-size: clamp(18px, 2vw, 30px);
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    .modele4-root .text-content {
-      font-size: clamp(16px, 1vw, 18px);
-      line-height: 1.6;
-      text-align: justify;
-    }
-    .modele4-root .author {
-      font-size: clamp(14px, 1vw, 16px);
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .modele4-root .decorative {
-      position: absolute;
-      z-index: 0;
-      max-width: 100%;
-    }
-    .modele4-root .decorative-left {
-      top: 13.5rem;
-      left: -7.3rem;
-      width: auto;
-    }
-    .modele4-root .decorative-right {
-      top: 33rem;
-      right: -7.1rem;
-    }
-    .modele4-root .content-box {
-      border-radius: 1rem;
-      padding: 2rem;
-      margin: 0 auto;
-      position: relative;
-    }
-    .modele4-root .video-container {
-      aspect-ratio: 16 / 9;
-      max-width: 70%;
-      width: 100%;
-      margin: 3rem auto;
-      border-radius: 1rem;
-      overflow: hidden;
-      margin-bottom: -1rem;
-      margin-top: 2rem;
-    }
-    .modele4-root .video-container iframe {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: none;
-    }
-    @media (min-width: 768px) {
-      .modele4-root .text-content {
-        padding: 0 4rem;
-      }
-      .modele4-root .author {
-        padding-right: 4rem;
-      }
-    }
-  </style>
+    <style>
+        .modele4-root body {
+            font-family: 'Alata', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .modele4-root .section-title {
+            font-family: 'Rubik One', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: clamp(18px, 2vw, 30px);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .modele4-root .text-content {
+            font-size: clamp(16px, 1vw, 18px);
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .modele4-root .author {
+            font-size: clamp(14px, 1vw, 16px);
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .modele4-root .decorative {
+            position: absolute;
+            z-index: 0;
+            max-width: 100%;
+        }
+        .modele4-root .decorative-left {
+            top: 13.5rem;
+            left: -7.3rem;
+            width: auto;
+        }
+        .modele4-root .decorative-right {
+            top: 33rem;
+            right: -7.1rem;
+        }
+        .modele4-root .content-box {
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 0 auto;
+            position: relative;
+        }
+        .modele4-root .video-container {
+            aspect-ratio: 16 / 9;
+            max-width: 70%;
+            width: 100%;
+            margin: 3rem auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-bottom: -1rem;
+            margin-top: 2rem;
+        }
+        .modele4-root .video-container iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+        @media (max-width: 768px) {
+            .modele4-root .decorative {
+                display: none;
+            }
+        }
+    </style>
 
   <div class="container py-5">
     <h1 class="section-title">DU L1 AU MASTER : UN KIT QUI ÉVOLUE AVEC TOI</h1>
