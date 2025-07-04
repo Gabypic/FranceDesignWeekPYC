@@ -1,6 +1,22 @@
+<?php
+if (!isset($current_article)) {
+    echo "<p>Erreur : article non défini.</p>";
+    return;
+}
+
+$titre = htmlspecialchars($current_article['titre']);
+$contenu = nl2br(htmlspecialchars($current_article['article']));
+$auteur = htmlspecialchars($current_article['auteur']);
+$video = $current_article['video'];
+
+$video_id = null;
+if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
+    $video_id = $matches[1];
+}
+?>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 <div class="modele4-root">
@@ -73,34 +89,25 @@
     </style>
 
   <div class="container py-5">
-    <h1 class="section-title">DU L1 AU MASTER : UN KIT QUI ÉVOLUE AVEC TOI</h1>
+    <h1 class="section-title"><?= $titre ?></h1>
 
     <div class="content-box">
       <div class="text-content">
-        <p>
-          Au fil des années d'études, les besoins d'un étudiant changent : plus d'autonomie, plus de spécialisation, plus de projets. Le kit modulable répond à cette réalité grâce à un format évolutif et empilable.
-        </p>
-        <p>
-          La boîte de base est idéale pour une première année : simple, légère, avec les essentiels pour organiser son bureau et suivre les cours. Mais dès la deuxième année, l'étudiant peut ajouter une boîte complémentaire, avec du matériel plus spécifique selon sa filière (comme des marqueurs, du matériel de présentation, ou des outils techniques).
-        </p>
-        <p>
-          Le système repose sur un format de boîtes bento empilables : chaque module se fixe au précédent, sans prendre trop de place, ni déséquilibrer l'ensemble. C'est un gain de place évident pour les petits espaces étudiants, et une manière intelligente de ne pas racheter tout un kit chaque année.
-        </p>
-        <p>
-          En somme, ce n'est pas juste un kit pour débuter, c'est un kit qui grandit avec vous. Pensé comme un compagnon de route, il s'adapte à votre progression, à vos besoins et à votre rythme. Un objet simple, mais qui suit toute une vie étudiante.
-        </p>
+        <p><?= $contenu ?></p>
       </div>
 
-      <div class="author">Damien Coutard</div>
+      <div class="author"><?= $auteur ?></div>
 
-      <div class="video-container">
-        <iframe
-                src="https://www.youtube.com/embed/zhB82qjtoBs?start=0"
-                title="Vidéo YouTube"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
-      </div>
+          <?php if ($video_id): ?>
+              <div class="video-container">
+                  <iframe
+                          src="https://www.youtube.com/embed/<?= $video_id ?>?start=0"
+                          title="Vidéo YouTube"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowfullscreen>
+                  </iframe>
+              </div>
+          <?php endif; ?>
 
       <img src="images_test/article/vague.png" alt="Décor vague" class="decorative decorative-left" />
       <img src="images_test/article/vague%203%20-%20article%20(section%202).png" alt="Décor vague bas" class="decorative decorative-right" />

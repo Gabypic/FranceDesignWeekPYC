@@ -1,3 +1,14 @@
+<?php
+if (!isset($current_article)) {
+    echo "<p>Erreur : article non défini.</p>";
+    return;
+}
+
+$titre = htmlspecialchars($current_article['titre']);
+$contenu = nl2br(htmlspecialchars($current_article['article']));
+$auteur = htmlspecialchars($current_article['auteur']);
+?>
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Présentation du Kit Étudiant</title>
@@ -63,34 +74,13 @@
     <div class="container section-wrapper" style="position: relative;">
 
     <!-- Titre -->
-    <h1 class="main-title">PRÉSENTATION</h1>
+    <h1 class="main-title"><?= $titre ?></h1>
 
     <!-- Contenu texte -->
     <div class="row">
       <div class="col-12 col-md-10 offset-md-1 text-content">
-        <p>
-          Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier
-          fonctionnalité, style et organisation. L'ensemble adopte un univers graphique Memphis, aux couleurs
-          franches, aux formes géométriques ludiques, pour insuffler une touche d'énergie à ton espace de
-          travail.
-        </p>
-        <p>
-          Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre
-          deux bâtiments, le quotidien d'un étudiant est un vrai marathon créatif. C'est pour répondre à cette
-          effervescence que nous avons conçu le kit.
-        </p>
-        <p>
-          Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier
-          fonctionnalité, style et organisation. L'ensemble adopte un univers graphique Memphis, aux couleurs
-          franches, aux formes géométriques ludiques, pour insuffler une touche d'énergie à ton espace de
-          travail.
-        </p>
-        <p>
-          Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre
-          deux bâtiments, le quotidien d'un étudiant est un vrai marathon créatif. C'est pour répondre à cette
-          effervescence que nous avons conçu le kit.
-        </p>
-        <p class="author">Damien Coutard</p>
+        <p> <?= $contenu?></p>
+        <p class="author"><?= $auteur ?></p>
       </div>
     </div>
 

@@ -1,3 +1,16 @@
+<?php
+if (!isset($current_article)) {
+    echo "<p>Erreur : article non défini.</p>";
+    return;
+}
+
+$titre = htmlspecialchars($current_article['titre']);
+$contenu = nl2br(htmlspecialchars($current_article['article']));
+$auteur = htmlspecialchars($current_article['auteur']);
+$image1 = $current_article['image1'] ? "../Guillaume/site_vitrine/public/images/" . $current_article['image1'] : null;
+$image2 = $current_article['image2'] ? "../Guillaume/site_vitrine/public/images/" . $current_article['image2'] : null;
+?>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- Bootstrap + Fonts -->
@@ -31,7 +44,7 @@
       font-size: clamp(14px, 1.2vw, 20px);
       line-height: 1.6;
       color: black;
-      text-align: justify;
+      text-align: center;
     }
     .modele1-root .signature {
       text-align: left;
@@ -73,32 +86,23 @@
   </style>
 
   <div class="container py-5 content-wrapper">
-    <h1 class="main-title">UN SEUL KIT POUR TOUS LES ÉTUDIANTS : MISSION IMPOSSIBLE ?</h1>
+    <h1 class="main-title"><?= $titre?></h1>
 
-    <div class="row">
+    <div class="row align-items-center">
       <!-- Texte -->
       <div class="col-md-6 article-text">
-        <p>
-          Peut-on vraiment créer un kit unique capable de répondre aux besoins de filières aussi différentes que le graphisme, l'architecture, le marketing ou l'informatique ? C'est le défi que relève ce kit étudiant modulable, pensé comme une base commune, mais adaptable à chaque profil.
-        </p>
-        <p>
-          À la rentrée, chaque étudiant fait face aux mêmes petits défis : organiser son espace de travail, ne rien oublier, rester productif sans s'encombrer. C'est là que le kit prend tout son sens. Il propose une base composée d'objets essentiels – un carnet, un crayon/stylo/gomme combiné, une gourde anti-stress, des post-it et une boîte bento – qui sont utiles à toutes les filières. Le design a été étudié pour favoriser l'usage polyvalent, que vous soyez en salle de classe, en bibliothèque ou en déplacement.
-        </p>
-        <p>
-          Mais ce qui fait sa force, c'est sa modularité : les étudiants peuvent ajouter des boîtes complémentaires, empilables, avec des outils spécifiques à leur formation (comme des feutres de couleur, un compas, une clé USB, etc.). C'est donc un système évolutif, où chacun construit son propre kit, adapté à ses besoins, son budget et son mode de travail.
-        </p>
-        <p>
-          Un kit unique ? Non. Un système intelligent et personnalisable ? Oui. C'est cette flexibilité qui en fait un vrai compagnon pour toute la durée des études.
-        </p>
+        <p><?=$contenu?></p>
 
-        <p class="signature">Damien Coutard</p>
+        <p class="signature"><?= $auteur?></p>
       </div>
 
       <!-- Images -->
-      <div class="col-md-6 img-grid">
-        <img src="images_test/article/imageTestArticle1.jpg" alt="Illustration 1">
-        <img src="images_test/article/imageTestArticle2.jpg" alt="Illustration 2">
-      </div>
+      <?php if ($image1): ?>
+          <div class="col-md-6 img-grid">
+              <img src="<?= $image1 ?>" alt="Illustration 1">
+              <img src="<?= $image2 ?>" alt="Illustration 2">
+          </div>
+      <?php endif; ?>
     </div>
 
     <!-- Décorations -->
