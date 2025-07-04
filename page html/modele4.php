@@ -41,7 +41,7 @@
         }
         .modele4-root .decorative-right {
             top: 33rem;
-            right: -7.1rem;
+            right: -7rem;
         }
         .modele4-root .content-box {
             border-radius: 1rem;

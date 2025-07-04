@@ -49,7 +49,7 @@
         .modele3-root .decorative-right {
             width: 20%;
             top: 7rem;
-            right: -6.3rem;
+            right: -6.25rem;
         }
 
         @media (max-width: 768px) {
