@@ -1,0 +1,666 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Alata:400");
+@import url("https://fonts.googleapis.com/css?family=Rubik+One:400");
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --titre-font-family: "Rubik One", Helvetica;
+  --titre-font-weight: 400;
+  --titre-font-size: 64px;
+  --titre-letter-spacing: 0px;
+  --titre-line-height: normal;
+  --titre-font-style: normal;
+  --texte-font-family: "Alata", Helvetica;
+  --texte-font-weight: 400;
+  --texte-font-size: 20px;
+  --texte-letter-spacing: 0px;
+  --texte-line-height: normal;
+  --texte-font-style: normal;
+}
+
+.fdw-x-ynov-campus {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.fdw-x-ynov-campus .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1920px;
+  height: 5227px;
+  position: relative;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1919px) {
+  .fdw-x-ynov-campus .div {
+    transform: scale(calc(100vw / 1920));
+    transform-origin: top left;
+    height: calc(5227px * (100vw / 1920));
+  }
+}
+
+.fdw-x-ynov-campus .overlap {
+  position: absolute;
+  width: 1920px;
+  height: 1114px;
+  top: 2699px;
+  left: 0;
+}
+
+.fdw-x-ynov-campus .rectangle {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 0;
+  left: 0;
+  background-color: #ff6600;
+}
+
+.fdw-x-ynov-campus .damier-fdw-x-ynov {
+  position: absolute;
+  width: 754px;
+  height: 1081px;
+  top: 0;
+  left: 1166px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .img {
+  position: absolute;
+  width: 645px;
+  height: 340px;
+  top: 187px;
+  left: 1155px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .rectangle-2 {
+  position: absolute;
+  width: 645px;
+  height: 340px;
+  top: 604px;
+  left: 1155px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .text-wrapper {
+  position: absolute;
+  width: 990px;
+  top: 104px;
+  left: 120px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #ffffff;
+  font-size: var(--titre-font-size);
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.fdw-x-ynov-campus .flexcontainer {
+  width: 987px;
+  height: 557px;
+  top: 260px;
+  left: 119px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+}
+
+.fdw-x-ynov-campus .text {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.fdw-x-ynov-campus .span {
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  font-style: var(--texte-font-style);
+  line-height: var(--texte-line-height);
+}
+
+.fdw-x-ynov-campus .triangle-fdw-x-ynov {
+  position: absolute;
+  width: 366px;
+  height: 397px;
+  top: 717px;
+  left: 643px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .croix-fdw-x-ynov {
+  width: 222px;
+  height: 225px;
+  top: 810px;
+  left: 58px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .overlap-group {
+  position: absolute;
+  width: 1920px;
+  height: 842px;
+  top: 4004px;
+  left: 0;
+  background-image: url(https://c.animaapp.com/mcn7y8mgk92wHn/img/bacte-rie-fdw-x-ynov--section-5--1.png);
+  background-size: 100% 100%;
+}
+
+.fdw-x-ynov-campus .overlap-2 {
+  position: absolute;
+  width: 1680px;
+  height: 541px;
+  top: 91px;
+  left: 120px;
+  background-color: #ff3333;
+  border-radius: 37px;
+}
+
+.fdw-x-ynov-campus .rectangle-3 {
+  position: absolute;
+  width: 600px;
+  height: 451px;
+  top: 45px;
+  left: 45px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .flexcontainer-2 {
+  width: 946px;
+  height: 356px;
+  top: 60px;
+  left: 690px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+}
+
+.fdw-x-ynov-campus .div-wrapper {
+  width: 240px;
+  top: 444px;
+  left: 1358px;
+  position: absolute;
+  height: 38px;
+}
+
+.fdw-x-ynov-campus .text-wrapper-2 {
+  position: absolute;
+  width: 240px;
+  height: 38px;
+  top: -1px;
+  left: 0;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.fdw-x-ynov-campus .rectangle-4 {
+  position: absolute;
+  width: 41px;
+  height: 16px;
+  top: 393px;
+  left: 1879px;
+  background-color: #ffffff;
+}
+
+.fdw-x-ynov-campus .overlap-3 {
+  position: absolute;
+  width: 1920px;
+  height: 1485px;
+  top: 134px;
+  left: 0;
+}
+
+.fdw-x-ynov-campus .rectangle-5 {
+  position: absolute;
+  width: 1920px;
+  height: 406px;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .rectangle-6 {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  top: 405px;
+  left: 0;
+  background-color: #ff6600;
+}
+
+.fdw-x-ynov-campus .france-design-week {
+  position: absolute;
+  width: 990px;
+  top: 509px;
+  left: 465px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #ffffff;
+  font-size: var(--titre-font-size);
+  text-align: center;
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.fdw-x-ynov-campus .flexcontainer-3 {
+  width: 646px;
+  height: 557px;
+  top: 715px;
+  left: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+}
+
+.fdw-x-ynov-campus .ynov-campus {
+  position: absolute;
+  width: 302px;
+  height: 169px;
+  top: 118px;
+  left: 1059px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .carre {
+  position: absolute;
+  width: 128px;
+  height: 170px;
+  top: 118px;
+  left: 681px;
+}
+
+.fdw-x-ynov-campus .group {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 168px;
+  left: 923px;
+}
+
+.fdw-x-ynov-campus .rectangle-7 {
+  position: absolute;
+  width: 990px;
+  height: 557px;
+  top: 716px;
+  left: 810px;
+}
+
+.fdw-x-ynov-campus .triangle-fdw-x-ynov-2 {
+  position: absolute;
+  width: 194px;
+  height: 233px;
+  top: 1203px;
+  left: 65px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .les-anciens-projets {
+  position: absolute;
+  width: 1637px;
+  top: 3896px;
+  left: 119px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #000000;
+  font-size: var(--titre-font-size);
+  text-align: center;
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.fdw-x-ynov-campus .text-wrapper-3 {
+  position: absolute;
+  width: 990px;
+  top: 1723px;
+  left: 465px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #000000;
+  font-size: var(--titre-font-size);
+  text-align: center;
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.fdw-x-ynov-campus .flexcontainer-4 {
+  width: 641px;
+  height: 633px;
+  top: 1879px;
+  left: 1155px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+}
+
+.fdw-x-ynov-campus .span-wrapper {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #000000;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.fdw-x-ynov-campus .text-wrapper-4 {
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #000000;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  font-style: var(--texte-font-style);
+  line-height: var(--texte-line-height);
+}
+
+.fdw-x-ynov-campus .rectangle-8 {
+  position: absolute;
+  width: 990px;
+  height: 557px;
+  top: 1918px;
+  left: 120px;
+}
+
+.fdw-x-ynov-campus .overlap-group-wrapper {
+  position: absolute;
+  width: 1922px;
+  height: 367px;
+  top: 4860px;
+  left: 0;
+}
+
+.fdw-x-ynov-campus .overlap-group-2 {
+  position: relative;
+  width: 1920px;
+  height: 367px;
+  background-color: #cc3333;
+}
+
+.fdw-x-ynov-campus .ynov-campus-logo {
+  position: absolute;
+  width: 241px;
+  height: 135px;
+  top: 43px;
+  left: 1501px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .france-design-week-2 {
+  position: absolute;
+  width: 102px;
+  height: 136px;
+  top: 43px;
+  left: 178px;
+}
+
+.fdw-x-ynov-campus .x {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1550px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .you-tube {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1651px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .facebook {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1500px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .instagram {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 1702px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .linkedin {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1601px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .you-tube-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 279px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .facebook-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 178px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .instagram-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 330px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .linkedin-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 229px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .p {
+  position: absolute;
+  width: 646px;
+  top: 311px;
+  left: 637px;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  text-align: center;
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.fdw-x-ynov-campus .logo-blanc-grand {
+  position: absolute;
+  width: 267px;
+  height: 138px;
+  top: 41px;
+  left: 826px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .cercle-fdw-x-ynov {
+  position: absolute;
+  width: 159px;
+  height: 161px;
+  top: 2507px;
+  left: 372px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .carre-fdw-x-ynov {
+  position: absolute;
+  width: 157px;
+  height: 148px;
+  top: 2530px;
+  left: 1722px;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .croix-fdw-x-ynov-2 {
+  width: 204px;
+  height: 207px;
+  top: 1646px;
+  left: 1509px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.fdw-x-ynov-campus .frame {
+  position: fixed;
+  width: 1920px;
+  height: 134px;
+  top: 0;
+  left: 0;
+  background-color: #cc3333;
+}
+
+.fdw-x-ynov-campus .qui-somme-nous {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: 90px;
+  left: 1155px;
+}
+
+.fdw-x-ynov-campus .text-wrapper-5 {
+  position: absolute;
+  width: 221px;
+  height: 38px;
+  top: -1px;
+  left: 39px;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.fdw-x-ynov-campus .div-wrapper-2 {
+  width: 300px;
+  top: 90px;
+  left: 810px;
+  position: absolute;
+  height: 38px;
+}
+
+.fdw-x-ynov-campus .text-wrapper-6 {
+  width: 300px;
+  top: -1px;
+  left: 0;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+  position: absolute;
+  height: 38px;
+}
+
+.fdw-x-ynov-campus .articles {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: 90px;
+  left: 465px;
+}
+
+.fdw-x-ynov-campus .text-wrapper-7 {
+  position: absolute;
+  width: 135px;
+  height: 38px;
+  top: -1px;
+  left: 82px;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.fdw-x-ynov-campus .logo-sos-FDW {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  top: 5px;
+  left: 919px;
+  object-fit: cover;
+}
