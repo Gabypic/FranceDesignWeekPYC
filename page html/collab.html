@@ -1,208 +1,697 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <meta name="viewport" content="width=1920, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
+    <title>France Design Week x Ynov Campus - Collaboration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/page html/style/sylecollab.css" />
+    <style>
+      /* Variables CSS personnalisées */
+      :root {
+        --titre-font-family: "Rubik One", Helvetica;
+        --titre-font-weight: 400;
+        --titre-font-size: 64px;
+        --titre-letter-spacing: 0px;
+        --titre-line-height: normal;
+        --titre-font-style: normal;
+        --texte-font-family: "Alata", Helvetica;
+        --texte-font-weight: 400;
+        --texte-font-size: 20px;
+        --texte-letter-spacing: 0px;
+        --texte-line-height: normal;
+        --texte-font-style: normal;
+        --orange-fdw: #ff6600;
+        --rouge-fdw: #ff3333;
+      }
+
+      /* Section Bannière */
+      .section-banniere {
+        background-color: black;
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+      }
+      .logos-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 3;
+      }
+      .logo-item {
+        max-height: 80px;
+        width: auto;
+        transition: transform 0.3s ease;
+      }
+
+      /* Section France Design Week */
+      .section-fdw-2025 {
+        background-color: #FF6600;
+        color: white;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 1080px;
+        display: flex;
+        align-items: center;
+      }
+      .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 990px;
+        margin: 0 auto;
+      }
+      .video-fdw {
+        width: 100%;
+        height: auto;
+        max-height: 557px;
+        border-radius: 37px;
+        object-fit: cover;
+      }
+      .element-decoratif-triangle {
+        position: absolute;
+        bottom: 50px;
+        left: 50px;
+        width: 200px;
+        height: auto;
+        z-index: 2;
+      }
+
+      /* Section Ynov Campus - Vidéo à gauche, texte à droite, décoratifs */
+      .section-ynov-campus-video {
+        background: #fff;
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+      }
+      .titre-ynov-campus-video {
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 64px;
+        text-transform: uppercase;
+        color: #000;
+        text-align: center;
+        margin-bottom: 32px;
+        letter-spacing: 0;
+      }
+      .texte-ynov-campus-droite {
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        color: #000;
+        width: 641px;
+        max-width: 100%;
+        text-align: left;
+        line-height: 1.2;
+      }
+      .texte-ynov-campus-droite p {
+        margin-bottom: 24px;
+      }
+      .texte-ynov-campus-droite p:last-child {
+        margin-bottom: 0;
+      }
+      .video-container-ynov {
+        width: 100%;
+        max-width: 641px;
+        height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .video-ynov-campus {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        object-fit: cover;
+        background: #000;
+      }
+      .decoratif-croix-haut-gauche {
+        position: absolute;
+        left: 0;
+        top: -40px;
+        width: 100px;
+        height: 100px;
+        z-index: 2;
+      }
+      .decoratif-carre-bas-gauche {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 80px;
+        height: 80px;
+        z-index: 2;
+      }
+      .decoratif-cercle-bas-droite {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 80px;
+        height: 80px;
+        z-index: 2;
+      }
+      @media (max-width: 1200px) {
+        .texte-ynov-campus-droite { width: 100%; }
+        .video-container-ynov { max-width: 100%; height: 220px; }
+      }
+      @media (max-width: 992px) {
+        .titre-ynov-campus-video { font-size: 40px; }
+        .video-container-ynov { height: 160px; }
+        .decoratif-croix-haut-gauche, .decoratif-carre-bas-gauche, .decoratif-cercle-bas-droite { width: 60px; height: 60px; }
+        .texte-ynov-campus-droite { font-size: 16px; }
+      }
+      @media (max-width: 768px) {
+        .section-ynov-campus-video { min-height: 0; }
+        .titre-ynov-campus-video { font-size: 28px; }
+        .texte-ynov-campus-droite { font-size: 14px; }
+        .video-container-ynov { height: 100px; }
+        .decoratif-croix-haut-gauche, .decoratif-carre-bas-gauche, .decoratif-cercle-bas-droite { display: none; }
+      }
+
+      /* Section Ynov Campus Collaboration */
+      .section-ynov-collab {
+        background-color: #FF6600;
+        color: white;
+        min-height: 1080px;
+        height: 1080px;
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+      }
+      .titre-ynov-collab {
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        color: white;
+        margin-bottom: 24px;
+        width: 990px;
+        max-width: 100%;
+      }
+      .contenu-texte {
+        width: 987px;
+        max-width: 100%;
+        background: none;
+        height: 557px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      .texte-contenu {
+        font-size: 18px;
+        color: white;
+        text-align: left;
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.4;
+      }
+      .fond-damier {
+        background-image: url('/page html/images_test/collab/damier fdw x ynov (section 4).png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+      }
+      .checker-image-custom {
+        width: 645px;
+        height: 340px;
+        border-radius: 37px;
+        background: white;
+        opacity: 1;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 32px 0 rgba(0,0,0,0.08);
+        z-index: 3;
+        object-fit: cover;
+        display: block;
+      }
+      .checker-image-custom:last-child {
+        margin-bottom: 0;
+      }
+      .element-decoratif-croix-2 {
+        position: absolute;
+        width: 222px;
+        height: 225px;
+        left: 58px;
+        bottom: 40px;
+        z-index: 4;
+      }
+      .element-decoratif-triangle-4 {
+        position: absolute;
+        width: 366px;
+        height: 397px;
+        left: 420px;
+        bottom: 40px;
+        z-index: 4;
+      }
+      @media (max-width: 1200px) {
+        .titre-ynov-collab, .contenu-texte { width: 100%; }
+        .checker-image-custom { width: 90%; height: 220px; }
+        .fond-damier { width: 100%; }
+        .texte-ynov-campus-droite { width: 100%; }
+        .video-container-ynov { max-width: 100%; height: 220px; }
+      }
+      @media (max-width: 992px) {
+        .section-ynov-collab { min-height: 700px; height: auto; }
+        .checker-image-custom { width: 100%; height: 180px; }
+        .element-decoratif-croix-2 { width: 120px; height: 120px; left: 10px; bottom: 10px; }
+        .element-decoratif-triangle-4 { width: 180px; height: 180px; left: 220px; bottom: 10px; }
+        .titre-ynov-campus-video { font-size: 40px; }
+        .video-container-ynov { height: 160px; }
+        .decoratif-croix-haut-gauche, .decoratif-carre-bas-gauche, .decoratif-cercle-bas-droite { width: 60px; height: 60px; }
+        .texte-ynov-campus-droite { font-size: 16px; }
+      }
+      @media (max-width: 768px) {
+        .section-ynov-collab { min-height: 500px; height: auto; padding-bottom: 60px !important; }
+        .checker-image-custom { width: 100% !important; height: auto !important; min-width: 0; max-width: 100vw; display: block !important; }
+        .fond-damier,
+        .element-decoratif-croix-2,
+        .element-decoratif-triangle-4 {
+          display: none !important;
+        }
+        .section-ynov-campus-video { min-height: 0; }
+        .titre-ynov-campus-video { font-size: 28px; }
+        .texte-ynov-campus-droite { font-size: 14px; }
+        .video-container-ynov { height: 100px; }
+        .decoratif-croix-haut-gauche, .decoratif-carre-bas-gauche, .decoratif-cercle-bas-droite { display: none; }
+      }
+      @media (max-width: 576px) {
+        .titre-ynov-collab { font-size: 32px; }
+        .checker-image-custom { height: 80px; }
+      }
+
+      /* Section Les anciens projets */
+      .section-anciens-projets {
+        background: #fff;
+        padding: 80px 0;
+        position: relative;
+        width: 100%;
+      }
+      .titre-anciens-projets {
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size: 64px;
+        text-transform: uppercase;
+        color: #000;
+        text-align: center;
+        line-height: 100%;
+        letter-spacing: 0;
+        margin: 0;
+        width: 1637px;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      @media (max-width: 1200px) {
+        .titre-anciens-projets { width: 100%; }
+      }
+      @media (max-width: 992px) {
+        .titre-anciens-projets { font-size: 40px; }
+      }
+      @media (max-width: 768px) {
+        .titre-anciens-projets { font-size: 28px; }
+      }
+
+      /* Section avec bactérie et rectangle rouge */
+      .section-bacterie-rectangle {
+        background-color: #fff;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .section-bacterie-rectangle::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/page html/images_test/collab/bactérie fdw x ynov (section 5).png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+      }
+      .rectangle-rouge-bacterie {
+        width: 1680px;
+        height: 541px;
+        background-color: #FF3333;
+        border-radius: 37px;
+        max-width: 90%;
+        max-height: 80vh;
+        position: relative;
+        z-index: 2;
+      }
+      .bacterie-img-on-rect {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        max-width: 90%;
+        max-height: 80%;
+        pointer-events: none;
+      }
+      .bacterie-bg-full {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 1920px;
+        height: 1080px;
+        max-width: 100vw;
+        max-height: 100vh;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        pointer-events: none;
+      }
+      .rectangle-rouge-bacterie {
+        width: 1600px;
+        height: 500px;
+        background-color: #FF3333;
+        border-radius: 37px;
+        max-width: 90vw;
+        max-height: 80vh;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      @media (max-width: 1700px) {
+        .rectangle-rouge-bacterie { width: 90vw; height: 400px; }
+        .bacterie-bg-full { width: 100vw; height: 56vw; min-height: 400px; }
+      }
+      @media (max-width: 992px) {
+        .rectangle-rouge-bacterie { height: 220px; border-radius: 24px; }
+        .section-bacterie-rectangle { height: 400px; min-height: 400px; }
+        .bacterie-bg-full { height: 400px; }
+      }
+      @media (max-width: 768px) {
+        .rectangle-rouge-bacterie { height: 120px; border-radius: 16px; }
+        .section-bacterie-rectangle { height: 220px; min-height: 220px; }
+        .bacterie-bg-full { height: 220px; }
+      }
+
+      .img-checker-rectangle {
+        max-width: 320px;
+        max-height: 320px;
+        width: auto;
+        height: auto;
+        display: block;
+      }
+      .rectangle-rouge-bacterie {
+        padding: 48px 64px;
+        gap: 48px;
+      }
+      .texte-rectangle-droite {
+        color: #fff;
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0;
+        max-width: 900px;
+        min-width: 280px;
+        flex: 1 1 0;
+        height: 100%;
+      }
+      .texte-rectangle-content {
+        white-space: pre-line;
+      }
+      .btn-en-savoir-plus {
+        background: none;
+        border: none;
+        color: #fff;
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        box-shadow: none;
+      }
+      .btn-en-savoir-plus:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      @media (max-width: 1200px) {
+        .rectangle-rouge-bacterie { flex-direction: column; align-items: center; padding: 32px 16px; gap: 24px; }
+        .texte-rectangle-droite { max-width: 100%; font-size: 18px; }
+        .img-checker-rectangle { max-width: 220px; max-height: 220px; }
+      }
+      @media (max-width: 768px) {
+        .rectangle-rouge-bacterie { flex-direction: column; align-items: center; padding: 16px 4px; gap: 16px; }
+        .texte-rectangle-droite { font-size: 16px; }
+        .img-checker-rectangle { max-width: 120px; max-height: 120px; }
+      }
+      .img-checker-rectangle-grand {
+        max-height: 90%;
+        max-width: 90%;
+        width: auto;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+      .rectangle-rouge-bacterie {
+        padding: 48px 64px;
+        gap: 0;
+        height: 541px;
+        min-height: 320px;
+      }
+      .texte-rectangle-droite {
+        color: #fff;
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.3;
+        letter-spacing: 0;
+        min-width: 350px;
+        max-width: 900px;
+        flex: 1 1 0;
+        height: 100%;
+        justify-content: space-between;
+      }
+      .texte-rectangle-content p {
+        margin-bottom: 24px;
+      }
+      .puces-rectangle {
+        margin-bottom: 24px;
+        padding-left: 24px;
+      }
+      .puces-rectangle li {
+        margin-bottom: 12px;
+        font-size: 20px;
+        line-height: 1.3;
+      }
+      .btn-en-savoir-plus-rectangle {
+        background: none;
+        border: none;
+        color: #fff;
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        box-shadow: none;
+        letter-spacing: 0.5px;
+      }
+      .btn-en-savoir-plus-rectangle:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      @media (max-width: 1200px) {
+        .rectangle-rouge-bacterie { flex-direction: column; align-items: center; padding: 32px 16px; height: auto; }
+        .checker-rectangle-gauche, .texte-rectangle-droite { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+        .img-checker-rectangle-grand { max-width: 220px; max-height: 220px; }
+        .texte-rectangle-droite { font-size: 18px; }
+      }
+      @media (max-width: 768px) {
+        .rectangle-rouge-bacterie { flex-direction: column; align-items: center; padding: 16px 4px; height: auto; }
+        .img-checker-rectangle-grand { max-width: 120px; max-height: 120px; }
+        .texte-rectangle-droite { font-size: 16px; }
+        .puces-rectangle li { font-size: 16px; }
+      }
+    </style>
   </head>
   <body>
     <div id="hdr"></div>
-    <div class="fdw-x-ynov-campus">
-      <div class="div">
-        <div class="overlap">
-          <div class="rectangle"></div>
-          <img
-            class="damier-fdw-x-ynov"
-            src="https://c.animaapp.com/mcn7y8mgk92wHn/img/damier-fdw-x-ynov--section-4--1.png"
-          />
-          <img class="img" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-46.png" />
-          <img class="rectangle-2" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-46.png" />
-          <div class="text-wrapper">YNOV CAMPUS</div>
-          <div class="flexcontainer">
-            <p class="text">
-              <span class="span"
-                >Depuis 4 ans, les campus Ynov participent activement à la France Design Week, un événement national
-                majeur dédié à la promotion du design sous toutes ses formes. Présents dans plusieurs grandes villes
-                françaises, les campus offrent à leurs étudiants une plateforme unique pour présenter leurs projets,
-                participer à des expositions, conférences et ateliers.<br
-              /></span>
-            </p>
-            <p class="text">
-              <span class="span"><br /></span>
-            </p>
-            <p class="text">
-              <span class="span"
-                >En 2024, Ynov a mis à l’honneur le thème « Simplicité ? », avec des événements organisés sur plusieurs
-                campus, illustrant la puissance du design épuré. Cette collaboration régulière témoigne de l’engagement
-                de Ynov à encourager l’innovation, la créativité et l’excellence dans les métiers du design.<br
-              /></span>
-            </p>
-            <p class="text">
-              <span class="span"><br /></span>
-            </p>
-            <p class="text">
-              <span class="span"
-                >Ynov accompagne ainsi ses étudiants dans leur immersion professionnelle et leur donne les clés pour
-                devenir les talents de demain.</span
-              >
-            </p>
-          </div>
-          <img
-            class="triangle-fdw-x-ynov"
-            src="https://c.animaapp.com/mcn7y8mgk92wHn/img/triangle-fdw-x-ynov--section-4--1.png"
-          />
-          <img
-            class="croix-fdw-x-ynov"
-            src="https://c.animaapp.com/mcn7y8mgk92wHn/img/croix-fdw-x-ynov--section-2--2.png"
-          />
-        </div>
-        <div class="overlap-group">
-          <div class="overlap-2">
-            <img class="rectangle-3" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-46.png" />
-            <div class="flexcontainer-2">
-              <p class="text">
-                <span class="span"
-                  >Au cœur de cette édition, l’exposition « Less is More » a mis en lumière le travail
-                  interdisciplinaire des étudiants en Architecture d’intérieur, Illustration et Audiovisuel. Ils ont
-                  conçu une installation immersive composée de :<br
-                /></span>
-              </p>
-              <p class="text">
-                <span class="span"
-                  >Maquettes grandeur nature : une table, deux assises et un jeu d’échecs aux lignes épurées et
-                  fonctionnelles, incarnant la simplicité et la praticité.<br
-                /></span>
-              </p>
-              <p class="text">
-                <span class="span"
-                  >Une scénographie immersive qui a plongé les visiteurs dans un univers où chaque détail compte.<br
-                /></span>
-              </p>
-              <p class="text">
-                <span class="span"
-                  >Une bande sonore originale, créée spécialement pour accompagner l’expérience visuelle.<br
-                /></span>
-              </p>
-              <p class="text">
-                <span class="span"><br /></span>
-              </p>
-              <p class="text">
-                <span class="span"
-                  >Cette exposition a été un véritable succès, montrant comment des formes simples peuvent générer une
-                  forte impression esthétique tout en répondant à des besoins fonctionnels.<br
-                /></span>
-              </p>
-              <p class="text">
-                <span class="span"><br /></span>
-              </p>
-              <p class="text"><span class="span"></span></p>
-            </div>
-            <div class="div-wrapper"><div class="text-wrapper-2">EN SAVOIR PLUS</div></div>
-          </div>
-          <div class="rectangle-4"></div>
-        </div>
-        <div class="overlap-3">
-          <img class="rectangle-5" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-46.png" />
-          <div class="rectangle-6"></div>
-          <div class="france-design-week">FRANCE DESIGN WEEK</div>
-          <div class="flexcontainer-3">
-            <p class="text">
-              <span class="span"
-                >France Design Week est un événement national annuel qui met à l’honneur la diversité et l’impact du
-                design dans notre quotidien. Organisée chaque mois de septembre, cette initiative fédère écoles,
-                agences, entreprises et créateurs autour d’un objectif commun : valoriser un design à la fois innovant,
-                responsable et engagé. L’édition 2025 adopte le thème du « design utile », une approche qui place
-                l’utilisateur au centre des réflexions et qui encourage les solutions concrètes aux enjeux actuels,
-                qu’ils soient écologiques, sociaux ou pratiques.<br
-              /></span>
-            </p>
-            <p class="text">
-              <span class="span"><br /></span>
-            </p>
-            <p class="text">
-              <span class="span"
-                >C’est dans cet esprit qu’a été imaginé le Kit Étudiant, un projet qui vise à simplifier le quotidien
-                des étudiants tout en mettant en valeur une démarche durable et fonctionnelle. Chaque objet du kit a été
-                pensé pour être à la fois compact, réutilisable et adapté à plusieurs profils et filières. Les
-                cartouches sont rechargeables, les boîtes peuvent s’empiler et s’adapter aux besoins, et l’ensemble
-                reflète une vraie volonté de faire du design un outil d’accompagnement concret dans la vie
-                étudiante.</span
-              >
-            </p>
-          </div>
-          <img class="ynov-campus" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/ynov-campus-logo-blanc.png" />
-          <img class="carre" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/france-design-week-logo-blanc.png" />
-          <img class="group" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/group-16.png" />
-          <img class="rectangle-7" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-92.png" />
-          <img
-            class="triangle-fdw-x-ynov-2"
-            src="https://c.animaapp.com/mcn7y8mgk92wHn/img/triangle-fdw-x-ynov--section-2--1.png"
-          />
-        </div>
-        <div class="les-anciens-projets">LES ANCIENS PROJETS</div>
-        <div class="text-wrapper-3">YNOV CAMPUS</div>
-        <div class="flexcontainer-4">
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"
-              >Les campus Ynov, répartis dans plusieurs grandes villes françaises, sont des espaces modernes conçus pour
-              former les talents de demain dans les domaines du numérique, de l’informatique, du design et de
-              l’innovation. Chaque campus dispose d’infrastructures modernes avec du matériel à la pointe de la
-              technologie, favorisant un apprentissage pratique et immersif.<br
-            /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"><br /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"
-              >Les étudiants bénéficient d’une pédagogie axée sur les projets concrets et la collaboration, avec un
-              accompagnement personnalisé tout au long de leur parcours. De nombreux partenariats avec des entreprises
-              permettent de mettre en place des stages, workshops et challenges professionnels, facilitant ainsi
-              l’insertion dans le monde du travail.<br
-            /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"><br /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"
-              >En plus d’un cadre de travail stimulant, les campus Ynov proposent une vie étudiante dynamique avec des
-              événements, des conférences, des hackathons et des activités extra-académiques qui enrichissent
-              l’expérience globale.<br
-            /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"><br /></span>
-          </p>
-          <p class="span-wrapper">
-            <span class="text-wrapper-4"
-              >Choisir Ynov, c’est opter pour une formation innovante, tournée vers l’avenir et adaptée aux évolutions
-              rapides des métiers du digital.</span
-            >
-          </p>
-        </div>
-        <img class="rectangle-8" src="https://c.animaapp.com/mcn7y8mgk92wHn/img/rectangle-94.png" />
-        
-        <img
-          class="cercle-fdw-x-ynov"
-          src="https://c.animaapp.com/mcn7y8mgk92wHn/img/cercle-fdw-x-ynov--section-3--1.png"
-        />
-        <img
-          class="carre-fdw-x-ynov"
-          src="https://c.animaapp.com/mcn7y8mgk92wHn/img/carre--fdw-x-ynov--section-3--1.png"
-        />
-        <img
-          class="croix-fdw-x-ynov-2"
-          src="https://c.animaapp.com/mcn7y8mgk92wHn/img/croix-fdw-x-ynov--section-2--2.png"
-        />
-      </div>
-    </div>
-      <div id="footer"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    fetch('header.html').then(r => r.text()).then(t => document.getElementById('hdr').innerHTML = t);
-    fetch('footer.html').then(r => r.text()).then(t => document.getElementById('footer').innerHTML = t);
-  </script>
+    <!-- Section Bannière -->
+    <section class="section-banniere">
+      <!-- Logos centrés -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <div class="logos-container">
+              <img src="/page html/images_test/collab/FDW.png" alt="France Design Week" class="logo-item">
+              <img src="/page html/images_test/collab/X.png" alt="X" class="logo-item">
+              <img src="/page html/images_test/collab/ynov campus 1.png" alt="Ynov Campus" class="logo-item">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section France Design Week -->
+    <section class="section-fdw-2025">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="titre-ynov-campus-video">YNOV CAMPUS 1 </h2>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6 contenu-principal">
+            <div class="texte-contenu">
+              <p>France Design Week est un événement national annuel qui met à l'honneur la diversité et l'impact du design dans notre quotidien. Organisée chaque mois de septembre, cette initiative fédère écoles, agences, entreprises et créateurs autour d'un objectif commun : valoriser un design à la fois innovant, responsable et engagé. L'édition 2025 adopte le thème du « design utile », une approche qui place l'utilisateur au centre des réflexions et qui encourage les solutions concrètes aux enjeux actuels, qu'ils soient écologiques, sociaux ou pratiques.</p>
+            </div>
+            <div class="texte-contenu mt-4">
+              <p>C'est dans cet esprit qu'a été imaginé le Kit Étudiant, un projet qui vise à simplifier le quotidien des étudiants tout en mettant en valeur une démarche durable et fonctionnelle. Chaque objet du kit a été pensé pour être à la fois compact, réutilisable et adapté à plusieurs profils et filières. Les cartouches sont rechargeables, les boîtes peuvent s'empiler et s'adapter aux besoins, et l'ensemble reflète une vraie volonté de faire du design un outil d'accompagnement concret dans la vie étudiante.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="video-container">
+              <video autoplay muted loop class="video-fdw">
+                <source src="/page html/images_test/collab/FRANCE-DESING-WEEK-FR-1.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Élément décoratif triangle -->
+      <img src="/page html/images_test/collab/triangle fdw x ynov (section 2).png" alt="" class="element-decoratif-triangle d-none d-md-block">
+    </section>
+
+ <!-- Section Ynov Campus - Texte à gauche, vidéo à droite, décoratifs -->
+    <section class="section-ynov-campus-video position-relative py-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="titre-ynov-campus-video">YNOV CAMPUS 2</h2>
+          </div>
+        </div>
+        <div class="row align-items-center mt-4 position-relative">
+          <!-- Colonne gauche : vidéo -->
+          <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center position-relative mb-5 mb-lg-0">
+            <div class="video-container-ynov">
+              <video autoplay muted loop class="video-ynov-campus">
+                <source src="/page html/images_test/collab/FRANCE-DESING-WEEK-FR-1.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+            </div>
+            <img src="/page html/images_test/collab/croix fdw x ynov (section 2).png" alt="Croix décorative" class="decoratif-croix-haut-gauche d-none d-md-block">
+            <img src="/page html/images_test/collab/carre fdw x ynov (section 3).png" alt="Carré décoratif" class="decoratif-carre-bas-gauche d-none d-md-block">
+          </div>
+          <!-- Colonne droite : texte -->
+          <div class="col-lg-6 d-flex flex-column align-items-start justify-content-center position-relative">
+            <div class="texte-ynov-campus-droite">
+              <p>Les campus Ynov, répartis dans plusieurs grandes villes françaises, sont des espaces modernes conçus pour former les talents de demain dans les domaines du numérique, de l’informatique, du design et de l’innovation. Chaque campus dispose d’infrastructures modernes avec du matériel à la pointe de la technologie, favorisant un apprentissage pratique et immersif.</p>
+              <p>Les étudiants bénéficient d’une pédagogie axée sur les projets concrets et la collaboration, avec un accompagnement personnalisé tout au long de leur parcours. De nombreux partenariats avec des entreprises permettent de mettre en place des stages, workshops et challenges professionnels, facilitant ainsi l’insertion dans le monde du travail.</p>
+              <p>En plus d’un cadre de travail stimulant, les campus Ynov proposent une vie étudiante dynamique avec des événements, des conférences, des hackathons et des activités extra-académiques qui enrichissent l’expérience globale.</p>
+              <p>Choisir Ynov, c’est opter pour une formation innovante, tournée vers l’avenir et adaptée aux évolutions rapides des métiers du digital.</p>
+            </div>
+            <img src="/page html/images_test/collab/cercle fdw x ynov (section 3).png" alt="Cercle décoratif" class="decoratif-cercle-bas-droite d-none d-md-block">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Ynov Campus Collaboration -->
+    <section class="section-ynov-collab position-relative">
+      <div class="container-fluid h-100">
+        <div class="row h-100">
+          <!-- Colonne texte à gauche -->
+          <div class="col-lg-6 d-flex flex-column align-items-start justify-content-start position-relative" style="z-index:3; height: 100%;">
+            <h1 class="titre-ynov-collab mt-5 ms-5">YNOV CAMPUS 3</h1>
+            <div class="contenu-texte ms-5 mt-5">
+              <div class="texte-contenu">
+                <p>Depuis 4 ans, les campus Ynov participent activement à la France Design Week, un événement national majeur dédié à la promotion du design sous toutes ses formes. Présents dans plusieurs grandes villes françaises, les campus offrent à leurs étudiants une plateforme unique pour présenter leurs projets, participer à des expositions, conférences et ateliers.</p>
+              </div>
+              <div class="texte-contenu mt-4">
+                <p>En 2024, Ynov a mis à l'honneur le thème « Simplicité ? », avec des événements organisés sur plusieurs campus, illustrant la puissance du design épuré. Cette collaboration régulière témoigne de l'engagement de Ynov à encourager l'innovation, la créativité et l'excellence dans les métiers du design.</p>
+              </div>
+              <div class="texte-contenu mt-4">
+                <p>Ynov accompagne ainsi ses étudiants dans leur immersion professionnelle et leur donne les clés pour devenir les talents de demain.</p>
+              </div>
+            </div>
+            <!-- Croix et triangle en bas à gauche, position absolue section -->
+            <img src="/page html/images_test/collab/croix fdw x ynov (section 2).png" alt="" class="element-decoratif-croix-2 d-none d-md-block">
+            <img src="/page html/images_test/collab/triangle fdw x ynov (section 4).png" alt="" class="element-decoratif-triangle-4 d-none d-md-block">
+          </div>
+          <!-- Colonne damier + checkers à droite -->
+          <div class="col-lg-6 position-relative d-flex flex-column align-items-center justify-content-center h-100 p-0">
+            <!-- Fond damier -->
+            <div class="fond-damier position-absolute top-0 end-0 h-100 w-100"></div>
+            <!-- Deux images checker.png -->
+            <div class="d-flex flex-column align-items-center justify-content-center w-100" style="z-index:3;">
+              <img src="/page html/images_test/collab/checker.png" alt="Checker 1" class="checker-image-custom mb-5">
+              <img src="/page html/images_test/collab/checker.png" alt="Checker 2" class="checker-image-custom">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Les anciens projets -->
+    <section class="section-anciens-projets">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center">
+            <h2 class="titre-anciens-projets">LES ANCIENS PROJETS</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section avec bactérie en fond et rectangle rouge centré -->
+    <section class="section-bacterie-rectangle position-relative d-flex align-items-center justify-content-center" style="min-height:1080px; height:1080px;">
+      <img src="/page html/images_test/collab/bactérie fdw x ynov (section 5).png" alt="Bactérie décorative" class="bacterie-bg-full">
+      <div class="rectangle-rouge-bacterie mx-auto d-flex flex-row align-items-stretch justify-content-between position-relative flex-nowrap" style="height:100%;">
+        <div class="checker-rectangle-gauche d-flex align-items-center justify-content-center flex-grow-1" style="min-width:0; width:50%;">
+          <img src="/page html/images_test/collab/checker.png" alt="Checker" class="img-checker-rectangle-grand">
+        </div>
+        <div class="texte-rectangle-droite d-flex flex-column justify-content-between h-100 ps-5 pe-5" style="width:50%; min-width:350px; max-width:900px;">
+          <div class="texte-rectangle-content">
+            <p>Au cœur de cette édition, l’exposition « Less is More » a mis en lumière le travail interdisciplinaire des étudiants en Architecture d’intérieur, Illustration et Audiovisuel. Ils ont conçu une installation immersive composée de :</p>
+            <ul class="puces-rectangle">
+              <li>Maquettes grandeur nature : une table, deux assises et un jeu d’échecs aux lignes épurées et fonctionnelles, incarnant la simplicité et la praticité.</li>
+              <li>Une scénographie immersive qui a plongé les visiteurs dans un univers où chaque détail compte.</li>
+              <li>Une bande sonore originale, créée spécialement pour accompagner l’expérience visuelle.</li>
+            </ul>
+            <p>Cette exposition a été un véritable succès, montrant comment des formes simples peuvent générer une forte impression esthétique tout en répondant à des besoins fonctionnels.</p>
+          </div>
+          <div class="d-flex justify-content-end align-items-end mt-4 w-100">
+            <button class="btn-en-savoir-plus-rectangle">EN SAVOIR PLUS</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      fetch('header.html').then(r => r.text()).then(t => document.getElementById('hdr').innerHTML = t);
+      fetch('footer.html').then(r => r.text()).then(t => document.getElementById('footer').innerHTML = t);
+    </script>
   </body>
 </html>
