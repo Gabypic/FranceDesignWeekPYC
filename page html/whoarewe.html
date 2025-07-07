@@ -1,108 +1,284 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Who Are We</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="style/style.css" rel="stylesheet">
-</head>
-<body class="whoarewe">
-  <div id="hdr"></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Rubik One font -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik+One:400" rel="stylesheet">
+    <style>
+      .banner-section {
+        background: #000;
+        min-height: 406px;
+        width: 100%;
+        max-width: 1920px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      .banner-title {
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 0;
+      }
+      @media (max-width: 991.98px) {
+        .banner-title {
+          font-size: 8vw;
+        }
+        .banner-section {
+          min-height: 200px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .banner-title {
+          font-size: 2rem;
+        }
+        .banner-section {
+          min-height: 120px;
+        }
+      }
+      .second-section {
+        background: #CC3300;
+        width: 100%;
+        max-width: 1920px;
+        opacity: 1;
+        margin: 0 auto;
+      }
+      @media (max-width: 991.98px) {
+        .second-section {
+          min-height: 600px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .second-section {
+          min-height: 300px;
+        }
+      }
+      .pens-par-des-title {
+        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0;
+        text-transform: uppercase;
+        color: #fff;
+        width: 690px;
+        height: 175px;
+        opacity: 1;
+        margin-top: 120px;
+        margin-left: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      @media (max-width: 991.98px) {
+        .pens-par-des-title {
+          font-size: 6vw;
+          width: 100%;
+          height: auto;
+          margin-left: 0;
+          margin-top: 60px;
+          align-items: flex-start;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .pens-par-des-title {
+          font-size: 2rem;
+          width: 100%;
+          margin: 40px 0 0 0;
+          text-align: center !important;
+          align-items: center;
+        }
+      }
+      .checker-img {
+        width: 990px;
+        max-width: 100%;
+        margin-top: 120px;
+        height: 806px;
+        max-height: 80vw;
+        border-radius: 50px;
+        opacity: 1;
+        object-fit: cover;
+        display: block;
+        margin-right: 0;
+      }
+      @media (max-width: 991.98px) {
+        .checker-img {
+          width: 100%;
+          height: auto;
+          margin-top: 32px;
+          border-radius: 30px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .checker-img {
+          width: 100%;
+          height: auto;
+          margin-top: 24px;
+          border-radius: 16px;
+        }
+      }
 
-  <section class="container position-relative banner my-5">
-    <img src="images_test/lead.png" class="img-fluid w-100">
-    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-      <h1>Who Are We?</h1>
-      <p class="lead">Une courte accroche ici</p>
-    </div>
-  </section>
+      .third-section {
+        background: #CC3300 !important;
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        min-height: 0;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+      }
+      .checker-img-section3 {
+        width: 480px;
+        height: 460px;
+        max-width: 100%;
+        border-radius: 37px;
+        opacity: 1;
+        object-fit: cover;
+        display: block;
+        margin-left: 20px;
+      }
+      @media (max-width: 991.98px) {
+        .checker-img-section3 {
+          width: 60vw;
+          height: auto;
+          border-radius: 24px;
+          margin-left: 12px;
+        }
+        .section3-text {
+          font-size: 4vw;
+          max-width: 100%;
+          margin-left: 24px;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .checker-img-section3 {
+          width: 90vw;
+          height: auto;
+          border-radius: 12px;
+          margin-left: 6px;
+        }
+        .section3-text {
+          font-size: 1rem;
+          margin: 12px 8px 0 0;
+          text-align: center;
+        }
+      }
+      .grille-bottom-left {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+      }
+      .grille-bottom-right {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+      }
 
-  <section class="container my-5">
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <img src="images_test/cc.png" class="img-fluid w-100">
-      </div>
-      <div class="col-12 col-md-6 d-flex align-items-center">
-        <div>
-          <h2>Notre histoire</h2>
-          <p>Texte descriptif.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      .pack-description {
+        font-family: 'Alata', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 150%;
+        letter-spacing: 0;
+        color: #fff;
+        max-width: 690px;
+        margin-left: 120px;
+        margin-top: 24px;
+      }
+      .pack-description p {
+        margin-bottom: 1.2em;
+      }
+      @media (max-width: 991.98px) {
+        .pack-description {
+          font-size: 4vw;
+          max-width: 100%;
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .pack-description {
+          font-size: 1rem;
+          margin: 24px 0 0 0;
+          text-align: center;
+        }
+      }
+      .gap-40 { gap: 40px; }
+      @media (max-width: 991.98px) { .gap-40 { gap: 24px; } }
+      @media (max-width: 575.98px) { .gap-40 { gap: 12px; } }
 
-  <section class="container my-5">
-    <ul class="nav nav-tabs nav-fill mb-3" id="whoTabs" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="tab-o1" data-bs-toggle="tab" data-bs-target="#o1" type="button" role="tab" aria-controls="o1" aria-selected="true">Onglet 1</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-o2" data-bs-toggle="tab" data-bs-target="#o2" type="button" role="tab" aria-controls="o2" aria-selected="false">Onglet 2</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-o3" data-bs-toggle="tab" data-bs-target="#o3" type="button" role="tab" aria-controls="o3" aria-selected="false">Onglet 3</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-o4" data-bs-toggle="tab" data-bs-target="#o4" type="button" role="tab" aria-controls="o4" aria-selected="false">Onglet 4</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-o5" data-bs-toggle="tab" data-bs-target="#o5" type="button" role="tab" aria-controls="o5" aria-selected="false">Onglet 5</button>
-      </li>
-    </ul>
-    <div class="tab-content" id="whoTabsContent">
-      <div class="tab-pane fade show active position-relative" id="o1" role="tabpanel" aria-labelledby="tab-o1">
-        <img src="images_test/onglet1.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3">
-          <h3>Titre 1</h3>
-          <p>Texte descriptif.</p>
+    </style>
+  </head>
+  <body class="bg-dark">
+    <div id="header-placeholder"></div>
+    <section class="banner-section d-flex">
+      <h1 class="banner-title w-100">QUI SOMMES NOUS ?</h1>
+    </section>
+    <section class="second-section d-flex w-100 align-items-start justify-content-start position-relative">
+      <div class="row w-100 gx-0">
+        <div class="col-12 col-lg-6 d-flex flex-column align-items-start">
+          <div class="pens-par-des-title text-start text-uppercase">
+            Pensé par des<br>étudiants pour
+          </div>
+          <div class="pack-description mt-4">
+            <p>
+              Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier fonctionnalité, style et organisation. L’ensemble adopte un univers graphique Memphis, aux couleurs franches, aux formes géométriques ludiques, pour insuffler une touche d’énergie à ton espace de travail.
+            </p>
+            <p>
+              Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à t’accompagner partout.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-start mt-4 mt-lg-0">
+          <img src="images_test/whoarewe/checker.png" alt="checker" class="checker-img img-fluid" />
         </div>
       </div>
-      <div class="tab-pane fade position-relative" id="o2" role="tabpanel" aria-labelledby="tab-o2">
-        <img src="images_test/onglet2.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3">
-          <h3>Titre 2</h3>
-          <p>Texte descriptif.</p>
+      <!-- Contenu à venir -->
+    </section>
+    <section class="third-section w-100 d-flex flex-row align-items-center justify-content-center position-relative" style="min-height: 0; padding: 0; background: #CC3300 !important;">
+      <div class="d-flex flex-row align-items-center justify-content-center w-100 gap-40" style="z-index:1;">
+        <img src="images_test/whoarewe/checker.png" alt="checker" class="checker-img-section3 img-fluid" />
+        <div class="section3-text d-flex flex-column justify-content-center align-items-start h-100" style="max-width: 600px; color: #fff;">
+          <p>
+            Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à t’accompagner partout.
+          </p>
+          <p>
+            Notre boîte de rangement façon bento box n’est pas qu’un simple contenant. C’est une vraie station de travail mobile. Divisée en compartiments intelligents, elle accueille soigneusement chacun des outils du kit. Et en bonus ? Son coin Post-it intégré. Oui, tu peux y noter une idée rapide, un mémo important ou juste gribouiller un smiley en pleine pause.
+          </p>
         </div>
       </div>
-      <div class="tab-pane fade position-relative" id="o3" role="tabpanel" aria-labelledby="tab-o3">
-        <img src="images_test/onglet3.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3">
-          <h3>Titre 3</h3>
-          <p>Texte descriptif.</p>
-        </div>
-      </div>
-      <div class="tab-pane fade position-relative" id="o4" role="tabpanel" aria-labelledby="tab-o4">
-        <img src="images_test/onglet4.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3">
-          <h3>Titre 4</h3>
-          <p>Texte descriptif.</p>
-        </div>
-      </div>
-      <div class="tab-pane fade position-relative" id="o5" role="tabpanel" aria-labelledby="tab-o5">
-        <img src="images_test/onglet5.png" class="img-fluid w-100">
-        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3">
-          <h3>Titre 5</h3>
-          <p>Texte descriptif.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div id="footer"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    fetch('header.html').then(r => r.text()).then(t => document.getElementById('hdr').innerHTML = t);
-    fetch('footer.html').then(r => r.text()).then(t => document.getElementById('footer').innerHTML = t);
-    const bt=document.createElement('button');
-    bt.id='backTop';
-    bt.className='btn btn-primary';
-    bt.textContent='↑ Top';
-    document.body.append(bt);
-    window.addEventListener('scroll',()=>bt.style.display=scrollY>200?'block':'none');
-    bt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
-  </script>
-</body>
+      <img src="images_test/whoarewe/grille avec croix, triangle, carré - qui somme nous (section 2) .png" alt="grille croix triangle carré" class="grille-bottom-left img-fluid align-self-end" style="display: block; margin: 0; padding: 0; position: absolute; left: 0; bottom: 0;" />
+      <img src="images_test/whoarewe/grille avec triangle, cercle qui somme nous (section 2).png" alt="grille triangle cercle" class="grille-bottom-right img-fluid align-self-end" style="display: block; margin: 0; padding: 0; position: absolute; right: 0; bottom: 0;" />
+    </section>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+        });
+    </script>
+    <!-- Suite à venir -->
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
