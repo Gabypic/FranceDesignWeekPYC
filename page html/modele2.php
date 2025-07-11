@@ -18,9 +18,6 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
 
 <div class="modele2-root">
     <style>
-        .modele2-root * {
-            outline: 1px solid rgba(0, 0, 0, 0.2);
-        }
         .modele2-root body {
             padding: 0;
             font-family: 'Alata', sans-serif;

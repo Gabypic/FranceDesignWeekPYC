@@ -1,284 +1,1115 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Rubik One font -->
-    <link href="https://fonts.googleapis.com/css?family=Rubik+One:400" rel="stylesheet">
-    <style>
-      .banner-section {
-        background: #000;
-        min-height: 406px;
-        width: 100%;
-        max-width: 1920px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-      }
-      .banner-title {
-        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 64px;
-        line-height: 100%;
-        letter-spacing: 0;
-        text-align: center;
-        text-transform: uppercase;
-        color: #fff;
-        margin: 0;
-      }
-      @media (max-width: 991.98px) {
-        .banner-title {
-          font-size: 8vw;
-        }
-        .banner-section {
-          min-height: 200px;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .banner-title {
-          font-size: 2rem;
-        }
-        .banner-section {
-          min-height: 120px;
-        }
-      }
-      .second-section {
-        background: #CC3300;
-        width: 100%;
-        max-width: 1920px;
-        opacity: 1;
-        margin: 0 auto;
-      }
-      @media (max-width: 991.98px) {
-        .second-section {
-          min-height: 600px;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .second-section {
-          min-height: 300px;
-        }
-      }
-      .pens-par-des-title {
-        font-family: 'Rubik One', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 64px;
-        line-height: 100%;
-        letter-spacing: 0;
-        text-transform: uppercase;
-        color: #fff;
-        width: 690px;
-        height: 175px;
-        opacity: 1;
-        margin-top: 120px;
-        margin-left: 120px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-      }
-      @media (max-width: 991.98px) {
-        .pens-par-des-title {
-          font-size: 6vw;
-          width: 100%;
-          height: auto;
-          margin-left: 0;
-          margin-top: 60px;
-          align-items: flex-start;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .pens-par-des-title {
-          font-size: 2rem;
-          width: 100%;
-          margin: 40px 0 0 0;
-          text-align: center !important;
-          align-items: center;
-        }
-      }
-      .checker-img {
-        width: 990px;
-        max-width: 100%;
-        margin-top: 120px;
-        height: 806px;
-        max-height: 80vw;
-        border-radius: 50px;
-        opacity: 1;
-        object-fit: cover;
-        display: block;
-        margin-right: 0;
-      }
-      @media (max-width: 991.98px) {
-        .checker-img {
-          width: 100%;
-          height: auto;
-          margin-top: 32px;
-          border-radius: 30px;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .checker-img {
-          width: 100%;
-          height: auto;
-          margin-top: 24px;
-          border-radius: 16px;
-        }
-      }
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <style>
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+    * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      margin: 0px;
+      height: 100%;
+    }
+    /* a blue color as a generic focus style */
+    button:focus-visible {
+      outline: 2px solid #4a90e2 !important;
+      outline: -webkit-focus-ring-color auto 5px !important;
+    }
+    a {
+      text-decoration: none;
+    }
 
-      .third-section {
-        background: #CC3300 !important;
-        width: 100%;
-        max-width: 1920px;
-        margin: 0 auto;
-        min-height: 0;
-        padding: 0;
-        overflow: hidden;
-        position: relative;
-      }
-      .checker-img-section3 {
-        width: 480px;
-        height: 460px;
-        max-width: 100%;
-        border-radius: 37px;
-        opacity: 1;
-        object-fit: cover;
-        display: block;
-        margin-left: 20px;
-      }
-      @media (max-width: 991.98px) {
-        .checker-img-section3 {
-          width: 60vw;
-          height: auto;
-          border-radius: 24px;
-          margin-left: 12px;
-        }
-        .section3-text {
-          font-size: 4vw;
-          max-width: 100%;
-          margin-left: 24px;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .checker-img-section3 {
-          width: 90vw;
-          height: auto;
-          border-radius: 12px;
-          margin-left: 6px;
-        }
-        .section3-text {
-          font-size: 1rem;
-          margin: 12px 8px 0 0;
-          text-align: center;
-        }
-      }
-      .grille-bottom-left {
-        height: auto;
-        width: auto;
-        max-width: 100%;
-      }
-      .grille-bottom-right {
-        height: auto;
-        width: auto;
-        max-width: 100%;
-      }
+    .qui-sommes-nous {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+    }
 
-      .pack-description {
-        font-family: 'Alata', Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 20px;
-        line-height: 150%;
-        letter-spacing: 0;
-        color: #fff;
-        max-width: 690px;
-        margin-left: 120px;
-        margin-top: 24px;
-      }
-      .pack-description p {
-        margin-bottom: 1.2em;
-      }
-      @media (max-width: 991.98px) {
-        .pack-description {
-          font-size: 4vw;
-          max-width: 100%;
-          margin-left: 0;
-        }
-      }
-      @media (max-width: 575.98px) {
-        .pack-description {
-          font-size: 1rem;
-          margin: 24px 0 0 0;
-          text-align: center;
-        }
-      }
-      .gap-40 { gap: 40px; }
-      @media (max-width: 991.98px) { .gap-40 { gap: 24px; } }
-      @media (max-width: 575.98px) { .gap-40 { gap: 12px; } }
+    .qui-sommes-nous .div {
+      background-color: #ffffff;
+      overflow: hidden;
+      width: 1920px;
+      height: 3979px;
+      position: relative;
+    }
 
-    </style>
-  </head>
-  <body class="bg-dark">
-    <div id="header-placeholder"></div>
-    <section class="banner-section d-flex">
-      <h1 class="banner-title w-100">QUI SOMMES NOUS ?</h1>
-    </section>
-    <section class="second-section d-flex w-100 align-items-start justify-content-start position-relative">
-      <div class="row w-100 gx-0">
-        <div class="col-12 col-lg-6 d-flex flex-column align-items-start">
-          <div class="pens-par-des-title text-start text-uppercase">
-            Pensé par des<br>étudiants pour
-          </div>
-          <div class="pack-description mt-4">
-            <p>
-              Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier fonctionnalité, style et organisation. L’ensemble adopte un univers graphique Memphis, aux couleurs franches, aux formes géométriques ludiques, pour insuffler une touche d’énergie à ton espace de travail.
-            </p>
-            <p>
-              Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à t’accompagner partout.
-            </p>
+    .qui-sommes-nous .overlap {
+      position: absolute;
+      width: 1920px;
+      height: 1040px;
+      top: 2572px;
+      left: 0;
+    }
+
+    .qui-sommes-nous .suite-de-s-inverse {
+      position: absolute;
+      width: 359px;
+      height: 390px;
+      top: 650px;
+      left: 1561px;
+    }
+
+    .qui-sommes-nous .suite-de-s-qui-somme {
+      position: absolute;
+      width: 358px;
+      height: 390px;
+      top: 650px;
+      left: 0;
+    }
+
+    .qui-sommes-nous .group {
+      position: absolute;
+      width: 1680px;
+      height: 950px;
+      top: 0;
+      left: 120px;
+      overflow: hidden;
+    }
+
+    .qui-sommes-nous .bouton-archi {
+      position: absolute;
+      width: 302px;
+      height: 211px;
+      top: 0;
+      left: 690px;
+    }
+
+    .qui-sommes-nous .overlap-group {
+      position: relative;
+      width: 300px;
+      height: 211px;
+    }
+
+    .qui-sommes-nous .rectangle {
+      position: absolute;
+      width: 300px;
+      height: 210px;
+      top: 0;
+      left: 0;
+      background-color: #63b77b;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-archi {
+      width: 212px;
+      height: 211px;
+      left: 1px;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .architecture-d-int {
+      position: absolute;
+      width: 299px;
+      height: 59px;
+      top: 75px;
+      left: 1px;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .bouton-audio {
+      position: absolute;
+      width: 302px;
+      height: 211px;
+      top: 0;
+      left: 1035px;
+    }
+
+    .qui-sommes-nous .rectangle-2 {
+      position: absolute;
+      width: 300px;
+      height: 210px;
+      top: 1px;
+      left: 0;
+      background-color: #dfc54d;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-audio {
+      width: 176px;
+      height: 211px;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .text-wrapper {
+      position: absolute;
+      width: 300px;
+      height: 59px;
+      top: 75px;
+      left: 0;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .bouton-crea {
+      position: absolute;
+      width: 302px;
+      height: 211px;
+      top: 0;
+      left: 345px;
+    }
+
+    .qui-sommes-nous .rectangle-3 {
+      position: absolute;
+      width: 300px;
+      height: 210px;
+      top: 0;
+      left: 0;
+      background-color: #a1e3a5;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-crea {
+      width: 211px;
+      height: 211px;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .cr-ation-digital {
+      position: absolute;
+      width: 300px;
+      height: 99px;
+      top: 55px;
+      left: 0;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .bouton-info {
+      position: absolute;
+      width: 302px;
+      height: 211px;
+      top: 0;
+      left: 1380px;
+    }
+
+    .qui-sommes-nous .rectangle-4 {
+      position: absolute;
+      width: 300px;
+      height: 210px;
+      top: 0;
+      left: 0;
+      background-color: #74c3de;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-info {
+      width: 207px;
+      height: 211px;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .overlap-2 {
+      position: absolute;
+      width: 2526px;
+      height: 688px;
+      top: 262px;
+      left: -846px;
+    }
+
+    .qui-sommes-nous .base {
+      position: absolute;
+      width: 2526px;
+      height: 688px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .overlap-3 {
+      position: relative;
+      height: 688px;
+    }
+
+    .qui-sommes-nous .rectangle-5 {
+      position: absolute;
+      width: 1679px;
+      height: 687px;
+      top: 0;
+      left: 847px;
+      background-color: #edb07f;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-filire {
+      width: 1673px;
+      height: 688px;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .overlap-group-2 {
+      position: absolute;
+      width: 826px;
+      height: 688px;
+      top: 11083px;
+      left: 84px;
+      background-image: url(./img/fond-archi.png);
+      background-size: 100% 100%;
+    }
+
+    .qui-sommes-nous .img {
+      position: absolute;
+      width: 826px;
+      height: 688px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .fond-audio-2 {
+      position: absolute;
+      width: 826px;
+      height: 687px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .fond-crea-2 {
+      position: absolute;
+      width: 825px;
+      height: 687px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .fond-com {
+      width: 826px;
+      height: 687px;
+      left: 847px;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .texte {
+      position: absolute;
+      width: 1364px;
+      height: 278px;
+      top: 60px;
+      left: 1021px;
+    }
+
+    .qui-sommes-nous .text-wrapper-2 {
+      position: absolute;
+      width: 821px;
+      height: 46px;
+      top: 0;
+      left: 0;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .les-membres-de-l {
+      position: absolute;
+      width: 386px;
+      height: 46px;
+      top: 0;
+      left: 970px;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .mentor {
+      position: absolute;
+      width: 386px;
+      height: 46px;
+      top: 96px;
+      left: 970px;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .quipe-creative {
+      position: absolute;
+      width: 386px;
+      height: 46px;
+      top: 232px;
+      left: 970px;
+      font-family: var(--sous-titre-font-family);
+      font-weight: var(--sous-titre-font-weight);
+      color: #000000;
+      font-size: var(--sous-titre-font-size);
+      text-align: center;
+      letter-spacing: var(--sous-titre-letter-spacing);
+      line-height: var(--sous-titre-line-height);
+      font-style: var(--sous-titre-font-style);
+    }
+
+    .qui-sommes-nous .vido {
+      position: absolute;
+      width: 945px;
+      height: 481px;
+      top: 140px;
+      left: 959px;
+    }
+
+    .qui-sommes-nous .rectangle-6 {
+      position: absolute;
+      width: 767px;
+      height: 432px;
+      top: 0;
+      left: 89px;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .barre {
+      position: absolute;
+      width: 767px;
+      height: 5px;
+      top: 476px;
+      left: 89px;
+    }
+
+    .qui-sommes-nous .rectangle-7 {
+      position: absolute;
+      width: 5px;
+      height: 767px;
+      top: -381px;
+      left: 381px;
+      background-color: #0d0d0d;
+      border-radius: 15px;
+      transform: rotate(90.00deg);
+      opacity: 0.2;
+    }
+
+    .qui-sommes-nous .rectangle-8 {
+      position: absolute;
+      width: 5px;
+      height: 384px;
+      top: -189px;
+      left: 189px;
+      background-color: #0d0d0d;
+      border-radius: 15px;
+      transform: rotate(90.00deg);
+    }
+
+    .qui-sommes-nous .bouton-gauche {
+      position: absolute;
+      width: 51px;
+      height: 100px;
+      top: 164px;
+      left: 0;
+      background-color: #0d0d0d80;
+      border-radius: 15px;
+    }
+
+    .qui-sommes-nous .group-2 {
+      position: absolute;
+      width: 25px;
+      height: 27px;
+      top: 38px;
+      left: 16px;
+    }
+
+    .qui-sommes-nous .bouton-droit {
+      position: absolute;
+      width: 51px;
+      height: 100px;
+      top: 164px;
+      left: 894px;
+    }
+
+    .qui-sommes-nous .overlap-group-3 {
+      position: relative;
+      height: 100px;
+      border-radius: 15px;
+    }
+
+    .qui-sommes-nous .rectangle-9 {
+      position: absolute;
+      width: 51px;
+      height: 100px;
+      top: 0;
+      left: 0;
+      background-color: #0d0d0d80;
+      border-radius: 15px;
+      transform: rotate(180deg);
+    }
+
+    .qui-sommes-nous .group-3 {
+      position: absolute;
+      width: 25px;
+      height: 27px;
+      top: 38px;
+      left: 11px;
+    }
+
+    .qui-sommes-nous .txt-com {
+      position: absolute;
+      width: 390px;
+      height: 186px;
+      top: 202px;
+      left: 1991px;
+    }
+
+    .qui-sommes-nous .text-wrapper-3 {
+      position: absolute;
+      width: 386px;
+      height: 28px;
+      top: 0;
+      left: 0;
+      font-family: var(--texte-font-family);
+      font-weight: var(--texte-font-weight);
+      color: #000000;
+      font-size: var(--texte-font-size);
+      text-align: center;
+      letter-spacing: var(--texte-letter-spacing);
+      line-height: var(--texte-line-height);
+      font-style: var(--texte-font-style);
+    }
+
+    .qui-sommes-nous .text-wrapper-4 {
+      position: absolute;
+      width: 386px;
+      height: 28px;
+      top: 158px;
+      left: 0;
+      font-family: var(--texte-font-family);
+      font-weight: var(--texte-font-weight);
+      color: #000000;
+      font-size: var(--texte-font-size);
+      text-align: center;
+      letter-spacing: var(--texte-letter-spacing);
+      line-height: var(--texte-line-height);
+      font-style: var(--texte-font-style);
+    }
+
+    .qui-sommes-nous .bouton-com {
+      position: absolute;
+      width: 302px;
+      height: 210px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .overlap-4 {
+      position: relative;
+      width: 300px;
+      height: 210px;
+      background-color: #edb07f;
+      border-radius: 37px;
+    }
+
+    .qui-sommes-nous .fond-com-2 {
+      position: absolute;
+      width: 188px;
+      height: 210px;
+      top: 0;
+      left: 0;
+    }
+
+    .qui-sommes-nous .marketing {
+      position: absolute;
+      width: 299px;
+      height: 139px;
+      top: 35px;
+      left: 0;
+      font-family: "Baloo Thambi-Regular", Helvetica;
+      font-weight: 400;
+      color: #000000;
+      font-size: 32px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+
+    .qui-sommes-nous .overlap-5 {
+      position: absolute;
+      width: 1920px;
+      height: 1735px;
+      top: 540px;
+      left: 0;
+      background-color: #cc3300;
+    }
+
+    .qui-sommes-nous .overlap-6 {
+      position: absolute;
+      width: 1110px;
+      height: 672px;
+      top: 1041px;
+      left: 810px;
+    }
+
+    .qui-sommes-nous .grille-avec-triangle {
+      position: absolute;
+      width: 376px;
+      height: 407px;
+      top: 265px;
+      left: 734px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .flexcontainer {
+      width: 990px;
+      height: 562px;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .text {
+      position: relative;
+      align-self: stretch;
+      font-family: var(--texte-font-family);
+      font-weight: var(--texte-font-weight);
+      color: #ffffff;
+      font-size: var(--texte-font-size);
+      letter-spacing: var(--texte-letter-spacing);
+      line-height: var(--texte-line-height);
+      font-style: var(--texte-font-style);
+    }
+
+    .qui-sommes-nous .span {
+      font-family: var(--texte-font-family);
+      font-weight: var(--texte-font-weight);
+      color: #ffffff;
+      font-size: var(--texte-font-size);
+      letter-spacing: var(--texte-letter-spacing);
+      font-style: var(--texte-font-style);
+      line-height: var(--texte-line-height);
+    }
+
+    .qui-sommes-nous .overlap-7 {
+      position: absolute;
+      width: 766px;
+      height: 1363px;
+      top: 346px;
+      left: 0;
+    }
+
+    .qui-sommes-nous .grille-avec-croix {
+      position: absolute;
+      width: 435px;
+      height: 815px;
+      top: 548px;
+      left: 0;
+    }
+
+    .qui-sommes-nous .flexcontainer-2 {
+      width: 646px;
+      height: 557px;
+      left: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      position: absolute;
+      top: 0;
+    }
+
+    .qui-sommes-nous .rectangle-10 {
+      position: absolute;
+      width: 644px;
+      height: 614px;
+      top: 670px;
+      left: 121px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .pens-par-des {
+      position: absolute;
+      width: 690px;
+      top: 104px;
+      left: 120px;
+      font-family: var(--titre-font-family);
+      font-weight: var(--titre-font-weight);
+      color: #ffffff;
+      font-size: var(--titre-font-size);
+      letter-spacing: var(--titre-letter-spacing);
+      line-height: var(--titre-line-height);
+      font-style: var(--titre-font-style);
+    }
+
+    .qui-sommes-nous .rectangle-11 {
+      position: absolute;
+      width: 990px;
+      height: 806px;
+      top: 105px;
+      left: 810px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .div-wrapper {
+      position: absolute;
+      width: 1920px;
+      height: 406px;
+      top: 134px;
+      left: 0;
+      background-image: url(./img/rectangle-181.png);
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    .qui-sommes-nous .text-wrapper-5 {
+      position: absolute;
+      width: 990px;
+      top: 152px;
+      left: 465px;
+      font-family: var(--titre-font-family);
+      font-weight: var(--titre-font-weight);
+      color: #ffffff;
+      font-size: var(--titre-font-size);
+      text-align: center;
+      letter-spacing: var(--titre-letter-spacing);
+      line-height: var(--titre-line-height);
+      font-style: var(--titre-font-style);
+    }
+
+    .qui-sommes-nous .pr-sentation {
+      position: absolute;
+      width: 990px;
+      top: 2379px;
+      left: 465px;
+      font-family: var(--titre-font-family);
+      font-weight: var(--titre-font-weight);
+      color: #000000;
+      font-size: var(--titre-font-size);
+      text-align: center;
+      letter-spacing: var(--titre-letter-spacing);
+      line-height: var(--titre-line-height);
+      font-style: var(--titre-font-style);
+    }
+
+    .qui-sommes-nous .overlap-wrapper {
+      position: absolute;
+      width: 1922px;
+      height: 367px;
+      top: 3612px;
+      left: 0;
+    }
+
+    .qui-sommes-nous .overlap-8 {
+      position: relative;
+      width: 1920px;
+      height: 367px;
+      background-color: #cc3333;
+    }
+
+    .qui-sommes-nous .ynov-campus-logo {
+      position: absolute;
+      width: 241px;
+      height: 135px;
+      top: 43px;
+      left: 1501px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .france-design-week {
+      position: absolute;
+      width: 102px;
+      height: 136px;
+      top: 43px;
+      left: 178px;
+    }
+
+    .qui-sommes-nous .x {
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      top: 217px;
+      left: 1550px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .you-tube {
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      top: 217px;
+      left: 1651px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .facebook {
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      top: 217px;
+      left: 1500px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .instagram {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 218px;
+      left: 1702px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .linkedin {
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      top: 217px;
+      left: 1601px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .you-tube-2 {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 218px;
+      left: 279px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .facebook-2 {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 218px;
+      left: 178px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .instagram-2 {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 218px;
+      left: 330px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .linkedin-2 {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 218px;
+      left: 229px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .p {
+      position: absolute;
+      width: 646px;
+      top: 311px;
+      left: 637px;
+      font-family: var(--texte-font-family);
+      font-weight: var(--texte-font-weight);
+      color: #ffffff;
+      font-size: var(--texte-font-size);
+      text-align: center;
+      letter-spacing: var(--texte-letter-spacing);
+      line-height: var(--texte-line-height);
+      font-style: var(--texte-font-style);
+    }
+
+    .qui-sommes-nous .logo-blanc-grand {
+      position: absolute;
+      width: 267px;
+      height: 138px;
+      top: 41px;
+      left: 826px;
+      object-fit: cover;
+    }
+
+    .qui-sommes-nous .frame {
+      position: fixed;
+      width: 1920px;
+      height: 134px;
+      top: 0;
+      left: 0;
+      background-color: #cc3333;
+    }
+
+    .qui-sommes-nous .qui-somme-nous {
+      position: absolute;
+      width: 300px;
+      height: 38px;
+      top: 90px;
+      left: 1155px;
+    }
+
+    .qui-sommes-nous .text-wrapper-6 {
+      position: absolute;
+      width: 221px;
+      height: 38px;
+      top: -1px;
+      left: 39px;
+      font-family: "Rubik One-Regular", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: 24.0px;
+    }
+
+    .qui-sommes-nous .fdw-x-ynov-campus {
+      position: absolute;
+      width: 300px;
+      height: 38px;
+      top: 90px;
+      left: 810px;
+    }
+
+    .qui-sommes-nous .text-wrapper-7 {
+      position: absolute;
+      width: 300px;
+      height: 38px;
+      top: -1px;
+      left: 0;
+      font-family: "Rubik One-Regular", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: 24.0px;
+    }
+
+    .qui-sommes-nous .articles {
+      position: absolute;
+      width: 300px;
+      height: 38px;
+      top: 90px;
+      left: 465px;
+    }
+
+    .qui-sommes-nous .text-wrapper-8 {
+      position: absolute;
+      width: 135px;
+      height: 38px;
+      top: -1px;
+      left: 82px;
+      font-family: "Rubik One-Regular", Helvetica;
+      font-weight: 400;
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 0;
+      line-height: 24.0px;
+    }
+
+    .qui-sommes-nous .logo-sos-FDW {
+      position: absolute;
+      width: 82px;
+      height: 82px;
+      top: 5px;
+      left: 919px;
+      object-fit: cover;
+    }
+
+    :root {
+      --titre-font-family: "Rubik One", Helvetica;
+      --titre-font-weight: 400;
+      --titre-font-size: 64px;
+      --titre-letter-spacing: 0px;
+      --titre-line-height: normal;
+      --titre-font-style: normal;
+      --sous-titre-font-family: "Baloo Thambi", Helvetica;
+      --sous-titre-font-weight: 400;
+      --sous-titre-font-size: 30px;
+      --sous-titre-letter-spacing: 0px;
+      --sous-titre-line-height: normal;
+      --sous-titre-font-style: normal;
+      --texte-font-family: "Alata", Helvetica;
+      --texte-font-weight: 400;
+      --texte-font-size: 20px;
+      --texte-letter-spacing: 0px;
+      --texte-line-height: normal;
+      --texte-font-style: normal;
+    }
+
+  </style>
+</head>
+<body>
+<div class="qui-sommes-nous">
+  <div class="div">
+    <div class="overlap">
+      <img class="suite-de-s-inverse" src="img/suite-de-s-inverse-qui-somme-nous-section-3-1.png" />
+      <img class="suite-de-s-qui-somme" src="img/suite-de-s-qui-somme-nous-section-3-1.png" />
+      <div class="group">
+        <div class="bouton-archi">
+          <div class="overlap-group">
+            <div class="rectangle"></div>
+            <img class="fond-archi" src="images_test/fond%20filiaire/fond%20archi.png" />
+            <div class="architecture-d-int">ARCHITECTURE D&#39;INTÉRIEUR</div>
           </div>
         </div>
-        <div class="col-12 col-lg-6 d-flex justify-content-lg-end justify-content-center align-items-start mt-4 mt-lg-0">
-          <img src="images_test/whoarewe/checker.png" alt="checker" class="checker-img img-fluid" />
+        <div class="bouton-audio">
+          <div class="overlap-group">
+            <div class="rectangle-2"></div>
+            <img class="fond-audio" src="images_test/fond%20filiaire/fond%20audio.png" />
+            <div class="text-wrapper">AUDIOVISUEL</div>
+          </div>
+        </div>
+        <div class="bouton-crea">
+          <div class="overlap-group">
+            <div class="rectangle-3"></div>
+            <img class="fond-crea" src="images_test/fond%20filiaire/fond%20crea.png" />
+            <div class="cr-ation-digital">CRÉATION &amp;<br />DIGITAL DESIGN</div>
+          </div>
+        </div>
+        <div class="bouton-info">
+          <div class="overlap-group">
+            <div class="rectangle-4"></div>
+            <img class="fond-info" src="images_test/fond%20filiaire/fond%20info.png" />
+            <div class="text-wrapper">INFORMATIQUE</div>
+          </div>
+        </div>
+        <div class="overlap-2">
+          <div class="base">
+            <div class="overlap-3">
+              <div class="rectangle-5"></div>
+              <div class="fond-filire">
+                <div class="overlap-group-2">
+                  <img class="img" src="images_test/fond%20filiaire/fond%20info.png" />
+                  <img class="fond-audio-2" src="images_test/fond%20filiaire/fond%20audio.png" />
+                  <img class="fond-crea-2" src="images_test/fond%20filiaire/fond%20crea.png" />
+                </div>
+                <img class="fond-com" src="images_test/fond%20filiaire/fond%20com.png" />
+              </div>
+              <div class="texte">
+                <div class="text-wrapper-2">INTERVIEW</div>
+                <div class="les-membres-de-l">LES MEMBRES DE L’ÉQUIPE</div>
+                <div class="mentor">MENTOR</div>
+                <div class="quipe-creative">ÉQUIPE CREATIVE</div>
+              </div>
+              <div class="vido">
+                <div class="rectangle-6"></div>
+                <div class="barre">
+                  <div class="rectangle-7"></div>
+                  <div class="rectangle-8"></div>
+                </div>
+                <div class="bouton-gauche"><img class="group-2" src="img/group-5.png" /></div>
+                <div class="bouton-droit">
+                  <div class="overlap-group-3">
+                    <div class="rectangle-9"></div>
+                    <img class="group-3" src="img/group-5-2.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="txt-com">
+            <div class="text-wrapper-3">DUREUIL Kewan</div>
+            <div class="text-wrapper-4">SZMIKOWSKI Anastasia</div>
+          </div>
+        </div>
+        <div class="bouton-com">
+          <div class="overlap-4">
+            <img class="fond-com-2" src="images_test/fond%20filiaire/fond%20com.png" />
+            <div class="marketing">MARKETING &amp; COMMUNICATION DIGITALE</div>
+          </div>
         </div>
       </div>
-      <!-- Contenu à venir -->
-    </section>
-    <section class="third-section w-100 d-flex flex-row align-items-center justify-content-center position-relative" style="min-height: 0; padding: 0; background: #CC3300 !important;">
-      <div class="d-flex flex-row align-items-center justify-content-center w-100 gap-40" style="z-index:1;">
-        <img src="images_test/whoarewe/checker.png" alt="checker" class="checker-img-section3 img-fluid" />
-        <div class="section3-text d-flex flex-column justify-content-center align-items-start h-100" style="max-width: 600px; color: #fff;">
-          <p>
-            Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à t’accompagner partout.
+    </div>
+    <div class="overlap-5">
+      <div class="overlap-6">
+        <img class="grille-avec-triangle" src="images_test/qui%20somme%20nous/grille%20avec%20triangle,%20cercle%20qui%20somme%20nous%20(section%202).png" />
+        <div class="flexcontainer">
+          <p class="text">
+                                <span class="span"
+                                >Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets
+                                    entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à
+                                    cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une
+                                    sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à
+                                    t’accompagner partout.<br
+                                  /></span>
           </p>
-          <p>
-            Notre boîte de rangement façon bento box n’est pas qu’un simple contenant. C’est une vraie station de travail mobile. Divisée en compartiments intelligents, elle accueille soigneusement chacun des outils du kit. Et en bonus ? Son coin Post-it intégré. Oui, tu peux y noter une idée rapide, un mémo important ou juste gribouiller un smiley en pleine pause.
+          <p class="text">
+            <span class="span"><br /></span>
+          </p>
+          <p class="text">
+                                <span class="span"
+                                >Notre boîte de rangement façon bento box n’est pas qu’un simple contenant. C’est une vraie station de
+                                    travail mobile. Divisée en compartiments intelligents, elle accueille soigneusement chacun des outils
+                                    du kit. Et en bonus ? Son coin Post-it intégré. Oui, tu peux y noter une idée rapide, un mémo
+                                    important ou juste gribouiller un smiley en pleine pause.</span
+                                >
           </p>
         </div>
       </div>
-      <img src="images_test/whoarewe/grille avec croix, triangle, carré - qui somme nous (section 2) .png" alt="grille croix triangle carré" class="grille-bottom-left img-fluid align-self-end" style="display: block; margin: 0; padding: 0; position: absolute; left: 0; bottom: 0;" />
-      <img src="images_test/whoarewe/grille avec triangle, cercle qui somme nous (section 2).png" alt="grille triangle cercle" class="grille-bottom-right img-fluid align-self-end" style="display: block; margin: 0; padding: 0; position: absolute; right: 0; bottom: 0;" />
-    </section>
-    <script>
-      fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header-placeholder').innerHTML = data;
-        });
-    </script>
-    <!-- Suite à venir -->
-    <div id="footer-placeholder"></div>
-    <script>
-      fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('footer-placeholder').innerHTML = data;
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+      <div class="overlap-7">
+        <img class="grille-avec-croix" src="images_test/qui%20somme%20nous/grille%20avec%20croix,%20triangle,%20carré%20-%20qui%20somme%20nous%20(section%202)%20.png" />
+        <div class="flexcontainer-2">
+          <p class="text">
+                                <span class="span"
+                                >Chaque élément de ce pack a été choisi avec soin, en pensant aux étudiants qui aiment allier
+                                    fonctionnalité, style et organisation. L’ensemble adopte un univers graphique Memphis, aux couleurs
+                                    franches, aux formes géométriques ludiques, pour insuffler une touche d’énergie à ton espace de
+                                    travail.<br
+                                  /></span>
+          </p>
+          <p class="text">
+            <span class="span"><br /></span>
+          </p>
+          <p class="text">
+                                <span class="span"
+                                >Entre les premiers cours, les travaux de groupe, les idées qui fusent à toute heure et les trajets
+                                    entre deux bâtiments, le quotidien d’un étudiant est un vrai marathon créatif. C’est pour répondre à
+                                    cette effervescence que nous avons conçu le kit étudiant utile, pensé comme un bento design : une
+                                    sélection d’objets essentiels, bien compartimentés, pratiques, esthétiques — et surtout, prêts à
+                                    t’accompagner partout.</span
+                                >
+          </p>
+        </div>
+        <img class="rectangle-10" src="img/rectangle-47.png" />
+      </div>
+      <p class="pens-par-des">PENSÉ PAR DES ÉTUDIANTS POUR</p>
+      <img class="rectangle-11" src="img/rectangle-99.png" />
+    </div>
+    <div class="div-wrapper"><div class="text-wrapper-5">QUI SOMMES NOUS ?</div></div>
+    <div class="pr-sentation">PRÉSENTATION</div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

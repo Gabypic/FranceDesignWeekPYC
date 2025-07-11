@@ -19,9 +19,6 @@ $image2 = $current_article['image2'] ? "../Guillaume/site_vitrine/public/images/
 
 <div class="modele1-root">
   <style>
-    .modele1-root * {
-      outline: 1px solid rgba(0, 0, 0, 0.2);
-    }
     .modele1-root body {
       font-family: 'Alata', sans-serif;
       margin: 0;
