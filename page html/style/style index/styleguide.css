@@ -1,0 +1,20 @@
+:root {
+  --titre-font-family: "Rubik One", Helvetica;
+  --titre-font-weight: 400;
+  --titre-font-size: 64px;
+  --titre-letter-spacing: 0px;
+  --titre-line-height: normal;
+  --titre-font-style: normal;
+  --texte-font-family: "Alata", Helvetica;
+  --texte-font-weight: 400;
+  --texte-font-size: 20px;
+  --texte-letter-spacing: 0px;
+  --texte-line-height: normal;
+  --texte-font-style: normal;
+  --sous-titre-font-family: "Baloo Thambi", Helvetica;
+  --sous-titre-font-weight: 400;
+  --sous-titre-font-size: 30px;
+  --sous-titre-letter-spacing: 0px;
+  --sous-titre-line-height: normal;
+  --sous-titre-font-style: normal;
+}
