@@ -1,0 +1,924 @@
+.qui-sommes-nous {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.qui-sommes-nous .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1920px;
+  height: 3979px;
+  position: relative;
+}
+
+.qui-sommes-nous .overlap {
+  position: absolute;
+  width: 1922px;
+  height: 1407px;
+  top: 2572px;
+  left: 0;
+}
+
+.qui-sommes-nous .suite-de-s-inverse {
+  position: absolute;
+  width: 359px;
+  height: 555px;
+  top: 650px;
+  left: 1561px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .suite-de-s-qui-somme {
+  position: absolute;
+  width: 358px;
+  height: 555px;
+  top: 650px;
+  left: 0;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .group {
+  position: absolute;
+  width: 1680px;
+  height: 950px;
+  top: 0;
+  left: 120px;
+  overflow: hidden;
+}
+
+.qui-sommes-nous .bouton-archi {
+  position: absolute;
+  width: 302px;
+  height: 211px;
+  top: 0;
+  left: 690px;
+}
+
+.qui-sommes-nous .overlap-group {
+  position: relative;
+  width: 300px;
+  height: 211px;
+}
+
+.qui-sommes-nous .rectangle {
+  position: absolute;
+  width: 300px;
+  height: 210px;
+  top: 0;
+  left: 0;
+  background-color: #63b77b;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-archi {
+  width: 212px;
+  height: 211px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .architecture-d-int {
+  position: absolute;
+  width: 299px;
+  height: 59px;
+  top: 75px;
+  left: 1px;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .bouton-audio {
+  position: absolute;
+  width: 302px;
+  height: 211px;
+  top: 0;
+  left: 1035px;
+}
+
+.qui-sommes-nous .rectangle-2 {
+  position: absolute;
+  width: 300px;
+  height: 210px;
+  top: 1px;
+  left: 0;
+  background-color: #dfc54d;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-audio {
+  width: 176px;
+  height: 211px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .text-wrapper {
+  position: absolute;
+  width: 300px;
+  height: 59px;
+  top: 75px;
+  left: 0;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .bouton-crea {
+  position: absolute;
+  width: 302px;
+  height: 211px;
+  top: 0;
+  left: 345px;
+}
+
+.qui-sommes-nous .rectangle-3 {
+  position: absolute;
+  width: 300px;
+  height: 210px;
+  top: 0;
+  left: 0;
+  background-color: #a1e3a5;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-crea {
+  width: 211px;
+  height: 211px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .cr-ation-digital {
+  position: absolute;
+  width: 300px;
+  height: 99px;
+  top: 55px;
+  left: 0;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .bouton-info {
+  position: absolute;
+  width: 302px;
+  height: 211px;
+  top: 0;
+  left: 1380px;
+}
+
+.qui-sommes-nous .rectangle-4 {
+  position: absolute;
+  width: 300px;
+  height: 210px;
+  top: 0;
+  left: 0;
+  background-color: #74c3de;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-info {
+  width: 207px;
+  height: 211px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .overlap-2 {
+  position: absolute;
+  width: 2526px;
+  height: 688px;
+  top: 262px;
+  left: -846px;
+}
+
+.qui-sommes-nous .base {
+  position: absolute;
+  width: 2526px;
+  height: 688px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .overlap-3 {
+  position: relative;
+  height: 688px;
+}
+
+.qui-sommes-nous .rectangle-5 {
+  position: absolute;
+  width: 1679px;
+  height: 687px;
+  top: 0;
+  left: 847px;
+  background-color: #edb07f;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-filire {
+  width: 1673px;
+  height: 688px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .overlap-group-2 {
+  position: absolute;
+  width: 826px;
+  height: 688px;
+  top: 10821px;
+  left: 930px;
+  background-image: url(https://c.animaapp.com/mcti9wxiKKJuub/img/fond-archi-11.png);
+  background-size: 100% 100%;
+}
+
+.qui-sommes-nous .img {
+  position: absolute;
+  width: 826px;
+  height: 688px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .fond-audio-2 {
+  position: absolute;
+  width: 826px;
+  height: 687px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .fond-crea-2 {
+  position: absolute;
+  width: 825px;
+  height: 687px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .fond-com {
+  width: 826px;
+  height: 687px;
+  left: 847px;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .texte {
+  position: absolute;
+  width: 1364px;
+  height: 278px;
+  top: 60px;
+  left: 1021px;
+}
+
+.qui-sommes-nous .text-wrapper-2 {
+  position: absolute;
+  width: 821px;
+  height: 46px;
+  top: 0;
+  left: 0;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .les-membres-de-l {
+  position: absolute;
+  width: 386px;
+  height: 46px;
+  top: 0;
+  left: 970px;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .mentor {
+  position: absolute;
+  width: 386px;
+  height: 46px;
+  top: 96px;
+  left: 970px;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .quipe-creative {
+  position: absolute;
+  width: 386px;
+  height: 46px;
+  top: 232px;
+  left: 970px;
+  font-family: var(--sous-titre-font-family);
+  font-weight: var(--sous-titre-font-weight);
+  color: #000000;
+  font-size: var(--sous-titre-font-size);
+  text-align: center;
+  letter-spacing: var(--sous-titre-letter-spacing);
+  line-height: var(--sous-titre-line-height);
+  font-style: var(--sous-titre-font-style);
+}
+
+.qui-sommes-nous .vido {
+  position: absolute;
+  width: 945px;
+  height: 481px;
+  top: 140px;
+  left: 959px;
+}
+
+.qui-sommes-nous .rectangle-6 {
+  position: absolute;
+  width: 767px;
+  height: 432px;
+  top: 0;
+  left: 89px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .barre {
+  position: absolute;
+  width: 767px;
+  height: 5px;
+  top: 476px;
+  left: 89px;
+}
+
+.qui-sommes-nous .rectangle-7 {
+  position: absolute;
+  width: 5px;
+  height: 767px;
+  top: -381px;
+  left: 381px;
+  background-color: #0d0d0d;
+  border-radius: 15px;
+  transform: rotate(90deg);
+  opacity: 0.2;
+}
+
+.qui-sommes-nous .rectangle-8 {
+  position: absolute;
+  width: 5px;
+  height: 384px;
+  top: -189px;
+  left: 189px;
+  background-color: #0d0d0d;
+  border-radius: 15px;
+  transform: rotate(90deg);
+}
+
+.qui-sommes-nous .bouton-gauche {
+  position: absolute;
+  width: 51px;
+  height: 100px;
+  top: 164px;
+  left: 0;
+  background-color: #0d0d0d80;
+  border-radius: 15px;
+}
+
+.qui-sommes-nous .group-2 {
+  position: absolute;
+  width: 25px;
+  height: 27px;
+  top: 38px;
+  left: 16px;
+}
+
+.qui-sommes-nous .bouton-droit {
+  position: absolute;
+  width: 51px;
+  height: 100px;
+  top: 164px;
+  left: 894px;
+}
+
+.qui-sommes-nous .overlap-group-3 {
+  position: relative;
+  height: 100px;
+  border-radius: 15px;
+}
+
+.qui-sommes-nous .rectangle-9 {
+  position: absolute;
+  width: 51px;
+  height: 100px;
+  top: 0;
+  left: 0;
+  background-color: #0d0d0d80;
+  border-radius: 15px;
+  transform: rotate(180deg);
+}
+
+.qui-sommes-nous .group-3 {
+  position: absolute;
+  width: 25px;
+  height: 27px;
+  top: 38px;
+  left: 11px;
+}
+
+.qui-sommes-nous .txt-com {
+  position: absolute;
+  width: 390px;
+  height: 186px;
+  top: 202px;
+  left: 1991px;
+}
+
+.qui-sommes-nous .text-wrapper-3 {
+  position: absolute;
+  width: 386px;
+  height: 28px;
+  top: 0;
+  left: 0;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #000000;
+  font-size: var(--texte-font-size);
+  text-align: center;
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.qui-sommes-nous .text-wrapper-4 {
+  position: absolute;
+  width: 386px;
+  height: 28px;
+  top: 158px;
+  left: 0;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #000000;
+  font-size: var(--texte-font-size);
+  text-align: center;
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.qui-sommes-nous .bouton-com {
+  position: absolute;
+  width: 302px;
+  height: 210px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .overlap-4 {
+  position: relative;
+  width: 300px;
+  height: 210px;
+  background-color: #edb07f;
+  border-radius: 37px;
+}
+
+.qui-sommes-nous .fond-com-2 {
+  position: absolute;
+  width: 188px;
+  height: 210px;
+  top: 0;
+  left: 0;
+}
+
+.qui-sommes-nous .marketing {
+  position: absolute;
+  width: 299px;
+  height: 139px;
+  top: 35px;
+  left: 0;
+  font-family: "Baloo Thambi-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.qui-sommes-nous .overlap-wrapper {
+  position: absolute;
+  width: 1922px;
+  height: 367px;
+  top: 1040px;
+  left: 0;
+}
+
+.qui-sommes-nous .overlap-5 {
+  position: relative;
+  width: 1920px;
+  height: 367px;
+  background-color: #cc3333;
+}
+
+.qui-sommes-nous .ynov-campus-logo {
+  position: absolute;
+  width: 241px;
+  height: 135px;
+  top: 43px;
+  left: 1501px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .france-design-week {
+  position: absolute;
+  width: 102px;
+  height: 136px;
+  top: 43px;
+  left: 178px;
+}
+
+.qui-sommes-nous .x {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1550px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .you-tube {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1651px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .facebook {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1500px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .instagram {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 1702px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .linkedin {
+  position: absolute;
+  width: 41px;
+  height: 41px;
+  top: 217px;
+  left: 1601px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .you-tube-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 279px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .facebook-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 178px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .instagram-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 330px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .linkedin-2 {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 218px;
+  left: 229px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .p {
+  position: absolute;
+  width: 646px;
+  top: 311px;
+  left: 637px;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  text-align: center;
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.qui-sommes-nous .logo-blanc-grand {
+  position: absolute;
+  width: 267px;
+  height: 138px;
+  top: 41px;
+  left: 826px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .overlap-6 {
+  position: absolute;
+  width: 1920px;
+  height: 1735px;
+  top: 540px;
+  left: 0;
+  background-color: #cc3300;
+}
+
+.qui-sommes-nous .overlap-7 {
+  position: absolute;
+  width: 1110px;
+  height: 672px;
+  top: 1041px;
+  left: 810px;
+}
+
+.qui-sommes-nous .grille-avec-triangle {
+  position: absolute;
+  width: 376px;
+  height: 407px;
+  top: 265px;
+  left: 734px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .flexcontainer {
+  width: 990px;
+  height: 562px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .text {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  line-height: var(--texte-line-height);
+  font-style: var(--texte-font-style);
+}
+
+.qui-sommes-nous .span {
+  font-family: var(--texte-font-family);
+  font-weight: var(--texte-font-weight);
+  color: #ffffff;
+  font-size: var(--texte-font-size);
+  letter-spacing: var(--texte-letter-spacing);
+  font-style: var(--texte-font-style);
+  line-height: var(--texte-line-height);
+}
+
+.qui-sommes-nous .overlap-8 {
+  position: absolute;
+  width: 766px;
+  height: 1363px;
+  top: 346px;
+  left: 0;
+}
+
+.qui-sommes-nous .grille-avec-croix {
+  position: absolute;
+  width: 435px;
+  height: 815px;
+  top: 548px;
+  left: 0;
+}
+
+.qui-sommes-nous .flexcontainer-2 {
+  width: 646px;
+  height: 557px;
+  left: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+}
+
+.qui-sommes-nous .rectangle-10 {
+  position: absolute;
+  width: 644px;
+  height: 614px;
+  top: 670px;
+  left: 121px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .pens-par-des {
+  position: absolute;
+  width: 690px;
+  top: 104px;
+  left: 120px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #ffffff;
+  font-size: var(--titre-font-size);
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.qui-sommes-nous .rectangle-11 {
+  position: absolute;
+  width: 990px;
+  height: 806px;
+  top: 105px;
+  left: 810px;
+  object-fit: cover;
+}
+
+.qui-sommes-nous .div-wrapper {
+  position: absolute;
+  width: 1920px;
+  height: 406px;
+  top: 134px;
+  left: 0;
+  background-image: url(https://c.animaapp.com/mcti9wxiKKJuub/img/rectangle-99.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.qui-sommes-nous .text-wrapper-5 {
+  position: absolute;
+  width: 990px;
+  top: 152px;
+  left: 465px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #ffffff;
+  font-size: var(--titre-font-size);
+  text-align: center;
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.qui-sommes-nous .pr-sentation {
+  position: absolute;
+  width: 990px;
+  top: 2379px;
+  left: 465px;
+  font-family: var(--titre-font-family);
+  font-weight: var(--titre-font-weight);
+  color: #000000;
+  font-size: var(--titre-font-size);
+  text-align: center;
+  letter-spacing: var(--titre-letter-spacing);
+  line-height: var(--titre-line-height);
+  font-style: var(--titre-font-style);
+}
+
+.qui-sommes-nous .frame {
+  position: fixed;
+  width: 1920px;
+  height: 134px;
+  top: 0;
+  left: 0;
+  background-color: #cc3333;
+}
+
+.qui-sommes-nous .qui-somme-nous {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: 90px;
+  left: 1155px;
+}
+
+.qui-sommes-nous .text-wrapper-6 {
+  position: absolute;
+  width: 221px;
+  height: 38px;
+  top: -1px;
+  left: 39px;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.qui-sommes-nous .fdw-x-ynov-campus {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: 90px;
+  left: 810px;
+}
+
+.qui-sommes-nous .text-wrapper-7 {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: -1px;
+  left: 0;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.qui-sommes-nous .articles {
+  position: absolute;
+  width: 300px;
+  height: 38px;
+  top: 90px;
+  left: 465px;
+}
+
+.qui-sommes-nous .text-wrapper-8 {
+  position: absolute;
+  width: 135px;
+  height: 38px;
+  top: -1px;
+  left: 82px;
+  font-family: "Rubik One-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24.0px;
+}
+
+.qui-sommes-nous .logo-sos-FDW {
+  position: absolute;
+  width: 82px;
+  height: 82px;
+  top: 5px;
+  left: 919px;
+  object-fit: cover;
+}
