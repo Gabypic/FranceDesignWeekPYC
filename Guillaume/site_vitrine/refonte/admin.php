@@ -30,35 +30,37 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
-    $model = intval($_POST['model'] ?? 0);
+    $model  = intval($_POST['model'] ?? 0);
+    $isEdit = !empty($_POST['id']);
 
     $uploadDirImages = __DIR__ . '/../public/images/';
-    $image1Name = '';
-    $image2Name = '';
-    $videoLink = trim($_POST['video'] ?? '');
+    if (!is_dir($uploadDirImages)) { @mkdir($uploadDirImages, 0775, true); }
+
+    $image1Name = $isEdit ? trim($_POST['existing_image1'] ?? '') : '';
+    $image2Name = $isEdit ? trim($_POST['existing_image2'] ?? '') : '';
+    $videoLink  = trim($_POST['video'] ?? '');
+
+    if (!empty($_POST['delete_image1'])) $image1Name = '';
+    if (!empty($_POST['delete_image2'])) $image2Name = '';
 
     if (!empty($_FILES['image1']['tmp_name'])) {
         $mime = mime_content_type($_FILES['image1']['tmp_name']);
         $size = $_FILES['image1']['size'];
         if (in_array($mime, ['image/jpeg', 'image/png']) && $size <= 8 * 1024 * 1024) {
-            $ext = pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION);
+            $ext = strtolower(pathinfo($_FILES['image1']['name'], PATHINFO_EXTENSION));
             $image1Name = uniqid('img1_') . '.' . $ext;
             move_uploaded_file($_FILES['image1']['tmp_name'], $uploadDirImages . $image1Name);
-        } else {
-            $error = "Image 1 : format non valide ou trop grande.";
-        }
+        } else { $error = "Image 1 : format non valide ou trop grande."; }
     }
 
     if (!empty($_FILES['image2']['tmp_name'])) {
         $mime = mime_content_type($_FILES['image2']['tmp_name']);
         $size = $_FILES['image2']['size'];
         if (in_array($mime, ['image/jpeg', 'image/png']) && $size <= 8 * 1024 * 1024) {
-            $ext = pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION);
+            $ext = strtolower(pathinfo($_FILES['image2']['name'], PATHINFO_EXTENSION));
             $image2Name = uniqid('img2_') . '.' . $ext;
             move_uploaded_file($_FILES['image2']['tmp_name'], $uploadDirImages . $image2Name);
-        } else {
-            $error = "Image 2 : format non valide ou trop grande.";
-        }
+        } else { $error = "Image 2 : format non valide ou trop grande."; }
     }
 
     if (!$error) {
@@ -71,20 +73,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
             'video'   => $videoLink,
         ];
 
-        if ($model === 2 && empty($data['image1']) && empty($data['video'])) {
-            $error = "Modèle 2 : nécessite au moins une image ou une vidéo.";
+        if ($model === 1 && empty($data['image1'])) {
+            $error = "Modèle 1 : nécessite au moins l'image 1.";
+        } elseif ($model === 2 && (empty($data['image1']) || empty($data['video']))) {
+            $error = "Modèle 2 : nécessite une image ET une vidéo.";
         } elseif ($model === 4 && empty($data['video'])) {
             $error = "Modèle 4 : nécessite une vidéo.";
-        } else {
-            if (!empty($_POST['id'])) {
-                $contentManager->deleteContent(intval($_POST['id']));
-            }
+        }
+
+        if (!$error) {
+            if (!empty($_POST['id'])) { $contentManager->deleteContent(intval($_POST['id'])); }
             if ($contentManager->addContent($model, $data)) {
                 $success = !empty($_POST['id']) ? "L'article a été mis à jour." : "Article publié !";
-            } else {
-                var_dump($db->errorInfo());
-                exit;
-            }
+            } else { var_dump($db->errorInfo()); exit; }
         }
     }
 }
@@ -92,14 +93,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
 $editData = isset($_GET['edit']) ? $contentManager->getContent(intval($_GET['edit'])) : null;
 $articles = $contentManager->getAllContents();
 
-function e($str) {
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
-
+function e($str) { return htmlspecialchars($str, ENT_QUOTES, 'UTF-8'); }
 function yt_embed($url) {
     if (preg_match('#(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11})#', $url, $m)) return $m[1];
     return '';
 }
+
+/**
+ * IMPORTANT : Certaines BDD renvoient le champ "modele" au lieu de "model".
+ * On harmonise ici pour la sélection du <select>.
+ */
+$currentModel   = isset($editData) ? intval($editData['modele'] ?? $editData['model'] ?? 0) : 0;
+$prefilledModel = $currentModel;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -114,6 +119,10 @@ function yt_embed($url) {
         .btn { border-radius: 5px; }
         label { font-weight: 500; }
         img.thumb { height: 50px; margin-right: 5px; }
+        .hidden { display: none !important; }
+        .preview { background:#fff;border:1px dashed #ddd;border-radius:8px;padding:10px;margin-bottom:8px; }
+        .preview img { max-height:120px; }
+        .small-muted { font-size:.875rem;color:#6c757d; }
     </style>
 </head>
 <body>
@@ -128,58 +137,83 @@ function yt_embed($url) {
 
     <div class="card p-4 mb-4 shadow-sm">
         <h2 class="h5 mb-3"><?= $editData ? "Modifier l'article" : "Nouvel article" ?></h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" id="content-form">
             <input type="hidden" name="id" value="<?= e($editData['id'] ?? '') ?>">
 
             <div class="mb-3">
-                <label>Titre</label>
-                <input type="text" name="titre" class="form-control" required value="<?= e($editData['titre'] ?? '') ?>">
-            </div>
-
-            <div class="mb-3">
-                <label>Auteur</label>
-                <input type="text" name="auteur" class="form-control" required value="<?= e($editData['auteur'] ?? '') ?>">
-            </div>
-
-            <div class="mb-3">
-                <label>Contenu</label>
-                <textarea name="article" class="form-control" rows="5" required><?= e($editData['article'] ?? '') ?></textarea>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label>Image 1 (max 8 Mo)</label>
-                    <input type="file" name="image1" class="form-control">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Image 2 (optionnelle)</label>
-                    <input type="file" name="image2" class="form-control">
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <label>Lien vidéo YouTube</label>
-                <input type="url" name="video" class="form-control" value="<?= e($editData['video'] ?? '') ?>">
-            </div>
-
-            <div class="mb-3">
                 <label>Type de contenu</label>
-                <select name="model" class="form-select" required>
+                <select name="model" id="model" class="form-select" required>
                     <option value="">-- Choisir un type --</option>
                     <?php for ($i = 1; $i <= 4; $i++): ?>
-                        <option value="<?= $i ?>" <?= isset($editData['model']) && $editData['model'] == $i ? 'selected' : '' ?>>
-                            Modèle <?= $i ?>
-                        </option>
+                        <option value="<?= $i ?>" <?= ($currentModel === $i) ? 'selected' : '' ?>>Modèle <?= $i ?></option>
                     <?php endfor; ?>
                 </select>
             </div>
 
-            <button name="submitbtn" class="btn btn-success">
-                <?= $editData ? 'Enregistrer les modifications' : 'Publier l’article' ?>
-            </button>
-            <?php if ($editData): ?>
-                <a href="admin.php" class="btn btn-secondary ms-2">Annuler</a>
-            <?php endif; ?>
+            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="core-fields">
+                <div class="mb-3">
+                    <label>Titre</label>
+                    <input type="text" name="titre" class="form-control" value="<?= e($editData['titre'] ?? '') ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label>Auteur</label>
+                    <input type="text" name="auteur" class="form-control" value="<?= e($editData['auteur'] ?? '') ?>" required>
+                </div>
+                <div class="mb-3">
+                    <label>Contenu</label>
+                    <textarea name="article" class="form-control" rows="5" required><?= e($editData['article'] ?? '') ?></textarea>
+                </div>
+            </div>
+
+            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="media-section">
+                <div class="mb-3 media-field <?= ($prefilledModel === 1 || $prefilledModel === 2) ? '' : 'hidden' ?>" id="field-image1">
+                    <label>Image 1 (max 8 Mo)</label>
+                    <?php if (!empty($editData['image1'])): ?>
+                        <div class="preview">
+                            <div class="small-muted mb-2">Image actuelle :</div>
+                            <img src="../public/images/<?= e($editData['image1']) ?>" alt="image1 actuelle">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="delete_image1" name="delete_image1" value="1">
+                                <label class="form-check-label" for="delete_image1">Supprimer l'image</label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="existing_image1" value="<?= e($editData['image1']) ?>">
+                    <?php endif; ?>
+                    <input type="file" name="image1" class="form-control">
+                    <div class="form-text">Laisser vide pour conserver l'image actuelle.</div>
+                </div>
+
+                <div class="mb-3 media-field <?= ($prefilledModel === 1) ? '' : 'hidden' ?>" id="field-image2">
+                    <label>Image 2 (optionnelle)</label>
+                    <?php if (!empty($editData['image2'])): ?>
+                        <div class="preview">
+                            <div class="small-muted mb-2">Image actuelle :</div>
+                            <img src="../public/images/<?= e($editData['image2']) ?>" alt="image2 actuelle">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" id="delete_image2" name="delete_image2" value="1">
+                                <label class="form-check-label" for="delete_image2">Supprimer l'image</label>
+                            </div>
+                        </div>
+                        <input type="hidden" name="existing_image2" value="<?= e($editData['image2']) ?>">
+                    <?php endif; ?>
+                    <input type="file" name="image2" class="form-control">
+                    <div class="form-text">Laisser vide pour conserver l'image actuelle.</div>
+                </div>
+
+                <div class="mb-3 media-field <?= ($prefilledModel === 2 || $prefilledModel === 4) ? '' : 'hidden' ?>" id="field-video">
+                    <label>Lien vidéo YouTube</label>
+                    <input type="url" name="video" class="form-control" value="<?= e($editData['video'] ?? '') ?>">
+                </div>
+            </div>
+
+            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="submit-row">
+                <button name="submitbtn" class="btn btn-success">
+                    <?= $editData ? 'Enregistrer les modifications' : 'Publier l’article' ?>
+                </button>
+                <?php if ($editData): ?>
+                    <a href="admin.php" class="btn btn-secondary ms-2">Annuler</a>
+                <?php endif; ?>
+            </div>
         </form>
     </div>
 
@@ -192,7 +226,7 @@ function yt_embed($url) {
                 <th>Titre</th>
                 <th>Auteur</th>
                 <th>Type</th>
-                <th>Images</th>
+                <th>Médias</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -230,5 +264,48 @@ function yt_embed($url) {
         </table>
     </div>
 </div>
+
+<script>
+    (function () {
+        const modelSelect  = document.getElementById('model');
+        const coreFields   = document.getElementById('core-fields');
+        const mediaSection = document.getElementById('media-section');
+        const submitRow    = document.getElementById('submit-row');
+
+        const fieldImage1 = document.getElementById('field-image1');
+        const fieldImage2 = document.getElementById('field-image2');
+        const fieldVideo  = document.getElementById('field-video');
+
+        function toggle(el, show) {
+            if (!el) return;
+            el.classList.toggle('hidden', !show);
+            const inputs = el.querySelectorAll('input, textarea, select, button');
+            inputs.forEach(i => i.disabled = !show);
+        }
+
+        function updateVisibility() {
+            const val = parseInt(modelSelect.value, 10) || 0;
+
+            const showCommon = val > 0;
+            toggle(coreFields, showCommon);
+            toggle(mediaSection, showCommon);
+            toggle(submitRow, showCommon);
+
+            if (!showCommon) return;
+
+            toggle(fieldImage1, val === 1 || val === 2);
+            toggle(fieldImage2, val === 1);
+            toggle(fieldVideo,  val === 2 || val === 4);
+        }
+
+        // Forcer la valeur présélectionnée côté JS si le <option selected> ne s'applique pas
+        <?php if ($currentModel > 0): ?>
+        modelSelect.value = "<?= $currentModel ?>";
+        <?php endif; ?>
+
+        modelSelect.addEventListener('change', updateVisibility);
+        updateVisibility();
+    })();
+</script>
 </body>
 </html>
