@@ -103,7 +103,7 @@ $image2 = $current_article['image2'] ? "../Guillaume/site_vitrine/public/images/
     </div>
 
     <!-- Décorations -->
-    <img src="images_test/article/suite de points avec carré, cercle - article (section 2).png" class="decorative-img img-right" alt="Décoration droite">
-    <img src="images_test/article/suite de points article (section 2).png" class="decorative-img img-left" alt="Décoration gauche">
+    <img src="../page%20html/public/article/suite%20de%20points%20avec%20carré,%20cercle%20-%20article%20(section%202).png" class="decorative-img img-right" alt="Décoration droite">
+    <img src="../page%20html/public/article/suite%20de%20points%20article%20(section%202).png" class="decorative-img img-left" alt="Décoration gauche">
   </div>
 </div>

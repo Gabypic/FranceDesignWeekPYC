@@ -85,8 +85,8 @@ $auteur = htmlspecialchars($current_article['auteur']);
     </div>
 
     <!-- Images décoratives -->
-    <img src="images_test/article/vague%20-%20article%20(section%202)%202.png" alt="Decor 1" class="decorative decorative-left" />
-    <img src="images_test/article/vague%20-%20article%20(section%202)%201.png" alt="Decor 2" class="decorative decorative-right" />
+    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%202.png" alt="Decor 1" class="decorative decorative-left" />
+    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%201.png" alt="Decor 2" class="decorative decorative-right" />
 
   </div>
 </div>

@@ -109,8 +109,8 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
               </div>
           <?php endif; ?>
 
-      <img src="images_test/article/vague.png" alt="Décor vague" class="decorative decorative-left" />
-      <img src="images_test/article/vague%203%20-%20article%20(section%202).png" alt="Décor vague bas" class="decorative decorative-right" />
+      <img src="../page%20html/public/article/vague.png" alt="Décor vague" class="decorative decorative-left" />
+      <img src="../page%20html/public/article/vague%203%20-%20article%20(section%202).png" alt="Décor vague bas" class="decorative decorative-right" />
     </div>
   </div>
 </div>

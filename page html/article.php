@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-include 'header.html';
+include 'includes/header.html';
 
 $stmt = $db->query("SELECT * FROM article ORDER BY id ASC");
 $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -12,7 +12,7 @@ foreach ($articles as $article) {
     $id = $article['id'];
 
     if (in_array($modele, $allowed_models)) {
-        $filename = "modele{$modele}.php";
+        $filename = "modeles/modele{$modele}.php";
         $current_article = $article;
         include $filename;
     } else {
@@ -20,7 +20,7 @@ foreach ($articles as $article) {
     }
 }
 
-include 'footer.html';
+include 'includes/footer.html';
 ?>
 
 <!DOCTYPE html>
