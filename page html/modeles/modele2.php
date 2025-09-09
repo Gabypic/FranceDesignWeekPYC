@@ -16,10 +16,9 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
 }
 ?>
 
-<div class="modele2-root">
+<div class="modele2-root position-relative">
     <style>
-        .modele2-root body {
-            padding: 0;
+        .modele2-root {
             font-family: 'Alata', sans-serif;
             background: white;
         }
@@ -64,26 +63,40 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
             object-fit: cover;
             border: none;
         }
+
+        /* Décorations */
         .modele2-root .decorative {
             position: absolute;
             z-index: 0;
-            max-width: 100%;
+            max-width: 200px;
         }
         .modele2-root .decorative-left {
-            top:5rem;
-            left: -6.3rem;
+            top: 5rem;
+            left: 0;
+            transform: translateX(-30%);
         }
         .modele2-root .decorative-right-high {
             top: 7rem;
-            right: -6.2rem;
+            right: 0;
+            transform: translateX(30%);
         }
         .modele2-root .decorative-right-down {
-            top: 48rem;
-            right: -6.2rem;
+            bottom: 5rem;
+            right: 0;
+            transform: translateX(30%);
         }
+
+        /* Masquer sur mobile */
         @media (max-width: 768px) {
             .modele2-root .decorative {
                 display: none;
+            }
+            .modele2-root .text-content {
+                padding-left: 1rem;
+            }
+            .modele2-root .image-right {
+                margin-left: 0;
+                width: 100%;
             }
         }
     </style>
@@ -120,10 +133,16 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
                 </iframe>
             </div>
         <?php endif; ?>
-
-        <!-- Décorations -->
-        <img src="../page%20html/public/article/suite%20de%20points%20section%203%201.png" class="decorative decorative-right-down" alt="Décoration droite basse">
-        <img src="../page%20html/public/article/suite%20de%20points%20-%20article%20(section%202).png" class="decorative decorative-right-high" alt="Décoration droite haute">
-        <img src="../page%20html/public/article/suite%20de%20points%20avec%20cercle%20-%20article%20(section%202).png" class="decorative decorative-left" alt="Décoration gauche">
     </div>
+
+    <!-- Décorations collées aux bords -->
+    <img src="../page%20html/public/article/suite%20de%20points%20section%203%201.png"
+         class="decorative decorative-right-down"
+         alt="Décoration droite basse">
+    <img src="../page%20html/public/article/suite%20de%20points%20-%20article%20(section%202).png"
+         class="decorative decorative-right-high"
+         alt="Décoration droite haute">
+    <img src="../page%20html/public/article/suite%20de%20points%20avec%20cercle%20-%20article%20(section%202).png"
+         class="decorative decorative-left"
+         alt="Décoration gauche">
 </div>

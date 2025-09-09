@@ -17,14 +17,14 @@ $auteur = htmlspecialchars($current_article['auteur']);
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Alata&family=Rubik+One&display=swap" rel="stylesheet">
 
-<div class="modele3-root">
+<div class="modele3-root position-relative">
     <style>
-        .modele3-root body {
-            padding: 0;
-            margin: 0;
+        .modele3-root {
             font-family: 'Alata', sans-serif;
             background: white;
             color: black;
+            position: relative;
+            overflow: hidden;
         }
         .modele3-root .main-title {
             font-family: 'Rubik One', sans-serif;
@@ -48,45 +48,55 @@ $auteur = htmlspecialchars($current_article['auteur']);
             margin-top: 1.5rem;
             text-align: center;
         }
+
+        /* Décorations */
         .modele3-root .decorative {
             position: absolute;
             z-index: 0;
-            max-width: 100%;
+            height: auto;
         }
         .modele3-root .decorative-left {
             top: 7.5rem;
-            left: -6.5rem;
+            left: 0;
+            width: clamp(80px, 15vw, 220px);
+            transform: translateX(-30%);
         }
         .modele3-root .decorative-right {
-            width: 20%;
             top: 7rem;
-            right: -6.25rem;
+            right: 0;
+            width: clamp(80px, 15vw, 220px);
+            transform: translateX(30%);
         }
 
         @media (max-width: 768px) {
             .modele3-root .decorative {
                 display: none;
             }
+            .modele3-root .text-content {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
         }
     </style>
 
+    <div class="container section-wrapper position-relative">
+        <!-- Titre -->
+        <h1 class="main-title"><?= $titre ?></h1>
 
-    <div class="container section-wrapper" style="position: relative;">
-
-    <!-- Titre -->
-    <h1 class="main-title"><?= $titre ?></h1>
-
-    <!-- Contenu texte -->
-    <div class="row">
-      <div class="col-12 col-md-10 offset-md-1 text-content">
-        <p> <?= $contenu?></p>
-        <p class="author"><?= $auteur ?></p>
-      </div>
+        <!-- Contenu texte -->
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1 text-content">
+                <p><?= $contenu ?></p>
+                <p class="author"><?= $auteur ?></p>
+            </div>
+        </div>
     </div>
 
-    <!-- Images décoratives -->
-    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%202.png" alt="Decor 1" class="decorative decorative-left" />
-    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%201.png" alt="Decor 2" class="decorative decorative-right" />
-
-  </div>
+    <!-- Décorations collées aux bords -->
+    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%202.png"
+         alt="Décor gauche"
+         class="decorative decorative-left" />
+    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%201.png"
+         alt="Décor droit"
+         class="decorative decorative-right" />
 </div>
