@@ -66,6 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <button class="btn btn-primary">Se connecter</button>
     </form>
+    <form method="post" action="../index.html">
+        <button class="btn btn-secondary">Retour au site</button>
+    </form>
+
 </div>
 </body>
 </html>

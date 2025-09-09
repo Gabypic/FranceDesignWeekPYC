@@ -263,6 +263,11 @@ $prefilledModel = $currentModel;
             </tbody>
         </table>
     </div>
+    <div>
+        <form method="post" action="logout.php" class="d-inline" onsubmit="return confirm('Voulez-vous vous déconnecter ?')">
+            <button name="disconnection" class="btn btn-sm btn-outline-danger">Déconnexion</button>
+        </form>
+    </div>
 </div>
 
 <script>

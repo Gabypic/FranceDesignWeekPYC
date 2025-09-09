@@ -7,8 +7,8 @@ if (!isset($current_article)) {
 $titre = htmlspecialchars($current_article['titre']);
 $contenu = nl2br(htmlspecialchars($current_article['article']));
 $auteur = htmlspecialchars($current_article['auteur']);
-$image1 = $current_article['image1'] ? "../Guillaume/site_vitrine/public/images/" . $current_article['image1'] : null;
-$image2 = $current_article['image2'] ? "../Guillaume/site_vitrine/public/images/" . $current_article['image2'] : null;
+$image1 = $current_article['image1'] ? "../public/images/" . $current_article['image1'] : null;
+$image2 = $current_article['image2'] ? "../public/images/" . $current_article['image2'] : null;
 ?>
 
 <meta charset="UTF-8" />
@@ -112,10 +112,10 @@ $image2 = $current_article['image2'] ? "../Guillaume/site_vitrine/public/images/
     </div>
 
     <!-- Décorations collées aux bords -->
-    <img src="../page%20html/public/article/suite%20de%20points%20avec%20carré,%20cercle%20-%20article%20(section%202).png"
+    <img src="../public/article/suite%20de%20points%20avec%20carré,%20cercle%20-%20article%20(section%202).png"
          class="decorative-img img-right"
          alt="Décoration droite">
-    <img src="../page%20html/public/article/suite%20de%20points%20article%20(section%202).png"
+    <img src="../public/article/suite%20de%20points%20article%20(section%202).png"
          class="decorative-img img-left"
          alt="Décoration gauche">
 </div>

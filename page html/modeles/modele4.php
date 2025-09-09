@@ -120,10 +120,10 @@ if ($video && preg_match('/v=([a-zA-Z0-9_-]+)/', $video, $matches)) {
     </div>
 
     <!-- Décorations collées aux bords -->
-    <img src="../page%20html/public/article/vague.png"
+    <img src="../public/article/vague.png"
          alt="Décor vague"
          class="decorative decorative-left" />
-    <img src="../page%20html/public/article/vague%203%20-%20article%20(section%202).png"
+    <img src="../public/article/vague%203%20-%20article%20(section%202).png"
          alt="Décor vague bas"
          class="decorative decorative-right" />
 </div>

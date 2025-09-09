@@ -93,10 +93,10 @@ $auteur = htmlspecialchars($current_article['auteur']);
     </div>
 
     <!-- Décorations collées aux bords -->
-    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%202.png"
+    <img src="../public/article/vague%20-%20article%20(section%202)%202.png"
          alt="Décor gauche"
          class="decorative decorative-left" />
-    <img src="../page%20html/public/article/vague%20-%20article%20(section%202)%201.png"
+    <img src="../public/article/vague%20-%20article%20(section%202)%201.png"
          alt="Décor droit"
          class="decorative decorative-right" />
 </div>
