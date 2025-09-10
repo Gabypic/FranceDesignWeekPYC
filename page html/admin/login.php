@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-light">
 <div class="container py-5">
-    <h2 class="mb-4">Connexion admin</h2>
+    <h2 class="mb-4">Connexion admin - éditeur</h2>
     <?php if (!empty($error)): ?>
         <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
     <?php endif; ?>
