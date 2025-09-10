@@ -7,10 +7,10 @@ if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === "off") {
     exit;
 }
 
-$host = 'localhost'; // ou "sqlXXX.hostingprovider.com"
-$dbname = 'u336831863_site_vitrine';
-$user = 'u336831863_user';
-$pass = 'G9h@;1+hM3t';
+$host = 'localhost';
+$dbname = 'site_vitrine_test';
+$user = 'root';
+$pass = '';
 
 try {
     $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $user, $pass);

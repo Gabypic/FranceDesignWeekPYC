@@ -3,6 +3,7 @@ session_start();
 require_once 'db.php';
 require_once 'content_manager.php';
 
+// Expiration session 30 min
 if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 1800) {
     session_unset();
     session_destroy();
@@ -11,6 +12,7 @@ if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > 1
 }
 $_SESSION['last_activity'] = time();
 
+// Vérification auth
 if (!isset($_SESSION['auth'])) {
     header("Location: login.php");
     exit;
@@ -20,6 +22,7 @@ $contentManager = new ContentManager($db);
 $success = null;
 $error = null;
 
+// Suppression d'article
 if (isset($_POST['delete']) && isset($_POST['id'])) {
     $id = intval($_POST['id']);
     if ($contentManager->deleteContent($id)) {
@@ -29,6 +32,7 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
     }
 }
 
+// Ajout / modification article
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     $model  = intval($_POST['model'] ?? 0);
     $isEdit = !empty($_POST['id']);
@@ -43,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
     if (!empty($_POST['delete_image1'])) $image1Name = '';
     if (!empty($_POST['delete_image2'])) $image2Name = '';
 
+    // Upload image 1
     if (!empty($_FILES['image1']['tmp_name'])) {
         $mime = mime_content_type($_FILES['image1']['tmp_name']);
         $size = $_FILES['image1']['size'];
@@ -53,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
         } else { $error = "Image 1 : format non valide ou trop grande."; }
     }
 
+    // Upload image 2
     if (!empty($_FILES['image2']['tmp_name'])) {
         $mime = mime_content_type($_FILES['image2']['tmp_name']);
         $size = $_FILES['image2']['size'];
@@ -73,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitbtn'])) {
             'video'   => $videoLink,
         ];
 
+        // Validation selon modèle
         if ($model === 1 && empty($data['image1'])) {
             $error = "Modèle 1 : nécessite au moins l'image 1.";
         } elseif ($model === 2 && (empty($data['image1']) || empty($data['video']))) {
@@ -99,10 +106,6 @@ function yt_embed($url) {
     return '';
 }
 
-/**
- * IMPORTANT : Certaines BDD renvoient le champ "modele" au lieu de "model".
- * On harmonise ici pour la sélection du <select>.
- */
 $currentModel   = isset($editData) ? intval($editData['modele'] ?? $editData['model'] ?? 0) : 0;
 $prefilledModel = $currentModel;
 ?>
@@ -127,7 +130,15 @@ $prefilledModel = $currentModel;
 </head>
 <body>
 <div class="container py-5">
-    <h1 class="mb-4">Admin</h1>
+    <h1 class="mb-4">
+        <?php
+        if ($_SESSION['auth']['login'] === 'admin') {
+            echo 'Admin - ' . htmlspecialchars($_SESSION['auth']['login']);
+        } else {
+            echo 'Éditeur - ' . htmlspecialchars($_SESSION['auth']['login']);
+        }
+        ?>
+    </h1>
 
     <?php if ($success): ?>
         <div class="alert alert-success"><?= e($success) ?></div>
@@ -135,6 +146,7 @@ $prefilledModel = $currentModel;
         <div class="alert alert-danger"><?= e($error) ?></div>
     <?php endif; ?>
 
+    <!-- FORMULAIRE ARTICLE -->
     <div class="card p-4 mb-4 shadow-sm">
         <h2 class="h5 mb-3"><?= $editData ? "Modifier l'article" : "Nouvel article" ?></h2>
         <form method="post" enctype="multipart/form-data" id="content-form">
@@ -144,13 +156,13 @@ $prefilledModel = $currentModel;
                 <label>Type de contenu</label>
                 <select name="model" id="model" class="form-select" required>
                     <option value="">-- Choisir un type --</option>
-                    <?php for ($i = 1; $i <= 4; $i++): ?>
-                        <option value="<?= $i ?>" <?= ($currentModel === $i) ? 'selected' : '' ?>>Modèle <?= $i ?></option>
+                    <?php for ($i=1;$i<=4;$i++): ?>
+                        <option value="<?= $i ?>" <?= ($currentModel === $i)?'selected':'' ?>>Modèle <?= $i ?></option>
                     <?php endfor; ?>
                 </select>
             </div>
 
-            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="core-fields">
+            <div class="<?= $prefilledModel?'':'hidden' ?>" id="core-fields">
                 <div class="mb-3">
                     <label>Titre</label>
                     <input type="text" name="titre" class="form-control" value="<?= e($editData['titre'] ?? '') ?>" required>
@@ -165,10 +177,10 @@ $prefilledModel = $currentModel;
                 </div>
             </div>
 
-            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="media-section">
-                <div class="mb-3 media-field <?= ($prefilledModel === 1 || $prefilledModel === 2) ? '' : 'hidden' ?>" id="field-image1">
+            <div class="<?= $prefilledModel?'':'hidden' ?>" id="media-section">
+                <div class="mb-3 media-field <?= ($prefilledModel===1||$prefilledModel===2)?'':'hidden' ?>" id="field-image1">
                     <label>Image 1 (max 8 Mo)</label>
-                    <?php if (!empty($editData['image1'])): ?>
+                    <?php if(!empty($editData['image1'])): ?>
                         <div class="preview">
                             <div class="small-muted mb-2">Image actuelle :</div>
                             <img src="../public/images/<?= e($editData['image1']) ?>" alt="image1 actuelle">
@@ -183,9 +195,9 @@ $prefilledModel = $currentModel;
                     <div class="form-text">Laisser vide pour conserver l'image actuelle.</div>
                 </div>
 
-                <div class="mb-3 media-field <?= ($prefilledModel === 1) ? '' : 'hidden' ?>" id="field-image2">
+                <div class="mb-3 media-field <?= ($prefilledModel===1)?'':'hidden' ?>" id="field-image2">
                     <label>Image 2 (optionnelle)</label>
-                    <?php if (!empty($editData['image2'])): ?>
+                    <?php if(!empty($editData['image2'])): ?>
                         <div class="preview">
                             <div class="small-muted mb-2">Image actuelle :</div>
                             <img src="../public/images/<?= e($editData['image2']) ?>" alt="image2 actuelle">
@@ -200,23 +212,22 @@ $prefilledModel = $currentModel;
                     <div class="form-text">Laisser vide pour conserver l'image actuelle.</div>
                 </div>
 
-                <div class="mb-3 media-field <?= ($prefilledModel === 2 || $prefilledModel === 4) ? '' : 'hidden' ?>" id="field-video">
+                <div class="mb-3 media-field <?= ($prefilledModel===2||$prefilledModel===4)?'':'hidden' ?>" id="field-video">
                     <label>Lien vidéo YouTube</label>
                     <input type="url" name="video" class="form-control" value="<?= e($editData['video'] ?? '') ?>">
                 </div>
             </div>
 
-            <div class="<?= $prefilledModel ? '' : 'hidden' ?>" id="submit-row">
-                <button name="submitbtn" class="btn btn-success">
-                    <?= $editData ? 'Enregistrer les modifications' : 'Publier l’article' ?>
-                </button>
-                <?php if ($editData): ?>
+            <div class="<?= $prefilledModel?'':'hidden' ?>" id="submit-row">
+                <button name="submitbtn" class="btn btn-success"><?= $editData?'Enregistrer les modifications':'Publier l’article' ?></button>
+                <?php if($editData): ?>
                     <a href="admin.php" class="btn btn-secondary ms-2">Annuler</a>
                 <?php endif; ?>
             </div>
         </form>
     </div>
 
+    <!-- TABLEAU ARTICLES -->
     <h2 class="h5 mb-3">Articles publiés</h2>
     <div class="table-responsive bg-white shadow-sm rounded">
         <table class="table table-hover align-middle mb-0">
@@ -231,25 +242,18 @@ $prefilledModel = $currentModel;
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($articles as $a): ?>
+            <?php foreach($articles as $a): ?>
                 <tr>
                     <td><?= e($a['id']) ?></td>
                     <td><?= e($a['titre']) ?></td>
                     <td><?= e($a['auteur']) ?></td>
                     <td>Modèle <?= e($a['modele']) ?></td>
                     <td>
-                        <?php if (!empty($a['image1'])): ?>
-                            <img src="../public/images/<?= e($a['image1']) ?>" class="thumb" alt="img1">
-                        <?php endif; ?>
-                        <?php if (!empty($a['image2'])): ?>
-                            <img src="../public/images/<?= e($a['image2']) ?>" class="thumb" alt="img2">
-                        <?php endif; ?>
-                        <?php if (!empty($a['video'])): ?>
-                            <?php $yt = yt_embed($a['video']); ?>
-                            <?php if ($yt): ?>
-                                <iframe width="144" height="81" src="https://www.youtube.com/embed/<?= $yt ?>" frameborder="0" allowfullscreen></iframe>
-                            <?php endif; ?>
-                        <?php endif; ?>
+                        <?php if(!empty($a['image1'])): ?><img src="../public/images/<?= e($a['image1']) ?>" class="thumb" alt="img1"><?php endif; ?>
+                        <?php if(!empty($a['image2'])): ?><img src="../public/images/<?= e($a['image2']) ?>" class="thumb" alt="img2"><?php endif; ?>
+                        <?php if(!empty($a['video'])): $yt=yt_embed($a['video']); if($yt): ?>
+                            <iframe width="144" height="81" src="https://www.youtube.com/embed/<?= $yt ?>" frameborder="0" allowfullscreen></iframe>
+                        <?php endif; endif; ?>
                     </td>
                     <td>
                         <a href="?edit=<?= $a['id'] ?>" class="btn btn-sm btn-outline-primary">Modifier</a>
@@ -263,52 +267,55 @@ $prefilledModel = $currentModel;
             </tbody>
         </table>
     </div>
-    <div>
+
+    <!-- DECONNEXION + CREER COMPTE -->
+    <div class="mt-3">
         <form method="post" action="logout.php" class="d-inline" onsubmit="return confirm('Voulez-vous vous déconnecter ?')">
             <button name="disconnection" class="btn btn-sm btn-outline-danger">Déconnexion</button>
         </form>
+        <?php if($_SESSION['auth']['login']==='admin'): ?>
+            <form method="post" action="add_user.php" class="d-inline">
+                <a href="add_user.php" class="btn btn-sm btn-outline-success ms-2">Créer un compte</a>
+            </form>
+        <?php endif; ?>
     </div>
 </div>
 
 <script>
-    (function () {
-        const modelSelect  = document.getElementById('model');
-        const coreFields   = document.getElementById('core-fields');
-        const mediaSection = document.getElementById('media-section');
-        const submitRow    = document.getElementById('submit-row');
+    (function(){
+        const modelSelect=document.getElementById('model');
+        const coreFields=document.getElementById('core-fields');
+        const mediaSection=document.getElementById('media-section');
+        const submitRow=document.getElementById('submit-row');
 
-        const fieldImage1 = document.getElementById('field-image1');
-        const fieldImage2 = document.getElementById('field-image2');
-        const fieldVideo  = document.getElementById('field-video');
+        const fieldImage1=document.getElementById('field-image1');
+        const fieldImage2=document.getElementById('field-image2');
+        const fieldVideo=document.getElementById('field-video');
 
-        function toggle(el, show) {
-            if (!el) return;
-            el.classList.toggle('hidden', !show);
-            const inputs = el.querySelectorAll('input, textarea, select, button');
-            inputs.forEach(i => i.disabled = !show);
+        function toggle(el,show){
+            if(!el) return;
+            el.classList.toggle('hidden',!show);
+            const inputs=el.querySelectorAll('input,textarea,select,button');
+            inputs.forEach(i=>i.disabled=!show);
         }
 
-        function updateVisibility() {
-            const val = parseInt(modelSelect.value, 10) || 0;
-
-            const showCommon = val > 0;
-            toggle(coreFields, showCommon);
-            toggle(mediaSection, showCommon);
-            toggle(submitRow, showCommon);
-
-            if (!showCommon) return;
-
-            toggle(fieldImage1, val === 1 || val === 2);
-            toggle(fieldImage2, val === 1);
-            toggle(fieldVideo,  val === 2 || val === 4);
+        function updateVisibility(){
+            const val=parseInt(modelSelect.value,10)||0;
+            const showCommon=val>0;
+            toggle(coreFields,showCommon);
+            toggle(mediaSection,showCommon);
+            toggle(submitRow,showCommon);
+            if(!showCommon) return;
+            toggle(fieldImage1,val===1||val===2);
+            toggle(fieldImage2,val===1);
+            toggle(fieldVideo,val===2||val===4);
         }
 
-        // Forcer la valeur présélectionnée côté JS si le <option selected> ne s'applique pas
-        <?php if ($currentModel > 0): ?>
-        modelSelect.value = "<?= $currentModel ?>";
+        <?php if($currentModel>0): ?>
+        modelSelect.value="<?= $currentModel ?>";
         <?php endif; ?>
 
-        modelSelect.addEventListener('change', updateVisibility);
+        modelSelect.addEventListener('change',updateVisibility);
         updateVisibility();
     })();
 </script>
