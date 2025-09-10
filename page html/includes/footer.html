@@ -21,10 +21,16 @@
   }
 
   .footer-column {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center;
     gap: 10px;
+  }
+
+  .footer-row {
+    display: flex !important;           /* force le flex */
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
   }
 
   .footer-socials {

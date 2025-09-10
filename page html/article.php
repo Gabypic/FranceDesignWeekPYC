@@ -2,7 +2,7 @@
 include 'db.php';
 include 'includes/header.html';
 
-$stmt = $db->query("SELECT * FROM article ORDER BY id ASC");
+$stmt = $db->query("SELECT * FROM article ORDER BY id DESC");
 $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $allowed_models = [1, 2, 3, 4];

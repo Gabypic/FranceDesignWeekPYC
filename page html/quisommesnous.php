@@ -168,7 +168,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       fetch('includes/header.html').then(r => r.text()).then(t => document.getElementById('hdr').innerHTML = t);
-      fetch('includes/footer.html').then(r => r.text()).then(t => document.getElementById('footer').innerHTML = t);
     </script>
+    <?php
+      include 'includes/footer.html';
+    ?>
   </body>
 </html>
