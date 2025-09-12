@@ -33,7 +33,7 @@
 .accueil .frame {
   position: absolute;
   height: 1080px;
-  background-color: #ff6600;
+  background-color: #CC3300;
   width: 1920px;
   top: 0;
   left: 0;
@@ -57,10 +57,12 @@
 
 .accueil .bento-box-accueil {
   position: absolute;
-  width: 771px;
-  height: 535px;
-  top: 319px;
-  left: 1029px;
+  width: 1113px;
+  height: 626px;
+  angle: 10.05 deg;
+  top: 200px;
+  left: 850px;
+
   object-fit: cover;
 }
 
@@ -168,10 +170,20 @@
 
 .accueil .crayon-accueil {
   position: absolute;
-  width: 162px;
-  height: 423px;
-  top: 151px;
-  left: 73px;
+  width: 148px;
+  height: 429px;
+  top: 144px;
+  left: 152px;
+
+}
+
+.accueil .crayon-accueil-2 {
+  position: absolute;
+  width: 157px;
+  height: 444px;
+  top: 129px;
+
+
 }
 
 .accueil .rectangle-2 {
@@ -234,10 +246,10 @@
 
 .accueil .gourde-accueil {
   position: absolute;
-  width: 190px;
+  width: 254px;
   height: 461px;
   top: 112px;
-  left: 55px;
+  left: 23px;
 }
 
 .accueil .overlap-5 {
@@ -310,10 +322,10 @@
 
 .accueil .carnet-accueil {
   position: absolute;
-  width: 404px;
-  height: 450px;
-  top: 124px;
-  left: 112px;
+  width: 645px;
+  height: 485px;
+  top: 88px;
+
 }
 
 .accueil .text-wrapper-4 {
@@ -343,10 +355,10 @@
 
 .accueil .img {
   position: absolute;
-  width: 826px;
-  height: 354px;
-  top: 123px;
-  left: 86px;
+  width: 990px;
+  height: 456px;
+  top: 21px;
+
 }
 
 .accueil .boite-de-rangement {
@@ -425,10 +437,10 @@
 
 .accueil .scotch-accueil {
   position: absolute;
-  width: 588px;
-  height: 310px;
-  top: 167px;
-  left: 42px;
+  width: 645px;
+  height: 309px;
+  top: 168px;
+
 }
 
 .accueil .component-4 {
@@ -458,10 +470,10 @@
 
 .accueil .bureau-accueil {
   position: absolute;
-  width: 1312px;
-  height: 418px;
-  top: 151px;
-  left: 199px;
+  width: 1680px;
+  height: 459px;
+  top: 110px;
+
 }
 
 .accueil .ligne-accueil {
@@ -509,10 +521,10 @@
 
 .accueil .surligneur-accueil {
   position: absolute;
-  width: 194px;
-  height: 423px;
-  top: 150px;
-  left: 53px;
+  width: 300px;
+  height: 470px;
+  top: 103px;
+  left: 5px;
 }
 
 .accueil .overlap-7 {
@@ -562,7 +574,7 @@
 
 .accueil .span {
   font-family: var(--titre-font-family);
-  font-weight: var(--titre-font-weight);
+  font-weight: 700;
   color: #ffffff;
   font-size: var(--titre-font-size);
   letter-spacing: var(--titre-letter-spacing);
@@ -572,10 +584,10 @@
 
 .accueil .rectangle-7 {
   position: absolute;
-  width: 990px;
-  height: 614px;
-  top: 362px;
-  left: 810px;
+  width: 1238px;
+  height: 696px;
+  top: 385px;
+  left: 710px;
   object-fit: cover;
 }
 
@@ -902,9 +914,9 @@
   top: 0;
   left: 56px;
   font-family: "Akzidenz-Grotesk Next-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 800px;
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 600px;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
@@ -913,10 +925,10 @@
 
 .accueil .bento-box-accueil-2 {
   position: absolute;
-  width: 985px;
-  height: 514px;
-  top: 672px;
-  left: 468px;
+  width: 1280px;
+  height: 668px;
+  top: 575px;
+  left: 355px;
 }
 
 .accueil .group-7 {
@@ -1142,3 +1154,17 @@
   left: 919px;
   object-fit: cover;
 }
+
+.banniere-sos {
+  width: 100%;
+  position: relative; /* permet de rester sous SOS et bento */
+  margin-top: 30px; /* espace sous le texte et l'image */
+}
+
+.banniere-sos-img {
+  width: 100%;
+  max-height: 1156px; /* ajuste selon ton design */
+  object-fit: cover;
+  display: block;
+}
+

@@ -18,7 +18,7 @@
         <img class="ligne-noir" src="https://c.animaapp.com/mck8nw2n6TE9eX/img/ligne-noir.png" />
         <img
                 class="bento-box-accueil"
-                src="https://c.animaapp.com/mck8nw2n6TE9eX/img/bento-box---accueil--section-3--2.png"
+                src="public/accueil/fdw%202%201.png"
         />
         <p class="pens-par-des">PENSÉ PAR DES ÉTUDIANTS POUR DES ÉTUDIANTS</p>
         <div class="flexcontainer">
@@ -50,8 +50,12 @@
             <div class="crayon">CRAYON</div>
             <img
                     class="crayon-accueil"
-                    src="https://c.animaapp.com/mck8nw2n6TE9eX/img/crayon---accueil--section-3--2.png"
+                    src="public/accueil/fdw%20stylos.png"
             />
+              <img
+                      class="crayon-accueil-2"
+                      src="public/accueil/fdw%20stylos%20(1).png"
+              />
             <div class="rectangle-2"></div>
             <div class="text-wrapper-2">3 EN 1</div>
           </div>
@@ -62,7 +66,7 @@
               <div class="rectangle-3"></div>
               <img
                       class="gourde-accueil"
-                      src="https://c.animaapp.com/mck8nw2n6TE9eX/img/gourde---accueil--section-3--2.png"
+                      src="public/accueil/fdw%20gourde%20(1).png"
               />
             </div>
             <div class="overlap-5">
@@ -77,13 +81,13 @@
             <div class="rectangle-5"></div>
             <img
                     class="carnet-accueil"
-                    src="https://c.animaapp.com/mck8nw2n6TE9eX/img/carnet---accueil--section-3--2.png"
+                    src="public/accueil/fdw%20carnet.png"
             />
             <div class="text-wrapper-4">CARNET A5</div>
           </div>
         </div>
         <div class="component-2">
-          <img class="img" src="https://c.animaapp.com/mck8nw2n6TE9eX/img/bento-box---accueil--section-3--4.png" />
+          <img class="img" src="public/accueil/fdw%20boîte.png" />
           <div class="boite-de-rangement">BOITE DE RANGEMENT</div>
           <div class="overlap-6">
             <div class="rectangle-6"></div>
@@ -94,14 +98,14 @@
           <div class="scotch">SCOTCH</div>
           <img
                   class="scotch-accueil"
-                  src="https://c.animaapp.com/mck8nw2n6TE9eX/img/scotch---accueil--section-3--2.png"
+                  src="public/accueil/scotch%20-%20accueil%20(section%203).png"
           />
         </div>
         <div class="component-4">
           <div class="bureau">BUREAU</div>
           <img
                   class="bureau-accueil"
-                  src="https://c.animaapp.com/mck8nw2n6TE9eX/img/bureau---accueil--section-3--2.png"
+                  src="public/accueil/fdw%20table%20(1).png"
           />
         </div>
         <img
@@ -117,7 +121,7 @@
         <div class="surligneur">SURLIGNEUR</div>
         <img
                 class="surligneur-accueil"
-                src="https://c.animaapp.com/mck8nw2n6TE9eX/img/surligneur---accueil--section-3--2.png"
+                src="public/accueil/fdw%20surligneur.png"
         />
       </div>
     </div>
@@ -151,7 +155,7 @@
         </p>
         <p class="span-wrapper"><span class="span">simple qu’une trousse ?</span></p>
       </div>
-      <img class="rectangle-7" src="https://c.animaapp.com/mck8nw2n6TE9eX/img/rectangle-47.png" />
+      <img class="rectangle-7" src="public/accueil/bureaau%20fdw%201.png" />
     </div>
     <div class="overlap-8">
       <img class="ligne-noir-2" src="https://c.animaapp.com/mck8nw2n6TE9eX/img/ligne-noir-1.png" />
@@ -257,14 +261,19 @@
               src="https://c.animaapp.com/mck8nw2n6TE9eX/img/faq-illustration---accueil--section-5-.png"
       />
     </div>
-    <div class="overlap-11">
-      <div class="rectangle-12"></div>
-      <div class="text-wrapper-9">SOS</div>
-      <img
-              class="bento-box-accueil-2"
-              src="https://c.animaapp.com/mck8nw2n6TE9eX/img/bento-box---accueil--section-3--3.png"
-      />
-    </div>
+      <div class="overlap-11">
+          <div class="rectangle-12"></div>
+          <section class="banniere-sos">
+              <img src="public/accueil/AFFICHE_PAGE_1_1.png" alt="Bannière SOS" class="banniere-sos-img">
+          </section>
+          <div class="text-wrapper-9">SOS</div>
+          <img
+                  class="bento-box-accueil-2"
+                  src="public/accueil/fdw%202%20(1).png"
+          />
+
+
+      </div>
 
   </div>
 </div>

@@ -27,13 +27,16 @@
 
       /* Section Bannière */
       .section-banniere {
-        background-color: black;
         padding: 120px 0;
         position: relative;
         overflow: hidden;
         min-height: 400px;
         display: flex;
         align-items: center;
+        background-image: url('public/collab/Rectangle_182.png');
+        background-size: cover;   /* L’image couvre tout l’espace */
+        background-position: center; /* Centrée */
+        background-repeat: no-repeat;
       }
       .logos-container {
         display: flex;
@@ -52,7 +55,7 @@
 
       /* Section France Design Week */
       .section-fdw-2025 {
-        background-color: #FF6600;
+        background-color: #CC3300;
         color: white;
         padding: 0;
         position: relative;
@@ -61,6 +64,12 @@
         display: flex;
         align-items: center;
       }
+
+      .section-fdw-2025 h2.titre-ynov-campus-video {
+        color: #fff;
+        font-weight: 900;
+      }
+
       .video-container {
         position: relative;
         width: 100%;
@@ -90,6 +99,12 @@
         width: 100%;
         min-height: 100vh;
       }
+
+      .section-ynov-campus-video h2.titre-ynov-campus-video {
+        color: #000;
+        font-weight: 900;
+      }
+
       .titre-ynov-campus-video {
         font-family: 'Rubik One', Helvetica, Arial, sans-serif;
         font-weight: 400;
@@ -184,6 +199,12 @@
         overflow: hidden;
         padding: 0;
       }
+
+      .section-ynov-collab h1.titre-ynov-collab {
+        color: #ffffff;
+        font-weight: 900;
+      }
+
       .titre-ynov-collab {
         font-family: 'Rubik One', Helvetica, Arial, sans-serif;
         font-weight: 400;
@@ -576,7 +597,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <h2 class="titre-ynov-campus-video">YNOV CAMPUS 1 </h2>
+            <h2 class="titre-ynov-campus-video">FRANCE DESIGN WEEK</h2>
           </div>
         </div>
         <div class="row align-items-center">
@@ -608,7 +629,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <h2 class="titre-ynov-campus-video">YNOV CAMPUS 2</h2>
+            <h2 class="titre-ynov-campus-video">YNOV CAMPUS</h2>
           </div>
         </div>
         <div class="row align-items-center mt-4 position-relative">
@@ -616,7 +637,7 @@
           <div class="col-lg-6 d-flex flex-column align-items-center justify-content-center position-relative mb-5 mb-lg-0">
             <div class="video-container-ynov">
               <video autoplay muted loop class="video-ynov-campus">
-                <source src="public/collab/FRANCE-DESING-WEEK-FR-1.mp4" type="video/mp4">
+                <source src="public/collab/CAMPUS%20Présentation%20de%20Paris%20YNOV%20Campus.mp4" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
               </video>
             </div>
@@ -643,7 +664,7 @@
         <div class="row h-100">
           <!-- Colonne texte à gauche -->
           <div class="col-lg-6 d-flex flex-column align-items-start justify-content-start position-relative" style="z-index:3; height: 100%;">
-            <h1 class="titre-ynov-collab mt-5 ms-5">YNOV CAMPUS 3</h1>
+            <h1 class="titre-ynov-collab mt-5 ms-5">LA Créativité étudiante en lumière</h1>
             <div class="contenu-texte ms-5 mt-5">
               <div class="texte-contenu">
                 <p>Depuis 4 ans, les campus Ynov participent activement à la France Design Week, un événement national majeur dédié à la promotion du design sous toutes ses formes. Présents dans plusieurs grandes villes françaises, les campus offrent à leurs étudiants une plateforme unique pour présenter leurs projets, participer à des expositions, conférences et ateliers.</p>
@@ -665,8 +686,8 @@
             <div class="fond-damier position-absolute top-0 end-0 h-100 w-100"></div>
             <!-- Deux images checker.png -->
             <div class="d-flex flex-column align-items-center justify-content-center w-100" style="z-index:3;">
-              <img src="public/collab/checker.png" alt="Checker 1" class="checker-image-custom mb-5">
-              <img src="public/collab/checker.png" alt="Checker 2" class="checker-image-custom">
+              <img src="public/collab/Rectangle_95.png" alt="Checker 1" class="checker-image-custom mb-5">
+              <img src="public/collab/Rectangle_96.png" alt="Checker 2" class="checker-image-custom">
             </div>
           </div>
         </div>
@@ -692,7 +713,7 @@
 
         <!-- 🖼️ Image gauche (50%), décalée à gauche -->
         <div style="width:50%; max-width:50%; height:100%; display:flex; align-items:center; justify-content:center; margin-right:24px;">
-          <img src="public/collab/checker.png" alt="Checker"
+          <img src="public/collab/Rectangle_46.png" alt="Checker"
                style="height:100%; width:100%; object-fit:cover; border-radius:24px;">
         </div>
 

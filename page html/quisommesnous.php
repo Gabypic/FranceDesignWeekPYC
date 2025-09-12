@@ -154,10 +154,10 @@
                 >
               </p>
             </div>
-            <img class="rectangle-10" src="https://c.animaapp.com/mcti9wxiKKJuub/img/rectangle-99.png" />
+            <img class="rectangle-10" src="public/qui%20somme%20nous/Rectangle%2047.png" />
           </div>
           <p class="pens-par-des">PENSÉ PAR DES ÉTUDIANTS POUR</p>
-          <img class="rectangle-11" src="https://c.animaapp.com/mcti9wxiKKJuub/img/rectangle-99.png" />
+          <img class="rectangle-11" src="public/qui%20somme%20nous/Rectangle%2099%20(1).png" />
         </div>
         <div class="div-wrapper"><div class="text-wrapper-5">QUI SOMMES NOUS ?</div></div>
         <div class="pr-sentation">PRÉSENTATION</div>
